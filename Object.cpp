@@ -65,7 +65,7 @@ int Object::move(float xMove, float yMove, float zMove){
 int Object::draw(void){
 	this->applyPhysics();
 
-	glPushMatrix();
+	glLoadIdentity();
 
 	sf::Image img_data;
 	img_data.LoadFromFile("icon.jpg");
@@ -101,7 +101,7 @@ int Object::draw(void){
 	glTexCoord2f(0, 0);
 	glEnd();
 	
-	glPopMatrix();
+	glFlush();
 }
 
 

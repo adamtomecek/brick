@@ -16,4 +16,6 @@
 #include <OpenGL/CGLTypes.h>
 #include <Box2D/Box2D.h>
 
+#include "Utils.h"
+
 #define RATIO 75.0f

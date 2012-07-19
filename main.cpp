@@ -1,19 +1,9 @@
-
-	////////////////////////////////////////////////////////////
-	// Headers
-	////////////////////////////////////////////////////////////
-
 #include "Game.h"
 #include "Object.h"
 #include "Scene.h"
+#include "Sprite.h"
 
 
-	////////////////////////////////////////////////////////////
-	/// Entry point of application
-	///
-	/// \return Application exit code
-	///
-	////////////////////////////////////////////////////////////
 int main(int argc, char **argv)
 {
 	// Create main window
@@ -34,7 +24,6 @@ int main(int argc, char **argv)
 	glDisable(GL_DEPTH_TEST);
 	glEnable(GL_TEXTURE_2D);
 	glMatrixMode(GL_MODELVIEW);
-	glLoadIdentity();
 
 	// Displacement trick for exact pixelization
 	glTranslatef(0.375, 0.375, 0);
@@ -65,6 +54,9 @@ int main(int argc, char **argv)
 
 	Object *o = new Object(&world, 64, 64, 420.0f, 000.0f, 10);
 	Object *o2 = new Object(&world, 128, 128, 440.0f, 150.0f, 10);
+	
+	Sprite *s = new Sprite("test.png", 100.0, 100.0, 100.0, 100.0);
+	Sprite *s2 = new Sprite(100.0, 100.0, 300.0, 300.0);
 
 	Scene *myScene = new Scene();
 
@@ -80,15 +72,18 @@ int main(int argc, char **argv)
                 App.Close();
 			
 				// Escape key : exit
-            if ((Event.Type == sf::Event::KeyPressed) && (Event.Key.Code == sf::Key::Escape))
-			
+            if ((Event.Type == sf::Event::KeyPressed) && (Event.Key.Code == sf::Key::Escape))			
+				App.Close();
+
+
 				// Adjust the viewport when the window is resized
             if (Event.Type == sf::Event::Resized)
                 glViewport(0, 0, Event.Size.Width, Event.Size.Height);
 		}
-		
-		o2->draw();
-		o->draw();
+			//o2->draw();
+			//o->draw();
+		s->Render();
+		s2->Render();
 		/* o->move(1, 1, 0); */
 
 		float elapsed = Clock.GetElapsedTime();
