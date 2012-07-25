@@ -52,11 +52,19 @@ int main(int argc, char **argv)
 	groundEdge.Set(b2Vec2(0.0f, 600.0f / RATIO), b2Vec2(800.0f / RATIO, 600.0f / RATIO));
 	groundBody->CreateFixture(&boxShapeDef);
 
-	Object *o = new Object(&world, 64, 64, 420.0f, 000.0f, 10);
-	Object *o2 = new Object(&world, 128, 128, 440.0f, 150.0f, 10);
-	
 	Sprite *s = new Sprite("test.png", 100.0, 100.0, 100.0, 100.0);
 	Sprite *s2 = new Sprite(100.0, 100.0, 300.0, 300.0);
+	Sprite *s3 = new Sprite("icon.jpg", 200.0, 200.0, 150.0, 150.0);
+
+
+	Object *o = new Object(&world, s);
+	Object *o2 = new Object(&world, s2);
+	Object *o3 = new Object(&world, s3);
+	
+	Node *n = new Node();
+	n->AddChild(o);
+	n->AddChild(o2);
+	n->AddChild(o3);
 
 	Scene *myScene = new Scene();
 
@@ -82,9 +90,12 @@ int main(int argc, char **argv)
 		}
 			//o2->draw();
 			//o->draw();
-		s->Render();
-		s2->Render();
+		
 		/* o->move(1, 1, 0); */
+		
+			n->Render();
+			//s->Render();
+			//s2->Render();
 
 		float elapsed = Clock.GetElapsedTime();
 		float fps = 1.f / App.GetFrameTime();

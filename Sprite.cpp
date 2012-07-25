@@ -81,12 +81,15 @@ bool Sprite::LoadTexture(std::string fileName){
 /*
  * Renders sprite
  */
-bool Sprite::Render(void){
-
+void Sprite::Render(void){
+		//this->RenderChilds();
+	
 	/* Ensures only local changes until matrix is popped */
 	glLoadIdentity();
 	glPushMatrix();
 	GLuint texture_handle;
+	
+	std::cout << "Spite rendered" << std::endl;
 	
 	if(this->textureName != ""){
 		glGenTextures(1, &texture_handle);
@@ -149,21 +152,8 @@ float Sprite::GetHeight(void){
 	return this->height;
 }
 
-float Sprite::GetXPos(void){
-	return this->xPos;
-}
-
-float Sprite::GetYPos(void){
-	return this->yPos;
-}
-
 sf::Image* Sprite::GetTexture(void){
 	return this->textureData;
-}
-
-Position Sprite::GetPosition(void){
-	Position p = {this->xPos, this->yPos};
-	return p;
 }
 
 Size Sprite::GetSize(void){
@@ -176,11 +166,6 @@ Size Sprite::GetSize(void){
  * Setters 
  * ********************************************************
  */
-
-void Sprite::SetPosition(float xPos, float yPos){
-	this->xPos = xPos;
-	this->yPos = yPos;
-}
 
 void Sprite::SetSize(float width, float height){
 	this->width = width;

@@ -7,9 +7,14 @@
  *
  */
 
+#include <iostream>
+#include <list>
+#include <typeinfo>
+#include <memory>
+#include <tr1/functional>
+
 #include <SFML/Graphics.hpp>
 #include <SFML/Window.hpp>
-#include <iostream>
 #include <GLUT/glut.h>
 #include <OpenGL/gl.h>
 #include <OpenGL/glu.h>

@@ -9,29 +9,33 @@
 
 
 #include "Game.h"
+#include "Node.h"
+#include "Sprite.h"
 
-class Object{
+class Object : public Node{
 	public:
 		Object(b2World *world, float width, float height, float xPos, float yPos, float zPos);
-		int move(float xMove, float yMove, float zMove);
+		Object(b2World *world, Sprite *sprite);
 
-		int draw(void);
-		int applyPhysics(void);
+		void init(b2World *world, float width, float height, float xPos, float yPos,
+				float angle = 0.0f);
 
-		int remove(void);
+		void ApplyPhysics(void);
+		void Render(void);
 
-		float getXPos(void);
-		float getYPos(void);
-		float getZPos(void);
+		/* Getters */
+		float GetWidth(void);
+		float GetHeight(void);
+		Size GetSize(void);
+
+		/* Setters */
+		void SetSize(float width, float height);
+
 	private:
-		float xPos;
-		float yPos;
-		float zPos;
-		float angle;
-
 		float width;
 		float height;
 
 		b2World *world;
 		b2Body *body;
+		Sprite *sprite;
 };

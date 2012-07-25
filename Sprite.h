@@ -7,9 +7,13 @@
  *
  */
 
-#include "Game.h"
+#ifndef SPRITE_H
+#define SPRITE_H
 
-class Sprite{
+#include "Game.h"
+#include "Node.h"
+
+class Sprite : public Node{
 	public:
 		Sprite(float width, float height, float xPos, float yPos,
 			   float angle = 0.0f);
@@ -20,33 +24,27 @@ class Sprite{
 		void init(std::string texture, float width, float height, float xPos,
 					float yPos, float angle = 0.0f);
 
-		bool Render(void);
+		void Render(void);
 		int Move(float xMove, float yMove);
 		int Rotate(float angle);
 
 		/* Getters */
 		float GetWidth(void);
 		float GetHeight(void);
-		float GetXPos(void);
-		float GetYPos(void);
-		float GetAngle(void);
 		sf::Image* GetTexture(void);
-		Position GetPosition(void);
 		Size GetSize(void);
 
 		/* Setters */
-		void SetPosition(float xPos, float yPos);
 		void SetSize(float width, float height);
 
 	private:
 		bool LoadTexture(std::string texture);
 
-		float xPos;
-		float yPos;
-		float angle;
+		
 		float width;
 		float height;
 		std::string textureName;
 		sf::Image *textureData;
 };
 
+#endif

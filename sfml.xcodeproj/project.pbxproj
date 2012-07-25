@@ -9,7 +9,6 @@
 /* Begin PBXBuildFile section */
 		A01FB7870F07D328000AAC7B /* main.cpp in Sources */ = {isa = PBXBuildFile; fileRef = A01FB7860F07D328000AAC7B /* main.cpp */; };
 		A01FB7F70F07D381000AAC7B /* OpenGL.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = A01FB7F60F07D381000AAC7B /* OpenGL.framework */; };
-		C21B7D9C15B897D700F9B64B /* Ball.cpp in Sources */ = {isa = PBXBuildFile; fileRef = C21B7D8F15B897D700F9B64B /* Ball.cpp */; };
 		C21B7D9D15B897D700F9B64B /* Node.cpp in Sources */ = {isa = PBXBuildFile; fileRef = C21B7D9215B897D700F9B64B /* Node.cpp */; };
 		C21B7D9E15B897D700F9B64B /* Object.cpp in Sources */ = {isa = PBXBuildFile; fileRef = C21B7D9415B897D700F9B64B /* Object.cpp */; };
 		C21B7D9F15B897D700F9B64B /* Scene.cpp in Sources */ = {isa = PBXBuildFile; fileRef = C21B7D9615B897D700F9B64B /* Scene.cpp */; };
@@ -93,8 +92,6 @@
 		A01FB77D0F07D2C5000AAC7B /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
 		A01FB7860F07D328000AAC7B /* main.cpp */ = {isa = PBXFileReference; fileEncoding = 30; lastKnownFileType = sourcecode.cpp.cpp; path = main.cpp; sourceTree = "<group>"; };
 		A01FB7F60F07D381000AAC7B /* OpenGL.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = OpenGL.framework; path = /System/Library/Frameworks/OpenGL.framework; sourceTree = "<absolute>"; };
-		C21B7D8F15B897D700F9B64B /* Ball.cpp */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.cpp.cpp; path = Ball.cpp; sourceTree = "<group>"; };
-		C21B7D9015B897D700F9B64B /* Ball.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = Ball.h; sourceTree = "<group>"; };
 		C21B7D9115B897D700F9B64B /* Game.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = Game.h; sourceTree = "<group>"; };
 		C21B7D9215B897D700F9B64B /* Node.cpp */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.cpp.cpp; path = Node.cpp; sourceTree = "<group>"; };
 		C21B7D9315B897D700F9B64B /* Node.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = Node.h; sourceTree = "<group>"; };
@@ -280,8 +277,6 @@
 		A01FB7830F07D30C000AAC7B /* Sources */ = {
 			isa = PBXGroup;
 			children = (
-				C21B7D8F15B897D700F9B64B /* Ball.cpp */,
-				C21B7D9015B897D700F9B64B /* Ball.h */,
 				C21B7D9115B897D700F9B64B /* Game.h */,
 				C21B7D9215B897D700F9B64B /* Node.cpp */,
 				C21B7D9315B897D700F9B64B /* Node.h */,
@@ -522,7 +517,6 @@
 			buildActionMask = 2147483647;
 			files = (
 				A01FB7870F07D328000AAC7B /* main.cpp in Sources */,
-				C21B7D9C15B897D700F9B64B /* Ball.cpp in Sources */,
 				C21B7D9D15B897D700F9B64B /* Node.cpp in Sources */,
 				C21B7D9E15B897D700F9B64B /* Object.cpp in Sources */,
 				C21B7D9F15B897D700F9B64B /* Scene.cpp in Sources */,
