@@ -7,6 +7,9 @@
  *
  */
 
+#ifndef GAME_H
+#define GAME_H
+
 #include <iostream>
 #include <list>
 #include <typeinfo>
@@ -21,6 +24,19 @@
 #include <OpenGL/CGLTypes.h>
 #include <Box2D/Box2D.h>
 
+extern "C"
+{
+#include "lua.h"
+}
+
+#include <luabind/luabind.hpp>
+
 #include "Utils.h"
 
 #define RATIO 75.0f
+#define TIME_STEP 1.0f / 60.0f
+#define VELOCITY_ITERATIONS 8
+#define POSITION_ITERATIONS 3
+
+
+#endif

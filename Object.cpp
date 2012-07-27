@@ -17,7 +17,7 @@ Object::Object(b2World *world, Sprite *sprite){
 	this->sprite = sprite;	
 }
 
-Object::Object(b2World *world, float xPos, float yPos, float width, float height,
+Object::Object(b2World *world, float width, float height, float xPos, float yPos,
 		float angle){
 	this->init(world, width, height, xPos, yPos, angle);
 	
@@ -27,33 +27,18 @@ Object::Object(b2World *world, float xPos, float yPos, float width, float height
 
 void Object::init(b2World *world, float width, float height, float xPos, float yPos,
 		float angle){
+	
+	this->body = NULL;
 	this->xPos = xPos;
 	this->yPos = yPos;
 	this->world = world;
 	this->angle = angle;
 	this->width = width;
 	this->height = height;
+}
 
-
-	b2BodyDef bodyDef;
-	bodyDef.type = b2_dynamicBody;
-	bodyDef.position.Set(this->xPos / RATIO, (this->yPos / RATIO + this->height / RATIO));
+void Object::DefineBody(void){
 	
-	body = this->world->CreateBody(&bodyDef);
-	bodyDef.angle = angle / 2 * M_PI;
-
-	b2CircleShape circle;
-	circle.m_radius = (this->width / RATIO) / 2;
-
-	b2FixtureDef shapeDef;
-	shapeDef.shape = &circle;
-	shapeDef.density = 1.0f;
-	shapeDef.friction = 0.2f;
-	shapeDef.restitution = 0.5f;
-
-	body->CreateFixture(&shapeDef);
-
-	this->body = body;
 }
 
 void Object::Render(void){
@@ -70,10 +55,9 @@ void Object::Render(void){
 void Object::ApplyPhysics(){
 	float timeStep = 1.0f / 60.0f;
 
-	this->world->Step(timeStep, 8, 3);
 	b2Vec2 position = this->body->GetPosition();
 
-	this->angle = this->body->GetAngle() * 2 * 3.14f;
+	this->angle = this->body->GetAngle() * 2 * M_PI;
 
 	this->xPos = (position.x * RATIO - this->width / 2);
 	this->yPos = (position.y * RATIO - this->height / 2);

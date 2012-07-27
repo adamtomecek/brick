@@ -36,6 +36,18 @@ class Sprite : public Node{
 
 		/* Setters */
 		void SetSize(float width, float height);
+		
+		/* Lua binding */
+		static void Lua(lua_State *lua){
+			luabind::module(lua)
+			[
+			 luabind::class_<Sprite>("Sprite")
+			 .def(luabind::constructor<float, float, float, float, float>())
+			 .def(luabind::constructor<std::string, float, float, float>())
+			 .def(luabind::constructor<std::string, float, float, float, float, float>())
+			 .def("Render", &Sprite::Render)
+			 ];
+		}
 
 	private:
 		bool LoadTexture(std::string texture);

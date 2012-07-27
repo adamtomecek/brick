@@ -14,14 +14,16 @@
 
 class Object : public Node{
 	public:
-		Object(b2World *world, float width, float height, float xPos, float yPos, float zPos);
-		Object(b2World *world, Sprite *sprite);
+		explicit Object(b2World *world, float width, float height, float xPos, float yPos, float angle = 0.0f);
+		explicit Object(b2World *world, Sprite *sprite);
 
 		void init(b2World *world, float width, float height, float xPos, float yPos,
 				float angle = 0.0f);
 
 		void ApplyPhysics(void);
 		void Render(void);
+
+		virtual void DefineBody(void);
 
 		/* Getters */
 		float GetWidth(void);
@@ -31,7 +33,7 @@ class Object : public Node{
 		/* Setters */
 		void SetSize(float width, float height);
 
-	private:
+	protected:
 		float width;
 		float height;
 

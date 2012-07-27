@@ -21,7 +21,6 @@ Node::Node(float xPos, float yPos, float angle){
 
 void Node::Render(void){
 	this->RenderChilds();
-	std::cout << "Node called" << std::endl;
 }
 
 void Node::RenderChilds(void){

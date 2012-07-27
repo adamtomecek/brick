@@ -1,8 +1,7 @@
 #include "Game.h"
-#include "Object.h"
+#include "BoxObject.h"
 #include "Scene.h"
 #include "Sprite.h"
-
 
 int main(int argc, char **argv)
 {
@@ -32,6 +31,13 @@ int main(int argc, char **argv)
 	// Create a clock for measuring the time elapsed
     sf::Clock Clock;
 	float lastTime = 0;
+	
+	lua_State *luaState = luaL_newstate();
+	luabind::open(luaState);
+	Sprite::Lua(luaState);
+	
+	
+	
 
 	bool doSleep = true;
 	b2Vec2 gravity(0, 9.8f);
@@ -57,14 +63,20 @@ int main(int argc, char **argv)
 	Sprite *s3 = new Sprite("icon.jpg", 200.0, 200.0, 150.0, 150.0);
 
 
-	Object *o = new Object(&world, s);
-	Object *o2 = new Object(&world, s2);
-	Object *o3 = new Object(&world, s3);
+	BoxObject *o = new BoxObject(&world, s);
+	BoxObject *o2 = new BoxObject(&world, s2);
+	BoxObject *o3 = new BoxObject(&world, s3);
 	
 	Node *n = new Node();
 	n->AddChild(o);
 	n->AddChild(o2);
 	n->AddChild(o3);
+	
+	luaL_dostring(luaState,
+		"s = Sprite(\"icon.jpg\", 300, 300, 0)\n"
+	);
+	
+	
 
 	Scene *myScene = new Scene();
 
@@ -92,8 +104,12 @@ int main(int argc, char **argv)
 			//o->draw();
 		
 		/* o->move(1, 1, 0); */
-		
-			n->Render();
+		world.Step(TIME_STEP, VELOCITY_ITERATIONS, POSITION_ITERATIONS);
+
+		n->Render();
+		luaL_dostring(luaState,
+					  "s:Render()\n"
+					  );
 			//s->Render();
 			//s2->Render();
 
@@ -107,6 +123,6 @@ int main(int argc, char **argv)
         App.Display();
 		App.Clear();
     }
-	
+	lua_close(luaState);
     return EXIT_SUCCESS;
 }

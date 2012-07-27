@@ -67,8 +67,7 @@ bool Sprite::LoadTexture(std::string fileName){
 			this->textureData = new sf::Image;
 			
 			if (!this->textureData->LoadFromFile(fileName.c_str())){
-				/* Todo: error */
-
+				std::cout << "Error while loading image '"<< fileName << "." << std::endl;
 				return false;
 			}
 		
@@ -88,8 +87,6 @@ void Sprite::Render(void){
 	glLoadIdentity();
 	glPushMatrix();
 	GLuint texture_handle;
-	
-	std::cout << "Spite rendered" << std::endl;
 	
 	if(this->textureName != ""){
 		glGenTextures(1, &texture_handle);
@@ -112,11 +109,11 @@ void Sprite::Render(void){
 		glTexParameteri(GL_TEXTURE_2D, GL_TEXTURE_MIN_FILTER, GL_NEAREST);
 	}else {
 		glPushAttrib( GL_CURRENT_BIT );
-		glColor4f((float)rand() / (float)RAND_MAX, 1, 0, 1);
+		glColor4f(0, 1, 0, 1);
 	}
 
 
-	glRotatef(this->angle, 0.0f, 0.0f, 1.0f);
+		//glRotatef(this->angle, 0.0f, 0.0f, 1.0f);
 	
 	/* Creates 3D cube */
 	glBegin(GL_QUADS);

@@ -20,4 +20,10 @@ struct Size{
 	float height;
 };
 
+/*
+template <typename T> 
+void Lua(lua_State *lua) {
+	T::Lua(lua_State *lua);
+}
+*/
 #endif
