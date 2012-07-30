@@ -9,6 +9,11 @@
 /* Begin PBXBuildFile section */
 		A01FB7870F07D328000AAC7B /* main.cpp in Sources */ = {isa = PBXBuildFile; fileRef = A01FB7860F07D328000AAC7B /* main.cpp */; };
 		A01FB7F70F07D381000AAC7B /* OpenGL.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = A01FB7F60F07D381000AAC7B /* OpenGL.framework */; };
+		C201523715C2CF7300EE51C5 /* CircleObject.cpp in Sources */ = {isa = PBXBuildFile; fileRef = C201523615C2CF7300EE51C5 /* CircleObject.cpp */; };
+		C201532C15C2D36B00EE51C5 /* libstdc++.6.0.9.dylib in Frameworks */ = {isa = PBXBuildFile; fileRef = C201532B15C2D36B00EE51C5 /* libstdc++.6.0.9.dylib */; };
+		C20153EA15C2DB0400EE51C5 /* Chunk.cpp in Sources */ = {isa = PBXBuildFile; fileRef = C20153E915C2DB0400EE51C5 /* Chunk.cpp */; };
+		C201542A15C2DEA200EE51C5 /* circle.png in Resources */ = {isa = PBXBuildFile; fileRef = C201542915C2DEA200EE51C5 /* circle.png */; };
+		C201543115C2DF2D00EE51C5 /* liblua.a in Frameworks */ = {isa = PBXBuildFile; fileRef = C249ED8815C16B0D00B882C9 /* liblua.a */; };
 		C21B7D9D15B897D700F9B64B /* Node.cpp in Sources */ = {isa = PBXBuildFile; fileRef = C21B7D9215B897D700F9B64B /* Node.cpp */; };
 		C21B7D9E15B897D700F9B64B /* Object.cpp in Sources */ = {isa = PBXBuildFile; fileRef = C21B7D9415B897D700F9B64B /* Object.cpp */; };
 		C21B7D9F15B897D700F9B64B /* Scene.cpp in Sources */ = {isa = PBXBuildFile; fileRef = C21B7D9615B897D700F9B64B /* Scene.cpp */; };
@@ -24,7 +29,7 @@
 		C229E6A715B8999A0022E149 /* sfml-system.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = C229E6A615B8999A0022E149 /* sfml-system.framework */; };
 		C229E6A915B8999A0022E149 /* sfml-window.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = C229E6A815B8999A0022E149 /* sfml-window.framework */; };
 		C229E6AB15B8999A0022E149 /* SFML.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = C229E6AA15B8999A0022E149 /* SFML.framework */; };
-		C249ED8C15C16B1700B882C9 /* liblua.a in Frameworks */ = {isa = PBXBuildFile; fileRef = C249ED8815C16B0D00B882C9 /* liblua.a */; };
+		C243DA7915C54D74000249D4 /* DebugDraw.cpp in Sources */ = {isa = PBXBuildFile; fileRef = C243DA7815C54D74000249D4 /* DebugDraw.cpp */; };
 		C27EF5EC15C1644100410DE5 /* liblua.5.1.4.dylib in Frameworks */ = {isa = PBXBuildFile; fileRef = C27EF5EB15C1644100410DE5 /* liblua.5.1.4.dylib */; };
 		C2A7106915C27BD100EC14A6 /* libbox2d.a in Frameworks */ = {isa = PBXBuildFile; fileRef = C2A7106815C27BD100EC14A6 /* libbox2d.a */; };
 		C2A7106B15C27BE200EC14A6 /* liblua.a in Frameworks */ = {isa = PBXBuildFile; fileRef = C2A7106A15C27BE200EC14A6 /* liblua.a */; };
@@ -67,6 +72,12 @@
 		A01FB77D0F07D2C5000AAC7B /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
 		A01FB7860F07D328000AAC7B /* main.cpp */ = {isa = PBXFileReference; fileEncoding = 30; lastKnownFileType = sourcecode.cpp.cpp; path = main.cpp; sourceTree = "<group>"; };
 		A01FB7F60F07D381000AAC7B /* OpenGL.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = OpenGL.framework; path = /System/Library/Frameworks/OpenGL.framework; sourceTree = "<absolute>"; };
+		C201523515C2CF7300EE51C5 /* CircleObject.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = CircleObject.h; sourceTree = "<group>"; };
+		C201523615C2CF7300EE51C5 /* CircleObject.cpp */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.cpp.cpp; path = CircleObject.cpp; sourceTree = "<group>"; };
+		C201532B15C2D36B00EE51C5 /* libstdc++.6.0.9.dylib */ = {isa = PBXFileReference; lastKnownFileType = "compiled.mach-o.dylib"; name = "libstdc++.6.0.9.dylib"; path = "usr/lib/libstdc++.6.0.9.dylib"; sourceTree = SDKROOT; };
+		C20153E815C2DB0400EE51C5 /* Chunk.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = Chunk.h; sourceTree = "<group>"; };
+		C20153E915C2DB0400EE51C5 /* Chunk.cpp */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.cpp.cpp; path = Chunk.cpp; sourceTree = "<group>"; };
+		C201542915C2DEA200EE51C5 /* circle.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; name = circle.png; path = resources/circle.png; sourceTree = "<group>"; };
 		C21B7D9115B897D700F9B64B /* Game.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = Game.h; sourceTree = "<group>"; };
 		C21B7D9215B897D700F9B64B /* Node.cpp */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.cpp.cpp; path = Node.cpp; sourceTree = "<group>"; };
 		C21B7D9315B897D700F9B64B /* Node.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = Node.h; sourceTree = "<group>"; };
@@ -88,6 +99,8 @@
 		C229E6A615B8999A0022E149 /* sfml-system.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = "sfml-system.framework"; path = "Library/Frameworks/sfml-system.framework"; sourceTree = DEVELOPER_DIR; };
 		C229E6A815B8999A0022E149 /* sfml-window.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = "sfml-window.framework"; path = "Library/Frameworks/sfml-window.framework"; sourceTree = DEVELOPER_DIR; };
 		C229E6AA15B8999A0022E149 /* SFML.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = SFML.framework; path = Library/Frameworks/SFML.framework; sourceTree = DEVELOPER_DIR; };
+		C243DA7715C54D74000249D4 /* DebugDraw.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = DebugDraw.h; sourceTree = "<group>"; };
+		C243DA7815C54D74000249D4 /* DebugDraw.cpp */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.cpp.cpp; path = DebugDraw.cpp; sourceTree = "<group>"; };
 		C249ED6C15C16AC000B882C9 /* box2d.xcodeproj */ = {isa = PBXFileReference; lastKnownFileType = "wrapper.pb-project"; name = box2d.xcodeproj; path = box2d/box2d.xcodeproj; sourceTree = "<group>"; };
 		C249ED8015C16B0D00B882C9 /* lua.xcodeproj */ = {isa = PBXFileReference; lastKnownFileType = "wrapper.pb-project"; name = lua.xcodeproj; path = lua/lua.xcodeproj; sourceTree = "<group>"; };
 		C27EF5EB15C1644100410DE5 /* liblua.5.1.4.dylib */ = {isa = PBXFileReference; lastKnownFileType = "compiled.mach-o.dylib"; name = liblua.5.1.4.dylib; path = usr/local/lib/liblua.5.1.4.dylib; sourceTree = SDKROOT; };
@@ -112,9 +125,10 @@
 				C229E6AB15B8999A0022E149 /* SFML.framework in Frameworks */,
 				C2B909F215B89B1B00E7159E /* GLUT.framework in Frameworks */,
 				C27EF5EC15C1644100410DE5 /* liblua.5.1.4.dylib in Frameworks */,
-				C249ED8C15C16B1700B882C9 /* liblua.a in Frameworks */,
 				C2A7106915C27BD100EC14A6 /* libbox2d.a in Frameworks */,
 				C2A7106B15C27BE200EC14A6 /* liblua.a in Frameworks */,
+				C201532C15C2D36B00EE51C5 /* libstdc++.6.0.9.dylib in Frameworks */,
+				C201543115C2DF2D00EE51C5 /* liblua.a in Frameworks */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -155,6 +169,7 @@
 				C229E6AA15B8999A0022E149 /* SFML.framework */,
 				C2B909F115B89B1B00E7159E /* GLUT.framework */,
 				C27EF5EB15C1644100410DE5 /* liblua.5.1.4.dylib */,
+				C201532B15C2D36B00EE51C5 /* libstdc++.6.0.9.dylib */,
 			);
 			name = Frameworks;
 			sourceTree = "<group>";
@@ -162,6 +177,7 @@
 		A01FB7820F07D309000AAC7B /* Resources */ = {
 			isa = PBXGroup;
 			children = (
+				C201542915C2DEA200EE51C5 /* circle.png */,
 				C21B7DA215B897E400F9B64B /* icon.jpg */,
 				C21B7DA315B897E400F9B64B /* pozadi.jpg */,
 				C21B7DA415B897E400F9B64B /* prijdu-dyl.png */,
@@ -188,6 +204,12 @@
 				A01FB7860F07D328000AAC7B /* main.cpp */,
 				C2A7108115C2839200EC14A6 /* BoxObject.h */,
 				C2A7108215C2839200EC14A6 /* BoxObject.cpp */,
+				C201523515C2CF7300EE51C5 /* CircleObject.h */,
+				C201523615C2CF7300EE51C5 /* CircleObject.cpp */,
+				C20153E815C2DB0400EE51C5 /* Chunk.h */,
+				C20153E915C2DB0400EE51C5 /* Chunk.cpp */,
+				C243DA7715C54D74000249D4 /* DebugDraw.h */,
+				C243DA7815C54D74000249D4 /* DebugDraw.cpp */,
 			);
 			name = Sources;
 			sourceTree = "<group>";
@@ -290,6 +312,7 @@
 				C21B7DA715B897E400F9B64B /* pozadi.jpg in Resources */,
 				C21B7DA815B897E400F9B64B /* prijdu-dyl.png in Resources */,
 				C21B7DA915B897E400F9B64B /* test.png in Resources */,
+				C201542A15C2DEA200EE51C5 /* circle.png in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -307,6 +330,9 @@
 				C21B7DA015B897D700F9B64B /* Sprite.cpp in Sources */,
 				C21B7DA115B897D700F9B64B /* Utils.cpp in Sources */,
 				C2A7108315C2839200EC14A6 /* BoxObject.cpp in Sources */,
+				C201523715C2CF7300EE51C5 /* CircleObject.cpp in Sources */,
+				C20153EA15C2DB0400EE51C5 /* Chunk.cpp in Sources */,
+				C243DA7915C54D74000249D4 /* DebugDraw.cpp in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};

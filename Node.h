@@ -18,9 +18,10 @@ class Node{
 		Node();
 
 		virtual void Render(void);
-		void Move(float xMove, float yMove);
-		void Rotate(float angle);
-		void AddChild(Node *child);
+		virtual void Move(float xMove, float yMove);
+		virtual void Rotate(float angle);
+		virtual void RotateAroundPoint(float xPos, float yPos, float angle);
+		virtual void AddChild(Node *child);
 
 		/* Getters */
 		float GetYPos(void);
@@ -29,13 +30,15 @@ class Node{
 		Position GetPosition(void);
 
 		/* Setters */
-		void SetPosition(float xPos, float yPos);
-		void SetAngle(float angle);
+		virtual void SetPosition(float xPos, float yPos);
+		virtual void SetAngle(float angle);
 	
 		virtual ~Node() {}
 
 	protected:
-		void RenderChilds(void);
+		virtual void RenderChilds(void);
+		virtual void MoveChilds(float xMove, float yMove);
+		virtual void RotateChilds(float angle);
 	
 		float xPos;
 		float yPos;

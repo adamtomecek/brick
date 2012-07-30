@@ -10,23 +10,24 @@
 #include "Game.h"
 #include "Object.h"
 
-Object::Object(b2World *world, Sprite *sprite){
-	this->init(world, sprite->GetWidth(), sprite->GetHeight(),
-		sprite->GetXPos(), sprite->GetYPos(), sprite->GetAngle());
+Object::Object(b2World *world, Chunk *representation){
+	this->init(world, representation->GetWidth(), representation->GetHeight(),
+		representation->GetXPos(), representation->GetYPos(),
+		representation->GetAngle());
 	
-	this->sprite = sprite;	
+	this->representation = representation;	
 }
 
 Object::Object(b2World *world, float width, float height, float xPos, float yPos,
 		float angle){
 	this->init(world, width, height, xPos, yPos, angle);
 	
-	this->sprite = NULL;
+	this->representation = NULL;
 }
 
 
-void Object::init(b2World *world, float width, float height, float xPos, float yPos,
-		float angle){
+void Object::init(b2World *world, float width, float height, float xPos,
+		float yPos, float angle){
 	
 	this->body = NULL;
 	this->xPos = xPos;
@@ -45,19 +46,17 @@ void Object::Render(void){
 	this->RenderChilds();
 	this->ApplyPhysics();
 	
-	if(this->sprite != NULL){
-		this->sprite->SetPosition(this->xPos, this->yPos);
-		this->sprite->SetAngle(this->angle);
-		this->sprite->Render();
+	if(this->representation != NULL){
+		this->representation->SetPosition(this->xPos,this->yPos);
+		this->representation->SetAngle(this->angle);
+		this->representation->Render();
 	}
 }
 
 void Object::ApplyPhysics(){
-	float timeStep = 1.0f / 60.0f;
-
 	b2Vec2 position = this->body->GetPosition();
-
-	this->angle = this->body->GetAngle() * 2 * M_PI;
+	float angel = this->body->GetAngle() / (M_PI / 180);
+	this->angle = this->body->GetAngle() / (M_PI / 180);
 
 	this->xPos = (position.x * RATIO - this->width / 2);
 	this->yPos = (position.y * RATIO - this->height / 2);
@@ -69,14 +68,6 @@ void Object::ApplyPhysics(){
  * Getters
  * ********************************************************
  */
-
-float Object::GetWidth(void){
-	return this->width;
-}
-
-float Object::GetHeight(void){
-	return this->height;
-}
 
 Size Object::GetSize(void){
 	Size s = {this->width, this->height};

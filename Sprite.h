@@ -11,9 +11,9 @@
 #define SPRITE_H
 
 #include "Game.h"
-#include "Node.h"
+#include "Chunk.h"
 
-class Sprite : public Node{
+class Sprite : public Chunk{
 	public:
 		Sprite(float width, float height, float xPos, float yPos,
 			   float angle = 0.0f);
@@ -25,12 +25,8 @@ class Sprite : public Node{
 					float yPos, float angle = 0.0f);
 
 		void Render(void);
-		int Move(float xMove, float yMove);
-		int Rotate(float angle);
 
 		/* Getters */
-		float GetWidth(void);
-		float GetHeight(void);
 		sf::Image* GetTexture(void);
 		Size GetSize(void);
 
@@ -52,9 +48,6 @@ class Sprite : public Node{
 	private:
 		bool LoadTexture(std::string texture);
 
-		
-		float width;
-		float height;
 		std::string textureName;
 		sf::Image *textureData;
 };

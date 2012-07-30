@@ -81,14 +81,20 @@ bool Sprite::LoadTexture(std::string fileName){
  * Renders sprite
  */
 void Sprite::Render(void){
-		//this->RenderChilds();
+	this->RenderChilds();
 	
 	/* Ensures only local changes until matrix is popped */
+	glMatrixMode(GL_MODELVIEW);
 	glLoadIdentity();
 	glPushMatrix();
+	
+	glTranslatef(this->xPos + this->width / 2, this->yPos + this->height / 2, 0.0f);
+	glRotatef(this->angle, 0.0f, 0.0f, 1.0f);
+	glTranslatef(-this->width / 2, -this->height / 2 , 0);
+	
 	GLuint texture_handle;
 	
-	if(this->textureName != ""){
+	if(this->textureData != NULL){
 		glGenTextures(1, &texture_handle);
 		
 		glBindTexture(GL_TEXTURE_2D, texture_handle);
@@ -101,37 +107,32 @@ void Sprite::Render(void){
 			GL_RGBA, GL_UNSIGNED_BYTE, this->GetTexture()->GetPixelsPtr()
 		);
 
+		/* Transparency */
 		glBlendFunc(GL_SRC_ALPHA, GL_ONE_MINUS_SRC_ALPHA);
 		glEnable(GL_BLEND);
 
-		/* Transparency */
 		glTexParameteri(GL_TEXTURE_2D, GL_TEXTURE_MAG_FILTER, GL_NEAREST);
 		glTexParameteri(GL_TEXTURE_2D, GL_TEXTURE_MIN_FILTER, GL_NEAREST);
 	}else {
 		glPushAttrib( GL_CURRENT_BIT );
 		glColor4f(0, 1, 0, 1);
 	}
-
-
-		//glRotatef(this->angle, 0.0f, 0.0f, 1.0f);
 	
 	/* Creates 3D cube */
 	glBegin(GL_QUADS);
-	glVertex2f(this->GetXPos(), this->GetYPos());
+	glVertex2f(0, 0);
 	glTexCoord2f(1, 0);
-	glVertex2f(this->GetXPos() + this->GetWidth(), this->GetYPos());
+	glVertex2f(this->GetWidth(), 0);
 	glTexCoord2f(1, 1);
-	glVertex2f(this->GetXPos() + this->GetWidth(),
-			   this->GetYPos() + this->GetHeight());
+	glVertex2f(this->GetWidth(), this->GetHeight());
 	glTexCoord2f(0, 1);
-	glVertex2f(this->GetXPos(), this->GetYPos() + this->GetHeight());
+	glVertex2f(0, this->GetHeight());
 	glTexCoord2f(0, 0);
 	glEnd();
 	
 	glDeleteTextures(1, &texture_handle);
 	glPopMatrix();	
 	glFlush();
-	glPopAttrib();
 	
 }
 
@@ -140,14 +141,6 @@ void Sprite::Render(void){
  * Getters
  * ********************************************************
  */
-
-float Sprite::GetWidth(void){
-	return this->width;
-}
-
-float Sprite::GetHeight(void){
-	return this->height;
-}
 
 sf::Image* Sprite::GetTexture(void){
 	return this->textureData;
@@ -168,3 +161,4 @@ void Sprite::SetSize(float width, float height){
 	this->width = width;
 	this->height = height;
 }
+

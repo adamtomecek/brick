@@ -27,30 +27,54 @@ void Node::RenderChilds(void){
 	std::list<Node *>::iterator i;
 	
 	Node *node;
-	Sprite *sprite;
 
 	for(i = this->childs.begin(); i != this->childs.end(); ++i){
 		node = *i;
 		node->Render();
-			//std::tr1::function<void (void)> callback;
-		
-			//callback = std::tr1::bind(&Node::Render, node);
-		
-			//this->CallChild(node, cRENDER);
 	}
 }
 
-/*void Node::CallChild(Node *node, int type){
-		if (Sprite *s = dynamic_cast<Sprite *>(node)){
-			switch(type){
-				case cRENDER:
-					s->Render();
-					break;
-			}
-		}
+void Node::Move(float xMove, float yMove){
+	this->MoveChilds(xMove, yMove);
 
-}*/
+	this->xPos += xMove;
+	this->yPos += yMove;
+}
 
+void Node::MoveChilds(float xMove, float yMove){
+	std::list<Node *>::iterator i;
+	
+	Node *node;
+
+	for(i = this->childs.begin(); i != this->childs.end(); ++i){
+		node = *i;
+		node->Move(xMove, yMove);
+	}
+}
+
+void Node::Rotate(float angle){
+	this->RotateChilds(angle);
+
+	this->angle += angle;
+
+	if(this->angle < 0)
+		this->angle += 360;
+}
+
+void Node::RotateChilds(float angle){
+	std::list<Node *>::iterator i;
+	
+	Node *node;
+
+	for(i = this->childs.begin(); i != this->childs.end(); ++i){
+		node = *i;
+		node->Rotate(angle);
+	}
+}
+
+void Node::RotateAroundPoint(float xPos, float yPos, float angle){
+	
+}
 
 void Node::AddChild(Node *child){
 	this->childs.push_front(child);
@@ -92,6 +116,9 @@ void Node::SetPosition(float xPos, float yPos){
 }
 
 void Node::SetAngle(float angle){
+	if(angle < 0)
+		angle += 360;
+	
 	this->angle = angle;
 }
 

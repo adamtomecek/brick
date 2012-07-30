@@ -1,7 +1,9 @@
 #include "Game.h"
 #include "BoxObject.h"
+#include "CircleObject.h"
 #include "Scene.h"
 #include "Sprite.h"
+#include "DebugDraw.h"
 
 int main(int argc, char **argv)
 {
@@ -40,13 +42,26 @@ int main(int argc, char **argv)
 	
 
 	bool doSleep = true;
-	b2Vec2 gravity(0, 9.8f);
+	b2Vec2 gravity(0, 1.0f);
 
-	float scale = 30;
 	float timestep = 1 / 60;
 
 	b2World world(gravity);
-
+	
+	/*
+	DebugDraw debug;
+	uint32 flags = 0;
+	flags += 1	* b2Draw::e_shapeBit;
+	flags += 1	* b2Draw::e_jointBit;
+		//flags += 1	* b2Draw::e_aabbBit;
+	flags += 1	* b2Draw::e_pairBit;
+	flags += 1	* b2Draw::e_centerOfMassBit;
+	
+	debug.SetFlags(flags);
+	
+	world.SetDebugDraw(&debug);
+	*/
+	
 	b2BodyDef groundBodyDef;
 	groundBodyDef.position.Set(0.0f, 0.0f);
 
@@ -58,22 +73,43 @@ int main(int argc, char **argv)
 	groundEdge.Set(b2Vec2(0.0f, 600.0f / RATIO), b2Vec2(800.0f / RATIO, 600.0f / RATIO));
 	groundBody->CreateFixture(&boxShapeDef);
 
-	Sprite *s = new Sprite("test.png", 100.0, 100.0, 100.0, 100.0);
-	Sprite *s2 = new Sprite(100.0, 100.0, 300.0, 300.0);
-	Sprite *s3 = new Sprite("icon.jpg", 200.0, 200.0, 150.0, 150.0);
+	Sprite *s = new Sprite("circle.png", 64.0, 64.0, 100.0, 0.0);
+	Sprite *s2 = new Sprite("circle.png", 120.0, 120.0, 300.0, 100.0);
+	Sprite *s3 = new Sprite("circle.png", 100.0, 100.0, 500.0, 100.0);
+	Sprite *s4 = new Sprite("icon.jpg", 64.0, 64.0, 60.0, 200.0);
+	Sprite *s5 = new Sprite("icon.jpg", 120.0, 120.0, 280.0, 300.0);
+	Sprite *s6 = new Sprite("icon.jpg", 100.0, 100.0, 700.0, 0.0, 40);
+
+	Sprite *x = new Sprite("icon.jpg", 100, 100);
+	Sprite *x2 = new Sprite("icon.jpg", 200, 200);
+	Sprite *x3 = new Sprite("icon.jpg", 300, 0);
+
+	x2->AddChild(x3);
+	x->AddChild(x2);
 
 
-	BoxObject *o = new BoxObject(&world, s);
-	BoxObject *o2 = new BoxObject(&world, s2);
-	BoxObject *o3 = new BoxObject(&world, s3);
+
+	CircleObject *o = new CircleObject(&world, s);
+	CircleObject *o2 = new CircleObject(&world, s2);
+	CircleObject *o3 = new CircleObject(&world, s3);
+	BoxObject *o4 = new BoxObject(&world, s4);
+	BoxObject *o5 = new BoxObject(&world, s5);
+	BoxObject *o6 = new BoxObject(&world, s6);
+
 	
 	Node *n = new Node();
 	n->AddChild(o);
 	n->AddChild(o2);
 	n->AddChild(o3);
+	n->AddChild(o4);
+	n->AddChild(o5);
+	n->AddChild(o6);
+	
+
+	n->AddChild(x);
 	
 	luaL_dostring(luaState,
-		"s = Sprite(\"icon.jpg\", 300, 300, 0)\n"
+		"s = Sprite(\"icon.jpg\", 0, 0, 0)\n"
 	);
 	
 	
@@ -100,18 +136,35 @@ int main(int argc, char **argv)
             if (Event.Type == sf::Event::Resized)
                 glViewport(0, 0, Event.Size.Width, Event.Size.Height);
 		}
-			//o2->draw();
-			//o->draw();
 		
-		/* o->move(1, 1, 0); */
 		world.Step(TIME_STEP, VELOCITY_ITERATIONS, POSITION_ITERATIONS);
-
+		
+		x->Rotate(1.0f);
+		x2->Rotate(-2.0f);
+		Position x1center = x3->GetCenter();
+		x->RotateAroundPoint(x1center.x, x1center.y, 0.2f);
+		
+		/*
+		glLoadIdentity();
+		glDisable(GL_TEXTURE_2D);
+		glDisableClientState(GL_COLOR_ARRAY);
+		glDisableClientState(GL_TEXTURE_COORD_ARRAY);
+		glEnableClientState(GL_VERTEX_ARRAY);
+		glPushMatrix();
+		glScalef(RATIO, RATIO, 0);
+		world.DrawDebugData();
+		glPopMatrix();
+		glEnable(GL_TEXTURE_2D);
+		glEnableClientState(GL_COLOR_ARRAY);
+		glEnableClientState(GL_TEXTURE_COORD_ARRAY);
+		*/
+		
 		n->Render();
-		luaL_dostring(luaState,
-					  "s:Render()\n"
-					  );
-			//s->Render();
-			//s2->Render();
+		
+		
+		/* luaL_dostring(luaState, */
+		/* 			  "s:Render()\n" */
+		/* 			  ); */
 
 		float elapsed = Clock.GetElapsedTime();
 		float fps = 1.f / App.GetFrameTime();

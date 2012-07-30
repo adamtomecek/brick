@@ -20,6 +20,12 @@ struct Size{
 	float height;
 };
 
+struct PointRotation{
+	float x;
+	float y;
+	float angle;
+};
+
 /*
 template <typename T> 
 void Lua(lua_State *lua) {

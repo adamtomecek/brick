@@ -1,5 +1,5 @@
 /*
- *  BoxObject.cpp
+ *  CircleObject.cpp
  *  sfml
  *
  *  Created by Adam Tomeček on 7/27/12.
@@ -7,28 +7,28 @@
  *
  */
 
-#include "Game.h"
-#include "BoxObject.h"
+#include "CircleObject.h"
 
-void BoxObject::DefineBody(void){
+void CircleObject::DefineBody(void){
 	b2BodyDef bodyDef;
 	bodyDef.type = b2_dynamicBody;
-	bodyDef.position.Set((this->xPos + this->width / 2)/ RATIO, 
-						 (this->yPos + this->height / 2) / RATIO);
+	bodyDef.position.Set((this->xPos + this->width / 2) / RATIO,
+						 (this->yPos + this->height / 2)/ RATIO);
 	bodyDef.angle = this->angle * (M_PI / 180);
 	
 	body = this->world->CreateBody(&bodyDef);
-
-	b2PolygonShape box;
-	box.SetAsBox((this->width / 2) / RATIO, (this->height / 2) / RATIO);
-
+	
+	b2CircleShape circle;
+	circle.m_radius = (this->width / RATIO) / 2;
+	
 	b2FixtureDef shapeDef;
-	shapeDef.shape = &box;
-	shapeDef.density = 0.8f;
-	shapeDef.friction = 0.3f;
+	shapeDef.shape = &circle;
+	
+	shapeDef.density = 1.0f;
+	shapeDef.friction = 0.8f;
 	shapeDef.restitution = 0.2f;
-
+	
 	body->CreateFixture(&shapeDef);
-
+	
 	this->body = body;
 }

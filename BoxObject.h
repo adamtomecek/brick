@@ -20,8 +20,8 @@ class BoxObject : public Object {
 			Object::Object(world, width, height, xPos, yPos, angle) {
 				this->DefineBody();
 			}
-		explicit BoxObject(b2World *world, Sprite *sprite) : 
-			Object::Object(world, sprite) {
+		explicit BoxObject(b2World *world, Chunk *representation) : 
+			Object::Object(world, representation) {
 				this->DefineBody();
 			}
 

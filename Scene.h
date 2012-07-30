@@ -24,7 +24,7 @@ class Scene{
 	
 	private:
 		float calculateFPS(void);
-		void printw(float x, float y, float z, char* format, ...);
+		void printw(float x, float y, float z, const char* format, ...);
 
 		float frameCount;
 

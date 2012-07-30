@@ -7,6 +7,7 @@
  *
  */
 
+#include "Game.h"
 #include "Scene.h"
 
 Scene::Scene(){
@@ -16,7 +17,8 @@ Scene::Scene(){
 }
 
 void Scene::drawFPS(float fps){
-	printw(20, 20, 0, "FPS: %4.2f", fps);
+	std::string s = "FPS: %4.2f";
+	printw(20, 20, 0, s.c_str(), fps);
 }
 
 float Scene::calculateFPS(void){
@@ -39,7 +41,7 @@ float Scene::calculateFPS(void){
 	return fps;
 }
 
-void Scene::printw (float x, float y, float z, char* format, ...)
+void Scene::printw (float x, float y, float z, const char* format, ...)
 {
 	va_list args;	//  Variable argument list
 	int len;		//	String length

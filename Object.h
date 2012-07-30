@@ -7,15 +7,16 @@
  *
  */
 
+#ifndef OBJECT_H
+#define OBJECT_H
 
 #include "Game.h"
-#include "Node.h"
-#include "Sprite.h"
+#include "Chunk.h"
 
-class Object : public Node{
+class Object : public Chunk{
 	public:
 		explicit Object(b2World *world, float width, float height, float xPos, float yPos, float angle = 0.0f);
-		explicit Object(b2World *world, Sprite *sprite);
+		explicit Object(b2World *world, Chunk *representation);
 
 		void init(b2World *world, float width, float height, float xPos, float yPos,
 				float angle = 0.0f);
@@ -26,18 +27,15 @@ class Object : public Node{
 		virtual void DefineBody(void);
 
 		/* Getters */
-		float GetWidth(void);
-		float GetHeight(void);
 		Size GetSize(void);
 
 		/* Setters */
 		void SetSize(float width, float height);
 
 	protected:
-		float width;
-		float height;
-
 		b2World *world;
 		b2Body *body;
-		Sprite *sprite;
+		Chunk *representation;
 };
+
+#endif
