@@ -15,12 +15,20 @@
 
 class Chunk : public Node{
 	public:
-		virtual void RotateAroundPoint(float xPos, float yPos, float angle);
-		void Rotate(float angle);
+		void RotateChilds(float angle);
 
 		float GetWidth(void);
 		float GetHeight(void);
 		Position GetCenter(void);
+
+		/* Lua binding */
+		static void Lua(lua_State *lua){
+			luabind::module(lua)
+			[
+			 luabind::class_<Chunk, Node, boost::shared_ptr<Node> >("Chunk")
+			 .def(luabind::constructor<>())
+			 ];
+		}
 	
 	protected:
 		float width;

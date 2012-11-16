@@ -18,7 +18,7 @@ Scene::Scene(){
 
 void Scene::drawFPS(float fps){
 	std::string s = "FPS: %4.2f";
-	printw(20, 20, 0, s.c_str(), fps);
+	printw(20, 20, 0, "FPS: %4.2f", fps);
 }
 
 float Scene::calculateFPS(void){

@@ -10,19 +10,35 @@
 #include "Game.h"
 #include "Object.h"
 
-Object::Object(b2World *world, Chunk *representation){
-	this->init(world, representation->GetWidth(), representation->GetHeight(),
+
+Object::Object(Chunk *representation){
+	this->init(Utils::GetWorld(), representation->GetWidth(), representation->GetHeight(),
 		representation->GetXPos(), representation->GetYPos(),
 		representation->GetAngle());
 	
 	this->representation = representation;	
 }
 
+Object::Object(b2World *world, Chunk *representation){
+	this->init(world, representation->GetWidth(), representation->GetHeight(),
+			   representation->GetXPos(), representation->GetYPos(),
+			   representation->GetAngle());
+	
+	this->representation = representation;	
+}
+
+Object::Object(float width, float height, float xPos, float yPos,
+		float angle){
+	this->init(Utils::GetWorld(), width, height, xPos, yPos, angle);
+	
+		//this->representation = NULL;
+}
+
 Object::Object(b2World *world, float width, float height, float xPos, float yPos,
 		float angle){
 	this->init(world, width, height, xPos, yPos, angle);
 	
-	this->representation = NULL;
+		//this->representation = NULL;
 }
 
 

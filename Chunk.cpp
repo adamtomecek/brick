@@ -24,72 +24,16 @@ Position Chunk::GetCenter(void){
 	return p;
 }
 
-void Chunk::Rotate(float angle){
-	this->RotateChilds(angle);
-
-	std::list<Node *>::iterator i;
+void Chunk::RotateChilds(float angle){
+	std::list< boost::shared_ptr<Node> >::iterator i;
 	
+	boost::shared_ptr<Node> ptr;
 	Node *node;
-
-	for(i = this->childs.begin(); i != this->childs.end(); ++i){
-		node = *i;
-		Position center = this->GetCenter();
-		node->RotateAroundPoint(center.x, center.y, angle);
-	}
-	
-	this->angle += angle;
-}
-
-void Chunk::RotateAroundPoint(float xPos, float yPos, float angle){
-	float centerXPos = this->xPos + this->width / 2;
-	float centerYPos = this->yPos + this->height / 2;
-
-	/*
-	float pointDistance = pow(centerXPos - xPos, 2.0f) + pow(centerYPos - yPos, 2.0f);
-	pointDistance = sqrt(pointDistance);
-	float pointDistanceX = centerXPos - xPos;
-
-	float pointDistanceY = centerYPos - yPos;
-	float baseAngle = atan(pointDistanceX / pointDistanceY) / (M_PI / 180);
-	
-	
-	if(baseAngle < 0)
-		baseAngle += 360;
-
-	float targetAngle = baseAngle + angle;
- /*
-	float finX = pointDistanceX * sin(targetAngle * (M_PI / 180));
-	float finY = pointDistanceY * cos(targetAngle * (M_PI / 180));
-*/
-
-	/*
-
-	float finPointDistance = 2 * pow(pointDistance, 2.0f) - (2 * pow(pointDistance, 2.0f) * cos(angle * M_PI / 180));
-	finPointDistance = sqrt(finPointDistance);
-	
-	
-	
-	float xMove = finX - xPos;
-	float yMove = finY - yPos;
-	 */
-	
-
-	float s = sin(angle * (M_PI / 180));
-	float c = cos(angle * (M_PI / 180));
-	
-	centerXPos -= xPos;
-	centerYPos -= yPos;
-	
-	float finX = centerXPos * c - centerYPos * s;
-	float finY = centerXPos * s + centerYPos * c;
-	
 	Position center = this->GetCenter();
 	
-	finX += xPos;
-	finY += yPos;
-	
-	float xMove = finX - center.x;
-	float yMove = finY - center.y;
-
-	this->Move(xMove, yMove);
+	for(i = this->childs.begin(); i != this->childs.end(); ++i){
+		ptr = *i;
+		node = ptr.get();
+		node->RotateAroundPoint(center.x, center.y, angle);
+	}
 }

@@ -74,7 +74,29 @@ bool Sprite::LoadTexture(std::string fileName){
 			this->textureName = fileName;
 		}
 
+	this->LoadGLTexture();
 	return true;
+}
+
+void Sprite::LoadGLTexture(void){
+	glGenTextures(1, &this->texture_handle);
+	
+	glBindTexture(GL_TEXTURE_RECTANGLE_EXT, this->texture_handle);
+	
+	glTexParameteri(GL_TEXTURE_RECTANGLE_EXT, GL_TEXTURE_MAG_FILTER, GL_NEAREST);
+	glTexParameteri(GL_TEXTURE_RECTANGLE_EXT, GL_TEXTURE_MIN_FILTER, GL_NEAREST);
+	
+	/* Loads 2D texture from image */
+	glTexImage2D(
+		 GL_TEXTURE_RECTANGLE_EXT, 0, GL_RGBA,
+		 this->textureData->GetWidth(), this->textureData->GetHeight(),
+		 0,
+		 GL_RGBA, GL_UNSIGNED_BYTE, this->GetTexture()->GetPixelsPtr()
+	 );
+	
+	/* Transparency */
+	glBlendFunc(GL_SRC_ALPHA, GL_ONE_MINUS_SRC_ALPHA);
+	glEnable(GL_BLEND);
 }
 
 /*
@@ -82,55 +104,50 @@ bool Sprite::LoadTexture(std::string fileName){
  */
 void Sprite::Render(void){
 	this->RenderChilds();
-	
-	/* Ensures only local changes until matrix is popped */
-	glMatrixMode(GL_MODELVIEW);
 	glLoadIdentity();
 	glPushMatrix();
+	Position center = this->GetCenter();
 	
-	glTranslatef(this->xPos + this->width / 2, this->yPos + this->height / 2, 0.0f);
+	/* Ensures only local changes until matrix is popped */
+	
+	glTranslatef(center.x, center.y, 0.0f);
 	glRotatef(this->angle, 0.0f, 0.0f, 1.0f);
 	glTranslatef(-this->width / 2, -this->height / 2 , 0);
 	
-	GLuint texture_handle;
-	
-	if(this->textureData != NULL){
-		glGenTextures(1, &texture_handle);
-		
-		glBindTexture(GL_TEXTURE_2D, texture_handle);
-		
-		/* Loads 2D texture from image */
-		glTexImage2D(
-			GL_TEXTURE_2D, 0, GL_RGBA,
-			this->textureData->GetWidth(), this->textureData->GetHeight(),
-			0,
-			GL_RGBA, GL_UNSIGNED_BYTE, this->GetTexture()->GetPixelsPtr()
-		);
-
-		/* Transparency */
-		glBlendFunc(GL_SRC_ALPHA, GL_ONE_MINUS_SRC_ALPHA);
-		glEnable(GL_BLEND);
-
-		glTexParameteri(GL_TEXTURE_2D, GL_TEXTURE_MAG_FILTER, GL_NEAREST);
-		glTexParameteri(GL_TEXTURE_2D, GL_TEXTURE_MIN_FILTER, GL_NEAREST);
+	if(this->textureData != NULL){	
+		glBindTexture(GL_TEXTURE_RECTANGLE_EXT, this->texture_handle);
 	}else {
-		glPushAttrib( GL_CURRENT_BIT );
+		glPushAttrib(GL_CURRENT_BIT);
 		glColor4f(0, 1, 0, 1);
 	}
 	
 	/* Creates 3D cube */
-	glBegin(GL_QUADS);
-	glVertex2f(0, 0);
-	glTexCoord2f(1, 0);
-	glVertex2f(this->GetWidth(), 0);
-	glTexCoord2f(1, 1);
-	glVertex2f(this->GetWidth(), this->GetHeight());
-	glTexCoord2f(0, 1);
-	glVertex2f(0, this->GetHeight());
-	glTexCoord2f(0, 0);
+	
+	glBegin( GL_QUADS );
+	glTexCoord2i( 0, this->GetHeight() );                           
+	glVertex2i( 0, 0 );
+	glTexCoord2i(this->GetWidth(), this->GetHeight());     
+	glVertex2i(this->GetWidth(), 0 );
+	glTexCoord2i(this->GetWidth(), 0 );    
+	glVertex2i(this->GetWidth(), this->GetHeight());
+	glTexCoord2i( 0, 0 );          
+	glVertex2i( 0, this->GetHeight());
 	glEnd();
 	
-	glDeleteTextures(1, &texture_handle);
+	/*
+	glBegin(GL_QUADS);
+	glVertex2i(0, 0);
+	glTexCoord2i(1, 0);
+	glVertex2i(this->GetWidth(), 0);
+	glTexCoord2i(1, 1);
+	glVertex2i(this->GetWidth(), this->GetHeight());
+	glTexCoord2i(0, 1);
+	glVertex2i(0, this->GetHeight());
+	glTexCoord2i(0, 0);
+	glEnd();
+	*/
+		//glPopAttrib();
+		//glDeleteTextures(1, &this->texture_handle);
 	glPopMatrix();	
 	glFlush();
 	

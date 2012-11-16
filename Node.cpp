@@ -24,12 +24,14 @@ void Node::Render(void){
 }
 
 void Node::RenderChilds(void){
-	std::list<Node *>::iterator i;
+	std::list< boost::shared_ptr<Node> >::iterator i;
 	
+	boost::shared_ptr<Node> ptr;
 	Node *node;
 
 	for(i = this->childs.begin(); i != this->childs.end(); ++i){
-		node = *i;
+		ptr = *i;
+		node = ptr.get();
 		node->Render();
 	}
 }
@@ -42,12 +44,14 @@ void Node::Move(float xMove, float yMove){
 }
 
 void Node::MoveChilds(float xMove, float yMove){
-	std::list<Node *>::iterator i;
+	std::list< boost::shared_ptr<Node> >::iterator i;
 	
+	boost::shared_ptr<Node> ptr;
 	Node *node;
 
 	for(i = this->childs.begin(); i != this->childs.end(); ++i){
-		node = *i;
+		ptr = *i;
+		node = ptr.get();
 		node->Move(xMove, yMove);
 	}
 }
@@ -62,22 +66,60 @@ void Node::Rotate(float angle){
 }
 
 void Node::RotateChilds(float angle){
-	std::list<Node *>::iterator i;
+	std::list< boost::shared_ptr<Node> >::iterator i;
 	
+	boost::shared_ptr<Node> ptr;
 	Node *node;
-
+	Position center = this->GetCenter();
+	
 	for(i = this->childs.begin(); i != this->childs.end(); ++i){
-		node = *i;
-		node->Rotate(angle);
+		ptr = *i;
+		node = ptr.get();
+		node->RotateAroundPoint(center.x, center.y, angle);
+	}
+}
+
+void Node::RotateChildsAroundPoint(float xPos, float yPos, float angle){
+	std::list< boost::shared_ptr<Node> >::iterator i;
+	
+	boost::shared_ptr<Node> ptr;
+	Node *node;
+	
+	for(i = this->childs.begin(); i != this->childs.end(); ++i){
+		ptr = *i;
+		node = ptr.get();
+		node->RotateAroundPoint(xPos, yPos, angle);
 	}
 }
 
 void Node::RotateAroundPoint(float xPos, float yPos, float angle){
+		//this->RotateChildsAroundPoint(xPos, yPos, angle);
 	
+	Position center = this->GetCenter();
+	float centerXPos = center.x;
+	float centerYPos = center.y;
+	
+	float s = sin(angle * (M_PI / 180));
+	float c = cos(angle * (M_PI / 180));
+	
+	centerXPos -= xPos;
+	centerYPos -= yPos;
+	
+	float finX = centerXPos * c - centerYPos * s;
+	float finY = centerXPos * s + centerYPos * c;
+	
+	finX += xPos;
+	finY += yPos;
+	
+	float xMove = finX - center.x;
+	float yMove = finY - center.y;
+	
+	this->Move(xMove, yMove);
+	this->angle += angle;
 }
 
-void Node::AddChild(Node *child){
-	this->childs.push_front(child);
+void Node::AddChild(boost::shared_ptr<Node> child){
+	this->childs.push_back(child);
 }
 
 
@@ -101,6 +143,12 @@ float Node::GetAngle(void){
 
 Position Node::GetPosition(void){
 	Position p = {this->xPos, this->yPos};
+	return p;
+}
+
+Position Node::GetCenter(void){
+	Position p = {this->xPos, this->yPos};
+	
 	return p;
 }
 

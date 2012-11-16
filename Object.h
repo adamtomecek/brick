@@ -16,7 +16,9 @@
 class Object : public Chunk{
 	public:
 		explicit Object(b2World *world, float width, float height, float xPos, float yPos, float angle = 0.0f);
+		explicit Object(float width, float height, float xPos, float yPos, float angle = 0.0f);
 		explicit Object(b2World *world, Chunk *representation);
+		explicit Object(Chunk *representation);
 
 		void init(b2World *world, float width, float height, float xPos, float yPos,
 				float angle = 0.0f);
@@ -31,6 +33,18 @@ class Object : public Chunk{
 
 		/* Setters */
 		void SetSize(float width, float height);
+
+		/* Lua binding */
+		static void Lua(lua_State *lua){
+		luabind::module(lua)
+		[
+		 luabind::class_<Object, Chunk, boost::shared_ptr<Node> >("Object")
+		 .def(luabind::constructor<Chunk*>(), luabind::adopt(luabind::result))
+		 /* .def(luabind::constructor<b2World *, boost::shared_ptr<Chunk> >()) */
+		 /* .def(luabind::constructor<b2World *, float, float, float, float, float>()) */
+		 /* .def(luabind::constructor<float, float, float, float, float>()) */
+		 ];
+		}
 
 	protected:
 		b2World *world;

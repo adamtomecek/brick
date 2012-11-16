@@ -9,3 +9,4 @@
 
 #include "Utils.h"
 
+b2World *Utils::world = NULL;

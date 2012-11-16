@@ -9,7 +9,6 @@
 /* Begin PBXBuildFile section */
 		A01FB7870F07D328000AAC7B /* main.cpp in Sources */ = {isa = PBXBuildFile; fileRef = A01FB7860F07D328000AAC7B /* main.cpp */; };
 		A01FB7F70F07D381000AAC7B /* OpenGL.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = A01FB7F60F07D381000AAC7B /* OpenGL.framework */; };
-		C201523715C2CF7300EE51C5 /* CircleObject.cpp in Sources */ = {isa = PBXBuildFile; fileRef = C201523615C2CF7300EE51C5 /* CircleObject.cpp */; };
 		C201532C15C2D36B00EE51C5 /* libstdc++.6.0.9.dylib in Frameworks */ = {isa = PBXBuildFile; fileRef = C201532B15C2D36B00EE51C5 /* libstdc++.6.0.9.dylib */; };
 		C20153EA15C2DB0400EE51C5 /* Chunk.cpp in Sources */ = {isa = PBXBuildFile; fileRef = C20153E915C2DB0400EE51C5 /* Chunk.cpp */; };
 		C201542A15C2DEA200EE51C5 /* circle.png in Resources */ = {isa = PBXBuildFile; fileRef = C201542915C2DEA200EE51C5 /* circle.png */; };
@@ -23,6 +22,8 @@
 		C21B7DA715B897E400F9B64B /* pozadi.jpg in Resources */ = {isa = PBXBuildFile; fileRef = C21B7DA315B897E400F9B64B /* pozadi.jpg */; };
 		C21B7DA815B897E400F9B64B /* prijdu-dyl.png in Resources */ = {isa = PBXBuildFile; fileRef = C21B7DA415B897E400F9B64B /* prijdu-dyl.png */; };
 		C21B7DA915B897E400F9B64B /* test.png in Resources */ = {isa = PBXBuildFile; fileRef = C21B7DA515B897E400F9B64B /* test.png */; };
+		C225901E1656C9A9008112F7 /* BoxObject.cpp in Sources */ = {isa = PBXBuildFile; fileRef = C225901C1656C9A9008112F7 /* BoxObject.cpp */; };
+		C22590291656CA36008112F7 /* CircleObject.cpp in Sources */ = {isa = PBXBuildFile; fileRef = C22590271656CA36008112F7 /* CircleObject.cpp */; };
 		C229E6A115B8999A0022E149 /* sfml-audio.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = C229E6A015B8999A0022E149 /* sfml-audio.framework */; };
 		C229E6A315B8999A0022E149 /* sfml-graphics.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = C229E6A215B8999A0022E149 /* sfml-graphics.framework */; };
 		C229E6A515B8999A0022E149 /* sfml-network.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = C229E6A415B8999A0022E149 /* sfml-network.framework */; };
@@ -33,7 +34,8 @@
 		C27EF5EC15C1644100410DE5 /* liblua.5.1.4.dylib in Frameworks */ = {isa = PBXBuildFile; fileRef = C27EF5EB15C1644100410DE5 /* liblua.5.1.4.dylib */; };
 		C2A7106915C27BD100EC14A6 /* libbox2d.a in Frameworks */ = {isa = PBXBuildFile; fileRef = C2A7106815C27BD100EC14A6 /* libbox2d.a */; };
 		C2A7106B15C27BE200EC14A6 /* liblua.a in Frameworks */ = {isa = PBXBuildFile; fileRef = C2A7106A15C27BE200EC14A6 /* liblua.a */; };
-		C2A7108315C2839200EC14A6 /* BoxObject.cpp in Sources */ = {isa = PBXBuildFile; fileRef = C2A7108215C2839200EC14A6 /* BoxObject.cpp */; };
+		C2AAE03B15CD1AED00E92F37 /* main.lua in Resources */ = {isa = PBXBuildFile; fileRef = C2AAE03915CD1AED00E92F37 /* main.lua */; };
+		C2AAE03C15CD1AED00E92F37 /* test.lua in Resources */ = {isa = PBXBuildFile; fileRef = C2AAE03A15CD1AED00E92F37 /* test.lua */; };
 		C2B909F215B89B1B00E7159E /* GLUT.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = C2B909F115B89B1B00E7159E /* GLUT.framework */; };
 /* End PBXBuildFile section */
 
@@ -72,8 +74,6 @@
 		A01FB77D0F07D2C5000AAC7B /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
 		A01FB7860F07D328000AAC7B /* main.cpp */ = {isa = PBXFileReference; fileEncoding = 30; lastKnownFileType = sourcecode.cpp.cpp; path = main.cpp; sourceTree = "<group>"; };
 		A01FB7F60F07D381000AAC7B /* OpenGL.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = OpenGL.framework; path = /System/Library/Frameworks/OpenGL.framework; sourceTree = "<absolute>"; };
-		C201523515C2CF7300EE51C5 /* CircleObject.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = CircleObject.h; sourceTree = "<group>"; };
-		C201523615C2CF7300EE51C5 /* CircleObject.cpp */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.cpp.cpp; path = CircleObject.cpp; sourceTree = "<group>"; };
 		C201532B15C2D36B00EE51C5 /* libstdc++.6.0.9.dylib */ = {isa = PBXFileReference; lastKnownFileType = "compiled.mach-o.dylib"; name = "libstdc++.6.0.9.dylib"; path = "usr/lib/libstdc++.6.0.9.dylib"; sourceTree = SDKROOT; };
 		C20153E815C2DB0400EE51C5 /* Chunk.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = Chunk.h; sourceTree = "<group>"; };
 		C20153E915C2DB0400EE51C5 /* Chunk.cpp */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.cpp.cpp; path = Chunk.cpp; sourceTree = "<group>"; };
@@ -93,6 +93,10 @@
 		C21B7DA315B897E400F9B64B /* pozadi.jpg */ = {isa = PBXFileReference; lastKnownFileType = image.jpeg; name = pozadi.jpg; path = resources/pozadi.jpg; sourceTree = "<group>"; };
 		C21B7DA415B897E400F9B64B /* prijdu-dyl.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; name = "prijdu-dyl.png"; path = "resources/prijdu-dyl.png"; sourceTree = "<group>"; };
 		C21B7DA515B897E400F9B64B /* test.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; name = test.png; path = resources/test.png; sourceTree = "<group>"; };
+		C225901C1656C9A9008112F7 /* BoxObject.cpp */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.cpp.cpp; path = BoxObject.cpp; sourceTree = "<group>"; };
+		C225901D1656C9A9008112F7 /* BoxObject.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = BoxObject.h; sourceTree = "<group>"; };
+		C22590271656CA36008112F7 /* CircleObject.cpp */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.cpp.cpp; path = CircleObject.cpp; sourceTree = "<group>"; };
+		C22590281656CA36008112F7 /* CircleObject.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = CircleObject.h; sourceTree = "<group>"; };
 		C229E6A015B8999A0022E149 /* sfml-audio.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = "sfml-audio.framework"; path = "Library/Frameworks/sfml-audio.framework"; sourceTree = DEVELOPER_DIR; };
 		C229E6A215B8999A0022E149 /* sfml-graphics.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = "sfml-graphics.framework"; path = "Library/Frameworks/sfml-graphics.framework"; sourceTree = DEVELOPER_DIR; };
 		C229E6A415B8999A0022E149 /* sfml-network.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = "sfml-network.framework"; path = "Library/Frameworks/sfml-network.framework"; sourceTree = DEVELOPER_DIR; };
@@ -106,8 +110,8 @@
 		C27EF5EB15C1644100410DE5 /* liblua.5.1.4.dylib */ = {isa = PBXFileReference; lastKnownFileType = "compiled.mach-o.dylib"; name = liblua.5.1.4.dylib; path = usr/local/lib/liblua.5.1.4.dylib; sourceTree = SDKROOT; };
 		C2A7106815C27BD100EC14A6 /* libbox2d.a */ = {isa = PBXFileReference; lastKnownFileType = archive.ar; path = libbox2d.a; sourceTree = "<group>"; };
 		C2A7106A15C27BE200EC14A6 /* liblua.a */ = {isa = PBXFileReference; lastKnownFileType = archive.ar; path = liblua.a; sourceTree = "<group>"; };
-		C2A7108115C2839200EC14A6 /* BoxObject.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = BoxObject.h; sourceTree = "<group>"; };
-		C2A7108215C2839200EC14A6 /* BoxObject.cpp */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.cpp.cpp; path = BoxObject.cpp; sourceTree = "<group>"; };
+		C2AAE03915CD1AED00E92F37 /* main.lua */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text; path = main.lua; sourceTree = "<group>"; };
+		C2AAE03A15CD1AED00E92F37 /* test.lua */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text; path = test.lua; sourceTree = "<group>"; };
 		C2B909F115B89B1B00E7159E /* GLUT.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = GLUT.framework; path = /System/Library/Frameworks/GLUT.framework; sourceTree = "<absolute>"; };
 /* End PBXFileReference section */
 
@@ -138,6 +142,7 @@
 		A01FB76B0F07D2BC000AAC7B = {
 			isa = PBXGroup;
 			children = (
+				C2AAE03815CD1AED00E92F37 /* scripts */,
 				C249ED8015C16B0D00B882C9 /* lua.xcodeproj */,
 				C249ED6C15C16AC000B882C9 /* box2d.xcodeproj */,
 				A01FB7830F07D30C000AAC7B /* Sources */,
@@ -190,6 +195,10 @@
 		A01FB7830F07D30C000AAC7B /* Sources */ = {
 			isa = PBXGroup;
 			children = (
+				C22590271656CA36008112F7 /* CircleObject.cpp */,
+				C22590281656CA36008112F7 /* CircleObject.h */,
+				C225901C1656C9A9008112F7 /* BoxObject.cpp */,
+				C225901D1656C9A9008112F7 /* BoxObject.h */,
 				C21B7D9115B897D700F9B64B /* Game.h */,
 				C21B7D9215B897D700F9B64B /* Node.cpp */,
 				C21B7D9315B897D700F9B64B /* Node.h */,
@@ -202,10 +211,6 @@
 				C21B7D9A15B897D700F9B64B /* Utils.cpp */,
 				C21B7D9B15B897D700F9B64B /* Utils.h */,
 				A01FB7860F07D328000AAC7B /* main.cpp */,
-				C2A7108115C2839200EC14A6 /* BoxObject.h */,
-				C2A7108215C2839200EC14A6 /* BoxObject.cpp */,
-				C201523515C2CF7300EE51C5 /* CircleObject.h */,
-				C201523615C2CF7300EE51C5 /* CircleObject.cpp */,
 				C20153E815C2DB0400EE51C5 /* Chunk.h */,
 				C20153E915C2DB0400EE51C5 /* Chunk.cpp */,
 				C243DA7715C54D74000249D4 /* DebugDraw.h */,
@@ -228,6 +233,15 @@
 				C249ED8815C16B0D00B882C9 /* liblua.a */,
 			);
 			name = Products;
+			sourceTree = "<group>";
+		};
+		C2AAE03815CD1AED00E92F37 /* scripts */ = {
+			isa = PBXGroup;
+			children = (
+				C2AAE03915CD1AED00E92F37 /* main.lua */,
+				C2AAE03A15CD1AED00E92F37 /* test.lua */,
+			);
+			path = scripts;
 			sourceTree = "<group>";
 		};
 /* End PBXGroup section */
@@ -313,6 +327,8 @@
 				C21B7DA815B897E400F9B64B /* prijdu-dyl.png in Resources */,
 				C21B7DA915B897E400F9B64B /* test.png in Resources */,
 				C201542A15C2DEA200EE51C5 /* circle.png in Resources */,
+				C2AAE03B15CD1AED00E92F37 /* main.lua in Resources */,
+				C2AAE03C15CD1AED00E92F37 /* test.lua in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -329,10 +345,10 @@
 				C21B7D9F15B897D700F9B64B /* Scene.cpp in Sources */,
 				C21B7DA015B897D700F9B64B /* Sprite.cpp in Sources */,
 				C21B7DA115B897D700F9B64B /* Utils.cpp in Sources */,
-				C2A7108315C2839200EC14A6 /* BoxObject.cpp in Sources */,
-				C201523715C2CF7300EE51C5 /* CircleObject.cpp in Sources */,
 				C20153EA15C2DB0400EE51C5 /* Chunk.cpp in Sources */,
 				C243DA7915C54D74000249D4 /* DebugDraw.cpp in Sources */,
+				C225901E1656C9A9008112F7 /* BoxObject.cpp in Sources */,
+				C22590291656CA36008112F7 /* CircleObject.cpp in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};

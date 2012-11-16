@@ -1,7 +1,7 @@
 // !$*UTF8*$!
 {
 	08FB7793FE84155DC02AAC07 /* Project object */ = {
-		activeArchitecturePreference = i386;
+		activeArchitecturePreference = x86_64;
 		activeBuildConfigurationName = Debug;
 		activeTarget = D2AAC045055464E500DB518D /* lua */;
 		addToTargets = (
@@ -28,7 +28,7 @@
 				PBXFileTableDataSourceColumnSortingKey = PBXFileDataSource_Filename_ColumnID;
 				PBXFileTableDataSourceColumnWidthsKey = (
 					20,
-					341,
+					833,
 					20,
 					48,
 					43,
@@ -67,12 +67,47 @@
 					PBXFileDataSource_Warnings_ColumnID,
 				);
 			};
-			PBXPerProjectTemplateStateSaveDate = 365074197;
-			PBXWorkspaceStateSaveDate = 365074197;
+			PBXPerProjectTemplateStateSaveDate = 374787050;
+			PBXWorkspaceStateSaveDate = 374787050;
+		};
+		perUserProjectItems = {
+			C2258FCA1656C463008112F7 /* PBXTextBookmark */ = C2258FCA1656C463008112F7 /* PBXTextBookmark */;
+			C2258FF51656C83F008112F7 /* PBXTextBookmark */ = C2258FF51656C83F008112F7 /* PBXTextBookmark */;
+			C225905E1656CBF5008112F7 /* PBXTextBookmark */ = C225905E1656CBF5008112F7 /* PBXTextBookmark */;
 		};
 		sourceControlManager = C249EA9915C1681B00B882C9 /* Source Control */;
 		userBuildSettings = {
 		};
+	};
+	C2258FCA1656C463008112F7 /* PBXTextBookmark */ = {
+		isa = PBXTextBookmark;
+		fRef = C249EA9C15C1682E00B882C9 /* adopt_policy.hpp */;
+		name = "adopt_policy.hpp: 44";
+		rLen = 0;
+		rLoc = 1803;
+		rType = 0;
+		vrLen = 1232;
+		vrLoc = 867;
+	};
+	C2258FF51656C83F008112F7 /* PBXTextBookmark */ = {
+		isa = PBXTextBookmark;
+		fRef = C249EA9C15C1682E00B882C9 /* adopt_policy.hpp */;
+		name = "adopt_policy.hpp: 168";
+		rLen = 0;
+		rLoc = 4689;
+		rType = 0;
+		vrLen = 1547;
+		vrLoc = 434;
+	};
+	C225905E1656CBF5008112F7 /* PBXTextBookmark */ = {
+		isa = PBXTextBookmark;
+		fRef = C249EA9C15C1682E00B882C9 /* adopt_policy.hpp */;
+		name = "adopt_policy.hpp: 168";
+		rLen = 0;
+		rLoc = 4689;
+		rType = 0;
+		vrLen = 1475;
+		vrLoc = 506;
 	};
 	C249EA9915C1681B00B882C9 /* Source Control */ = {
 		isa = PBXSourceControlManager;
@@ -87,6 +122,13 @@
 	C249EA9A15C1681B00B882C9 /* Code sense */ = {
 		isa = PBXCodeSenseManager;
 		indexTemplatePath = "";
+	};
+	C249EA9C15C1682E00B882C9 /* adopt_policy.hpp */ = {
+		uiCtxt = {
+			sepNavIntBoundsRect = "{{0, 0}, {1011, 1989}}";
+			sepNavSelRange = "{4689, 0}";
+			sepNavVisRange = "{506, 1475}";
+		};
 	};
 	D2AAC045055464E500DB518D /* lua */ = {
 		activeExec = 0;

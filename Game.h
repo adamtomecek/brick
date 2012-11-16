@@ -17,6 +17,8 @@
 #include <tr1/functional>
 #include <string>
 #include <cmath>
+#include <fstream>
+#include <boost/tr1/memory.hpp>
 
 #include <SFML/Graphics.hpp>
 #include <SFML/Window.hpp>
@@ -31,16 +33,29 @@
 extern "C"
 {
 #include "lua.h"
+#include "lualib.h"
 }
 
 #include <luabind/luabind.hpp>
+#include <luabind/function.hpp>
+#include <luabind/class.hpp>
+#include <luabind/adopt_policy.hpp>
+#include <luabind/object.hpp>
+#include <luabind/dependency_policy.hpp>
+#include <luabind/out_value_policy.hpp>
+#include <luabind/return_reference_to_policy.hpp>
+#include <luabind/copy_policy.hpp>
+#include <luabind/discard_result_policy.hpp>
+#include <luabind/raw_policy.hpp>
 
 #include "Utils.h"
 
 #define RATIO 100.0f
 #define TIME_STEP 1.0f / 60.0f
-#define VELOCITY_ITERATIONS 9
-#define POSITION_ITERATIONS 4
+#define VELOCITY_ITERATIONS 8
+#define POSITION_ITERATIONS 3
+#define DEBUG_DRAW false
 
+	//b2World *wrld;
 
 #endif

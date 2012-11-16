@@ -10,6 +10,8 @@
 #ifndef UTILS_H
 #define UTILS_H
 
+#include "Game.h"
+
 struct Position{
 	float x;
 	float y;
@@ -26,10 +28,32 @@ struct PointRotation{
 	float angle;
 };
 
-/*
-template <typename T> 
-void Lua(lua_State *lua) {
-	T::Lua(lua_State *lua);
-}
-*/
+class Utils{
+public:
+	static Utils& GetInstance(){
+		static  Utils *singleClass = NULL;
+		if (singleClass == NULL)
+			singleClass = new Utils;
+		return *singleClass;
+	}
+	
+	static b2World* GetWorld(){
+		return world;
+	}
+	
+	static b2World* SetWorld(b2World *w){
+		world = w;
+	}
+private:
+	Utils();
+        // Dont forget to declare these two. You want to make sure they
+        // are unaccessable otherwise you may accidently get copies of
+        // your singleton appearing.
+	Utils(Utils const&);              // Don't Implement
+	void operator=(Utils const&); // Dont implement
+	
+	static b2World *world;
+};
+
+
 #endif
