@@ -8,7 +8,6 @@
  */
 
 #include "Node.h"
-#include "Sprite.h"
 
 Node::Node(){
 }

@@ -10,7 +10,7 @@
 #ifndef OBJECT_H
 #define OBJECT_H
 
-#include "Game.h"
+#include "Includes.h"
 #include "Chunk.h"
 
 class Object : public Chunk{

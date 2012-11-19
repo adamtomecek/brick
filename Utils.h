@@ -10,7 +10,7 @@
 #ifndef UTILS_H
 #define UTILS_H
 
-#include "Game.h"
+#include "Includes.h"
 
 struct Position{
 	float x;
@@ -44,6 +44,22 @@ public:
 	static b2World* SetWorld(b2World *w){
 		world = w;
 	}
+
+	static lua_State* SetLuaState(lua_State *s){
+		luaState = s;
+	}
+
+	static lua_State* GetLuaState(){
+		return luaState;
+	}
+
+	static sem_t* GetBoxSem(void){
+		return boxSem;
+	}
+
+	static void SetBoxSem(sem_t *sem){
+		boxSem = sem;
+	}
 private:
 	Utils();
         // Dont forget to declare these two. You want to make sure they
@@ -53,6 +69,8 @@ private:
 	void operator=(Utils const&); // Dont implement
 	
 	static b2World *world;
+	static lua_State *luaState;
+	static sem_t* boxSem;
 };
 
 

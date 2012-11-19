@@ -7,21 +7,26 @@
  *
  */
 
+#ifndef SCENE_H
+#define SCENE_H
 
-#include <OpenGL/gl.h>
-#include <OpenGL/glu.h>
-#include <GLUT/glut.h>
-#include <OpenGL/CGLTypes.h>
+#include "Includes.h"
+#include "Node.h"
 
-#include <stdio.h>
-#include <stdlib.h>
-#include <stdarg.h>
-
-class Scene{
+class Scene : public Node{
 	public:
 		Scene();
 		void drawFPS(float fps);
-	
+
+		/* lua binding */
+		static void Lua(lua_State *lua){
+			luabind::module(lua)
+			[
+			 luabind::class_<Scene, Node, boost::shared_ptr<Node> >("Scene")
+			 .def(luabind::constructor<>())
+			 ];
+		}
+
 	private:
 		float calculateFPS(void);
 		void printw(float x, float y, float z, const char* format, ...);
@@ -32,3 +37,6 @@ class Scene{
 		float currentTime;
 
 };
+
+#endif
+

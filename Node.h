@@ -10,7 +10,7 @@
 #ifndef NODE_H
 #define NODE_H
 
-#include "Game.h"
+#include "Includes.h"
 
 class Node{
 	public:

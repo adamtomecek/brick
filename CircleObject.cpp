@@ -16,7 +16,7 @@ void CircleObject::DefineBody(void){
 						 (this->yPos + this->height / 2)/ RATIO);
 	bodyDef.angle = this->angle * (M_PI / 180);
 	
-	body = this->world->CreateBody(&bodyDef);
+	this->body = this->world->CreateBody(&bodyDef);
 	
 	b2CircleShape circle;
 	circle.m_radius = (this->width / RATIO) / 2;
@@ -28,7 +28,5 @@ void CircleObject::DefineBody(void){
 	shapeDef.friction = 0.8f;
 	shapeDef.restitution = 0.2f;
 	
-	body->CreateFixture(&shapeDef);
-	
-	this->body = body;
+	this->body->CreateFixture(&shapeDef);
 }

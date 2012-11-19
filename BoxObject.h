@@ -10,7 +10,7 @@
 #ifndef BOXOBJECT_H
 #define BOXOBJECT_H
 
-#include "Game.h"
+#include "Includes.h"
 #include "Object.h"
 
 class BoxObject : public Object {

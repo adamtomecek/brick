@@ -10,7 +10,7 @@
 #ifndef CIRCLEOBJECT_H
 #define CIRCLEOBJECT_H
 
-#include "Game.h"
+#include "Includes.h"
 #include "Object.h"
 
 class CircleObject : public Object {

@@ -7,7 +7,6 @@
  *
  */
 
-#include "Game.h"
 #include "Scene.h"
 
 Scene::Scene(){

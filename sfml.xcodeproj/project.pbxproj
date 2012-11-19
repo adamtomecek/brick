@@ -24,6 +24,7 @@
 		C21B7DA915B897E400F9B64B /* test.png in Resources */ = {isa = PBXBuildFile; fileRef = C21B7DA515B897E400F9B64B /* test.png */; };
 		C225901E1656C9A9008112F7 /* BoxObject.cpp in Sources */ = {isa = PBXBuildFile; fileRef = C225901C1656C9A9008112F7 /* BoxObject.cpp */; };
 		C22590291656CA36008112F7 /* CircleObject.cpp in Sources */ = {isa = PBXBuildFile; fileRef = C22590271656CA36008112F7 /* CircleObject.cpp */; };
+		C225916E1657C586008112F7 /* Input.cpp in Sources */ = {isa = PBXBuildFile; fileRef = C225916D1657C586008112F7 /* Input.cpp */; };
 		C229E6A115B8999A0022E149 /* sfml-audio.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = C229E6A015B8999A0022E149 /* sfml-audio.framework */; };
 		C229E6A315B8999A0022E149 /* sfml-graphics.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = C229E6A215B8999A0022E149 /* sfml-graphics.framework */; };
 		C229E6A515B8999A0022E149 /* sfml-network.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = C229E6A415B8999A0022E149 /* sfml-network.framework */; };
@@ -32,6 +33,8 @@
 		C229E6AB15B8999A0022E149 /* SFML.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = C229E6AA15B8999A0022E149 /* SFML.framework */; };
 		C243DA7915C54D74000249D4 /* DebugDraw.cpp in Sources */ = {isa = PBXBuildFile; fileRef = C243DA7815C54D74000249D4 /* DebugDraw.cpp */; };
 		C27EF5EC15C1644100410DE5 /* liblua.5.1.4.dylib in Frameworks */ = {isa = PBXBuildFile; fileRef = C27EF5EB15C1644100410DE5 /* liblua.5.1.4.dylib */; };
+		C283C8351659107F00A70550 /* Game.cpp in Sources */ = {isa = PBXBuildFile; fileRef = C283C8341659107F00A70550 /* Game.cpp */; };
+		C283CB4E165A57BA00A70550 /* libc.dylib in Frameworks */ = {isa = PBXBuildFile; fileRef = C283CB4D165A57BA00A70550 /* libc.dylib */; };
 		C2A7106915C27BD100EC14A6 /* libbox2d.a in Frameworks */ = {isa = PBXBuildFile; fileRef = C2A7106815C27BD100EC14A6 /* libbox2d.a */; };
 		C2A7106B15C27BE200EC14A6 /* liblua.a in Frameworks */ = {isa = PBXBuildFile; fileRef = C2A7106A15C27BE200EC14A6 /* liblua.a */; };
 		C2AAE03B15CD1AED00E92F37 /* main.lua in Resources */ = {isa = PBXBuildFile; fileRef = C2AAE03915CD1AED00E92F37 /* main.lua */; };
@@ -97,6 +100,8 @@
 		C225901D1656C9A9008112F7 /* BoxObject.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = BoxObject.h; sourceTree = "<group>"; };
 		C22590271656CA36008112F7 /* CircleObject.cpp */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.cpp.cpp; path = CircleObject.cpp; sourceTree = "<group>"; };
 		C22590281656CA36008112F7 /* CircleObject.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = CircleObject.h; sourceTree = "<group>"; };
+		C225916C1657C586008112F7 /* Input.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = Input.h; sourceTree = "<group>"; };
+		C225916D1657C586008112F7 /* Input.cpp */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.cpp.cpp; path = Input.cpp; sourceTree = "<group>"; };
 		C229E6A015B8999A0022E149 /* sfml-audio.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = "sfml-audio.framework"; path = "Library/Frameworks/sfml-audio.framework"; sourceTree = DEVELOPER_DIR; };
 		C229E6A215B8999A0022E149 /* sfml-graphics.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = "sfml-graphics.framework"; path = "Library/Frameworks/sfml-graphics.framework"; sourceTree = DEVELOPER_DIR; };
 		C229E6A415B8999A0022E149 /* sfml-network.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = "sfml-network.framework"; path = "Library/Frameworks/sfml-network.framework"; sourceTree = DEVELOPER_DIR; };
@@ -108,6 +113,10 @@
 		C249ED6C15C16AC000B882C9 /* box2d.xcodeproj */ = {isa = PBXFileReference; lastKnownFileType = "wrapper.pb-project"; name = box2d.xcodeproj; path = box2d/box2d.xcodeproj; sourceTree = "<group>"; };
 		C249ED8015C16B0D00B882C9 /* lua.xcodeproj */ = {isa = PBXFileReference; lastKnownFileType = "wrapper.pb-project"; name = lua.xcodeproj; path = lua/lua.xcodeproj; sourceTree = "<group>"; };
 		C27EF5EB15C1644100410DE5 /* liblua.5.1.4.dylib */ = {isa = PBXFileReference; lastKnownFileType = "compiled.mach-o.dylib"; name = liblua.5.1.4.dylib; path = usr/local/lib/liblua.5.1.4.dylib; sourceTree = SDKROOT; };
+		C283C8341659107F00A70550 /* Game.cpp */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.cpp.cpp; path = Game.cpp; sourceTree = "<group>"; };
+		C283C8381659222C00A70550 /* Includes.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = Includes.h; sourceTree = "<group>"; };
+		C283CA441659645F00A70550 /* GameWrapper.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = GameWrapper.h; sourceTree = "<group>"; };
+		C283CB4D165A57BA00A70550 /* libc.dylib */ = {isa = PBXFileReference; lastKnownFileType = "compiled.mach-o.dylib"; name = libc.dylib; path = usr/lib/libc.dylib; sourceTree = SDKROOT; };
 		C2A7106815C27BD100EC14A6 /* libbox2d.a */ = {isa = PBXFileReference; lastKnownFileType = archive.ar; path = libbox2d.a; sourceTree = "<group>"; };
 		C2A7106A15C27BE200EC14A6 /* liblua.a */ = {isa = PBXFileReference; lastKnownFileType = archive.ar; path = liblua.a; sourceTree = "<group>"; };
 		C2AAE03915CD1AED00E92F37 /* main.lua */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text; path = main.lua; sourceTree = "<group>"; };
@@ -133,6 +142,7 @@
 				C2A7106B15C27BE200EC14A6 /* liblua.a in Frameworks */,
 				C201532C15C2D36B00EE51C5 /* libstdc++.6.0.9.dylib in Frameworks */,
 				C201543115C2DF2D00EE51C5 /* liblua.a in Frameworks */,
+				C283CB4E165A57BA00A70550 /* libc.dylib in Frameworks */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -175,6 +185,7 @@
 				C2B909F115B89B1B00E7159E /* GLUT.framework */,
 				C27EF5EB15C1644100410DE5 /* liblua.5.1.4.dylib */,
 				C201532B15C2D36B00EE51C5 /* libstdc++.6.0.9.dylib */,
+				C283CB4D165A57BA00A70550 /* libc.dylib */,
 			);
 			name = Frameworks;
 			sourceTree = "<group>";
@@ -200,6 +211,7 @@
 				C225901C1656C9A9008112F7 /* BoxObject.cpp */,
 				C225901D1656C9A9008112F7 /* BoxObject.h */,
 				C21B7D9115B897D700F9B64B /* Game.h */,
+				C283C8341659107F00A70550 /* Game.cpp */,
 				C21B7D9215B897D700F9B64B /* Node.cpp */,
 				C21B7D9315B897D700F9B64B /* Node.h */,
 				C21B7D9415B897D700F9B64B /* Object.cpp */,
@@ -215,6 +227,10 @@
 				C20153E915C2DB0400EE51C5 /* Chunk.cpp */,
 				C243DA7715C54D74000249D4 /* DebugDraw.h */,
 				C243DA7815C54D74000249D4 /* DebugDraw.cpp */,
+				C225916C1657C586008112F7 /* Input.h */,
+				C225916D1657C586008112F7 /* Input.cpp */,
+				C283C8381659222C00A70550 /* Includes.h */,
+				C283CA441659645F00A70550 /* GameWrapper.h */,
 			);
 			name = Sources;
 			sourceTree = "<group>";
@@ -349,6 +365,8 @@
 				C243DA7915C54D74000249D4 /* DebugDraw.cpp in Sources */,
 				C225901E1656C9A9008112F7 /* BoxObject.cpp in Sources */,
 				C22590291656CA36008112F7 /* CircleObject.cpp in Sources */,
+				C225916E1657C586008112F7 /* Input.cpp in Sources */,
+				C283C8351659107F00A70550 /* Game.cpp in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};

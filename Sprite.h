@@ -10,7 +10,7 @@
 #ifndef SPRITE_H
 #define SPRITE_H
 
-#include "Game.h"
+#include "Includes.h"
 #include "Chunk.h"
 
 class Sprite : public Chunk{

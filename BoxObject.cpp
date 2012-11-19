@@ -7,7 +7,7 @@
  *
  */
 
-#include "Game.h"
+
 #include "BoxObject.h"
 
 void BoxObject::DefineBody(void){
@@ -16,8 +16,9 @@ void BoxObject::DefineBody(void){
 	bodyDef.position.Set((this->xPos + this->width / 2)/ RATIO, 
 						 (this->yPos + this->height / 2) / RATIO);
 	bodyDef.angle = this->angle * (M_PI / 180);
-	
-	body = this->world->CreateBody(&bodyDef);
+
+	std::cout << "BoxObject" << std::endl;
+	this->body = Utils::GetWorld()->CreateBody(&bodyDef);
 
 	b2PolygonShape box;
 	box.SetAsBox((this->width / 2) / RATIO, (this->height / 2) / RATIO);
@@ -28,7 +29,6 @@ void BoxObject::DefineBody(void){
 	shapeDef.friction = 0.3f;
 	shapeDef.restitution = 0.2f;
 
-	body->CreateFixture(&shapeDef);
-
-	this->body = body;
+	this->body->CreateFixture(&shapeDef);
 }
+

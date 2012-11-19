@@ -10,7 +10,7 @@
 #ifndef DEBUG_DRAW_H
 #define DEBUG_DRAW_H
 
-#include "Game.h"
+#include "Includes.h"
 
 struct b2AABB;
 

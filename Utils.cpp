@@ -10,3 +10,5 @@
 #include "Utils.h"
 
 b2World *Utils::world = NULL;
+lua_State *Utils::luaState = NULL;
+sem_t *Utils::boxSem = NULL;
