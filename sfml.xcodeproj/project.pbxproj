@@ -117,6 +117,7 @@
 		C283C8381659222C00A70550 /* Includes.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = Includes.h; sourceTree = "<group>"; };
 		C283CA441659645F00A70550 /* GameWrapper.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = GameWrapper.h; sourceTree = "<group>"; };
 		C283CB4D165A57BA00A70550 /* libc.dylib */ = {isa = PBXFileReference; lastKnownFileType = "compiled.mach-o.dylib"; name = libc.dylib; path = usr/lib/libc.dylib; sourceTree = SDKROOT; };
+		C283CC77165AD59600A70550 /* SceneWrapper.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = SceneWrapper.h; sourceTree = "<group>"; };
 		C2A7106815C27BD100EC14A6 /* libbox2d.a */ = {isa = PBXFileReference; lastKnownFileType = archive.ar; path = libbox2d.a; sourceTree = "<group>"; };
 		C2A7106A15C27BE200EC14A6 /* liblua.a */ = {isa = PBXFileReference; lastKnownFileType = archive.ar; path = liblua.a; sourceTree = "<group>"; };
 		C2AAE03915CD1AED00E92F37 /* main.lua */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text; path = main.lua; sourceTree = "<group>"; };
@@ -231,6 +232,7 @@
 				C225916D1657C586008112F7 /* Input.cpp */,
 				C283C8381659222C00A70550 /* Includes.h */,
 				C283CA441659645F00A70550 /* GameWrapper.h */,
+				C283CC77165AD59600A70550 /* SceneWrapper.h */,
 			);
 			name = Sources;
 			sourceTree = "<group>";

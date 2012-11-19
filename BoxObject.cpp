@@ -17,7 +17,6 @@ void BoxObject::DefineBody(void){
 						 (this->yPos + this->height / 2) / RATIO);
 	bodyDef.angle = this->angle * (M_PI / 180);
 
-	std::cout << "BoxObject" << std::endl;
 	this->body = Utils::GetWorld()->CreateBody(&bodyDef);
 
 	b2PolygonShape box;

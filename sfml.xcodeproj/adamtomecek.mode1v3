@@ -276,13 +276,13 @@
 							<key>PBXSmartGroupTreeModuleOutlineStateSelectionKey</key>
 							<array>
 								<array>
-									<integer>21</integer>
+									<integer>32</integer>
 									<integer>6</integer>
 									<integer>0</integer>
 								</array>
 							</array>
 							<key>PBXSmartGroupTreeModuleOutlineStateVisibleRectKey</key>
-							<string>{{0, 271}, {186, 603}}</string>
+							<string>{{0, 0}, {186, 603}}</string>
 						</dict>
 						<key>PBXTopSmartGroupGIDs</key>
 						<array/>
@@ -319,7 +319,7 @@
 								<key>PBXProjectModuleGUID</key>
 								<string>1CE0B20306471E060097A5F4</string>
 								<key>PBXProjectModuleLabel</key>
-								<string>main.cpp</string>
+								<string>Game.cpp</string>
 								<key>PBXSplitModuleInNavigatorKey</key>
 								<dict>
 									<key>Split0</key>
@@ -327,11 +327,11 @@
 										<key>PBXProjectModuleGUID</key>
 										<string>1CE0B20406471E060097A5F4</string>
 										<key>PBXProjectModuleLabel</key>
-										<string>main.cpp</string>
+										<string>Game.cpp</string>
 										<key>_historyCapacity</key>
 										<integer>0</integer>
 										<key>bookmark</key>
-										<string>C283CBCD165A606C00A70550</string>
+										<string>C283CCBD165ADABF00A70550</string>
 										<key>history</key>
 										<array>
 											<string>C2FA34EA15BAF97A009BB9AA</string>
@@ -346,7 +346,6 @@
 											<string>C242CF6215D0F433000BB9C2</string>
 											<string>C242CF7D15D0F4DF000BB9C2</string>
 											<string>C242CF9C15D0F5EC000BB9C2</string>
-											<string>C242D0CC15D10126000BB9C2</string>
 											<string>C2258CD51656732F008112F7</string>
 											<string>C2258CD61656732F008112F7</string>
 											<string>C2258CD71656732F008112F7</string>
@@ -359,11 +358,8 @@
 											<string>C22591121657B552008112F7</string>
 											<string>C283C8421659232600A70550</string>
 											<string>C283C84F165924AA00A70550</string>
-											<string>C283C91116593D4200A70550</string>
-											<string>C283C94716593F6300A70550</string>
 											<string>C283C95716593F9100A70550</string>
 											<string>C283C95816593F9100A70550</string>
-											<string>C283C9B01659442A00A70550</string>
 											<string>C283CA1E16595DAD00A70550</string>
 											<string>C283CA9516596A7600A70550</string>
 											<string>C283CA9716596A7600A70550</string>
@@ -371,14 +367,19 @@
 											<string>C283CAD0165A4A1000A70550</string>
 											<string>C283CAD2165A4A1000A70550</string>
 											<string>C283CB09165A500500A70550</string>
-											<string>C283CB0A165A500500A70550</string>
 											<string>C283CB3E165A570000A70550</string>
 											<string>C283CB5C165A598100A70550</string>
-											<string>C283CB79165A5A7F00A70550</string>
 											<string>C283CB7A165A5A7F00A70550</string>
 											<string>C283CB85165A5B8C00A70550</string>
 											<string>C283CBBA165A5EC400A70550</string>
-											<string>C283CBBB165A5EC400A70550</string>
+											<string>C283CBF9165ACA3C00A70550</string>
+											<string>C283CC15165ACB6700A70550</string>
+											<string>C283CC1F165ACB9100A70550</string>
+											<string>C283CC3E165ACF2D00A70550</string>
+											<string>C283CC8B165AD72A00A70550</string>
+											<string>C283CCA2165AD8CB00A70550</string>
+											<string>C283CCB8165ADAAC00A70550</string>
+											<string>C283CCB9165ADAAC00A70550</string>
 										</array>
 									</dict>
 									<key>SplitCount</key>
@@ -576,13 +577,13 @@
 	<integer>5</integer>
 	<key>WindowOrderList</key>
 	<array>
-		<string>C283CBCE165A606C00A70550</string>
+		<string>C283CCBE165ADABF00A70550</string>
 		<string>C283C82F1659101900A70550</string>
 		<string>C283C8301659101900A70550</string>
 		<string>1CD10A99069EF8BA00B06720</string>
 		<string>C21B7D8815B897B500F9B64B</string>
-		<string>1C78EAAD065D492600B07095</string>
 		<string>/Users/adamtomecek/Programovani/games/sfml/sfml.xcodeproj</string>
+		<string>1C78EAAD065D492600B07095</string>
 	</array>
 	<key>WindowString</key>
 	<string>0 116 1268 662 0 0 1280 778 </string>
@@ -606,7 +607,7 @@
 								<key>PBXProjectModuleGUID</key>
 								<string>1CD0528F0623707200166675</string>
 								<key>PBXProjectModuleLabel</key>
-								<string>main.cpp</string>
+								<string>Game.cpp</string>
 								<key>StatusBarVisibility</key>
 								<true/>
 							</dict>
@@ -925,7 +926,7 @@
 								<key>Frame</key>
 								<string>{{0, 0}, {656, 291}}</string>
 								<key>RubberWindowFrame</key>
-								<string>577 372 656 332 0 0 1280 778 </string>
+								<string>1562 438 656 332 1280 0 1680 1050 </string>
 							</dict>
 							<key>Module</key>
 							<string>PBXDebugCLIModule</string>
@@ -954,7 +955,7 @@
 			<key>ToolbarConfiguration</key>
 			<string>xcode.toolbar.config.consoleV3</string>
 			<key>WindowString</key>
-			<string>577 372 656 332 0 0 1280 778 </string>
+			<string>1562 438 656 332 1280 0 1680 1050 </string>
 			<key>WindowToolGUID</key>
 			<string>1C78EAAD065D492600B07095</string>
 			<key>WindowToolIsVisible</key>

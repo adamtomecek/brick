@@ -18,12 +18,18 @@ class Scene : public Node{
 		Scene();
 		void drawFPS(float fps);
 
+		virtual void KeyboardInput(unsigned short keyCode);
+		virtual void MouseInput(unsigned int x, unsigned int y,
+				short buttonCode);
+
 		/* lua binding */
 		static void Lua(lua_State *lua){
 			luabind::module(lua)
 			[
 			 luabind::class_<Scene, Node, boost::shared_ptr<Node> >("Scene")
 			 .def(luabind::constructor<>())
+			 .def("MouseInput", &Scene::MouseInput)
+			 .def("KeyboardInput", &Scene::KeyboardInput)
 			 ];
 		}
 
@@ -35,6 +41,7 @@ class Scene : public Node{
 
 		float previousTime;
 		float currentTime;
+
 
 };
 

@@ -27,6 +27,7 @@ class Game{
 	public:
 		Game();
 		virtual int Loop(void);
+		virtual void Step(void);
 		void SetScene(Scene *s);
 
 		Input *input;
@@ -37,12 +38,14 @@ class Game{
 			luabind::class_<Game>("Game")
 			.def(luabind::constructor<>())
 			.def("Loop", &Game::Loop)
-			.def("SetScene", &Game::SetScene, luabind::adopt(luabind::result))
+			.def("Step", &Game::Step)
+			.def("SetScene", &Game::SetScene)
 			];
 		}
 
 	private:
 		void Setup(void);
+		void HandleInput(void);
 
 		sf::RenderWindow *app;
 		sf::WindowSettings *settings;
@@ -51,7 +54,6 @@ class Game{
 		lua_State *luaState;
 		Scene *scene;
 		sem_t *b2Sem;
-
 };
 
 #endif

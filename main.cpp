@@ -5,7 +5,8 @@
 #include "CircleObject.h"
 #include "Scene.h"
 #include "Sprite.h"
-#include "Game.h"
+#include "GameWrapper.h"
+#include "SceneWrapper.h"
 
 int main(int argc, char **argv)
 {
@@ -31,9 +32,9 @@ int main(int argc, char **argv)
 
 	
 	luabind::open(luaState);
-	Game::Lua(luaState);
+	GameWrapper::Lua(luaState);
 	Node::Lua(luaState);
-	Scene::Lua(luaState);
+	SceneWrapper::Lua(luaState);
 	Chunk::Lua(luaState);
 	Sprite::Lua(luaState);
 	Object::Lua(luaState);

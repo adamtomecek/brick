@@ -15,6 +15,12 @@ Scene::Scene(){
 	this->currentTime = 0;
 }
 
+void Scene::KeyboardInput(unsigned short keyCode){
+}
+
+void Scene::MouseInput(unsigned int x, unsigned int y, short buttonCode){
+}
+
 void Scene::drawFPS(float fps){
 	std::string s = "FPS: %4.2f";
 	printw(20, 20, 0, "FPS: %4.2f", fps);

@@ -87,6 +87,9 @@ int Game::Loop(void){
 	// Start game loop
     while (this->app->IsOpened())
     {
+		// Clear previouslz rendered objects
+		this->app->Clear();
+
 		// Process events
         sf::Event Event;
         while (this->app->GetEvent(Event))
@@ -99,65 +102,61 @@ int Game::Loop(void){
             if ((Event.Type == sf::Event::KeyPressed) && (Event.Key.Code == sf::Key::Escape))			
 				this->app->Close();
 
-			/* if(Event.Type == sf::Event::KeyPressed){ */
-			/* 	if (keyboardInputCallback) { */
-			/* 		luabind::call_function<void>(keyboardInputCallback, Event.Key.Code); */
-			/* 	}else { */
-			/* 		std::cout << "Lua input error: method 'MyGame.handle_keyboard_input' doesn't exist" << std::endl; */
-			/* 	} */
-			/* } */
-
-			/* if(Event.Type == sf::Event::MouseButtonPressed){ */
-			/* 	if (mouseInputCallback) { */
-			/* 		luabind::call_function<void>(mouseInputCallback, Event.MouseButton.Button, Event.MouseButton.X, Event.MouseButton.Y); */
-			/* 	}else { */
-			/* 		std::cout << "Lua input error: method 'MyGame.handle__input' doesn't exist" << std::endl; */
-			/* 	} */
-			/* } */
+			if (DEBUG_DRAW) {
+				glLoadIdentity();
+				glDisable(GL_TEXTURE_2D);
+				glDisableClientState(GL_COLOR_ARRAY);
+				glDisableClientState(GL_TEXTURE_COORD_ARRAY);
+				glEnableClientState(GL_VERTEX_ARRAY);
+				glPushMatrix();
+				glScalef(RATIO, RATIO, 0);
+				this->world->DrawDebugData();
+				glPopMatrix();
+				glEnable(GL_TEXTURE_2D);
+				glEnableClientState(GL_COLOR_ARRAY);
+				glEnableClientState(GL_TEXTURE_COORD_ARRAY);
+			}
 
 			// Adjust the viewport when the window is resized
             if (Event.Type == sf::Event::Resized)
                 glViewport(0, 0, Event.Size.Width, Event.Size.Height);
+
+			// Update input	
+			this->input->Loop(&Event);
+			this->HandleInput();
 		}
 
-		this->world->Step(TIME_STEP, VELOCITY_ITERATIONS, POSITION_ITERATIONS);
-		
-		if (DEBUG_DRAW) {
-			glLoadIdentity();
-			glDisable(GL_TEXTURE_2D);
-			glDisableClientState(GL_COLOR_ARRAY);
-			glDisableClientState(GL_TEXTURE_COORD_ARRAY);
-			glEnableClientState(GL_VERTEX_ARRAY);
-			glPushMatrix();
-			glScalef(RATIO, RATIO, 0);
-			this->world->DrawDebugData();
-			glPopMatrix();
-			glEnable(GL_TEXTURE_2D);
-			glEnableClientState(GL_COLOR_ARRAY);
-			glEnableClientState(GL_TEXTURE_COORD_ARRAY);
-		}
-		
-		/* /1* call Lua Game instance Loop function *1/ */
-		
-		/* if (loopCallback) { */
-		/* 	luabind::call_function<void>(loopCallback); */
-		/* }else { */
-		/* 	/1* std::cout << "Lua loop error: method 'MyGame.loop' doesn't exist" << std::endl; *1/ */
-		/* } */
 
-		/* if (luaErr != 0) */
-		/* 	std::cout << "Lua loop error: " << lua_tostring(this->luaState, -1) << std::endl; */
-		
-		// Update input	
-		this->input->Loop();
+		// Game logic for Lua
+		this->Step();
 
 		// Finally, display the rendered frame on screen
-
+		this->world->Step(TIME_STEP, VELOCITY_ITERATIONS, POSITION_ITERATIONS);
 		this->scene->Render();
         this->app->Display();
-		this->app->Clear();
     }
 	return EXIT_SUCCESS;
+}
+
+void Game::Step(void){
+
+}
+
+void Game::HandleInput(void){
+	std::list<unsigned short> keys = this->input->GetKeys();
+	std::list<unsigned short>::iterator i;
+
+	MouseInput *m = this->input->GetMouse();
+
+	unsigned short tmp;
+
+	for(i = keys.begin(); i != keys.end(); i++){
+		tmp = *i;
+		this->scene->KeyboardInput(tmp);
+	}
+
+	if(m->buttonCode != -1)
+		this->scene->MouseInput(m->x, m->y, m->buttonCode);
 }
 
 void Game::SetScene(Scene *s){
