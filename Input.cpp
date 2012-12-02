@@ -53,7 +53,7 @@ void Input::Loop(sf::Event *e){
 
 
 	/* mouse input */
-	if(e->Type == sf::Event::MouseButtonPressed){
+	if(e->Type == sf::Event::MouseButtonReleased){
 		this->mouse.x = e->MouseButton.X;
 		this->mouse.y = e->MouseButton.Y;
 		this->mouse.buttonCode = e->MouseButton.Button;

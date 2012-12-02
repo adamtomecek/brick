@@ -39,7 +39,7 @@ struct SceneWrapper: Scene, luabind::wrap_base{
 	static void Lua(lua_State *lua){
 		luabind::module(lua)
 		[
-		luabind::class_<Scene, SceneWrapper, Node, boost::shared_ptr<Node> >("Scene")
+		luabind::class_<Scene, SceneWrapper, Node >("Scene")
 			.def(luabind::constructor<>())
 			.def("KeyboardInput", &Scene::KeyboardInput,
 					&SceneWrapper::default_KeyboardInput)

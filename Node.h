@@ -55,7 +55,6 @@ class Node{
 			 .def("Rotate", &Node::Rotate)
 			 .def("AddChild", &Node::AddChild, luabind::adopt(luabind::result))
 			 .def("RotateAroundPoint", &Node::RotateAroundPoint)
-			 .def("Init", &Node::Init)
 			 ];
 		}
 

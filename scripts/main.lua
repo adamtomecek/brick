@@ -3,6 +3,19 @@ class 'MyGame' (Game)
 function MyGame:__init()
 	Game.__init(self)
 
+	s = MyScene()
+
+	sprite = Sprite("circle.png", 100, 100, 0)
+	-- o = CircleObject(sprite)
+
+	self:SetScene(s)
+	s:AddChild(sprite)
+
+	self.sprite = sprite
+end
+
+function MyGame:Step()
+	self.sprite:Rotate(1)
 end
 
 class 'MyScene' (Scene)
@@ -22,13 +35,4 @@ function MyScene:MouseInput(x, y, button_code)
 end
 
 g = MyGame()
-
-s = MyScene()
-
-sprite = Sprite("circle.png", 100, 100, 0)
-o = CircleObject(sprite)
-s:AddChild(o)
-
-
-g:SetScene(s)
 g:Loop()

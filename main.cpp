@@ -7,20 +7,10 @@
 #include "Sprite.h"
 #include "GameWrapper.h"
 #include "SceneWrapper.h"
+#include "NodeWrapper.h"
 
 int main(int argc, char **argv)
 {
-	/* sem_t *sem = Utils::GetBoxSem(); */
-	/* if ((sem = sem_open( */
-	/* 		B2DSEM, O_CREAT, S_IRUSR | S_IWUSR, 1) */
-	/* 	) == SEM_FAILED){ */
-	/* 	std::cout << "Semaphore error" << std::endl; */	
-	/* }else{ */
-	/* 	std::cout << "Sem created" << std::endl; */
-	/* } */
-
-	/* sem_post(sem); */
-
 	int luaErr;
 		
 	lua_State *luaState = lua_open();
@@ -32,8 +22,8 @@ int main(int argc, char **argv)
 
 	
 	luabind::open(luaState);
+	NodeWrapper::Lua(luaState);
 	GameWrapper::Lua(luaState);
-	Node::Lua(luaState);
 	SceneWrapper::Lua(luaState);
 	Chunk::Lua(luaState);
 	Sprite::Lua(luaState);
@@ -64,34 +54,15 @@ int main(int argc, char **argv)
 		 ]
 		];
 
-	/* luaErr = luaL_dostring(luaState, */
-	/* 		"game = MyGame.new()\n" */
-	/* ); */
-
 	if (luaErr != 0)
 		std::cout << "Lua init error: " << lua_tostring(luaState, -1) << std::endl;
 	
-	/* luabind::object myGame = luabind::globals(luaState); */
-	/* luabind::object keyboardInputCallback; */
-	/* luabind::object mouseInputCallback; */
-	/* luabind::object loopCallback; */
-	
-	/* if (myGame){ */
-	/* 	keyboardInputCallback = myGame["handle_keyboard_input"]; */
-	/* 	mouseInputCallback = myGame["handle_mouse_input"]; */
-	/* 	loopCallback = myGame["loop"]; */
-	/* }else { */
-	/* 	std::cout << "Lua init error: can't get 'game' variable" << std::endl; */
-	/* } */
-
 	Utils::SetLuaState(luaState);
 	
 	luaErr = luaL_dofile(luaState, "main.lua");
 	if (luaErr != 0)
 		std::cout << "Lua load file error: " << lua_tostring(luaState, -1) << std::endl;
 
-	/* Game *game = new Game(); */
-	/* game->Loop(); */
 	while(1){
 
 	}

@@ -123,6 +123,8 @@
 		C2AAE03915CD1AED00E92F37 /* main.lua */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text; path = main.lua; sourceTree = "<group>"; };
 		C2AAE03A15CD1AED00E92F37 /* test.lua */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text; path = test.lua; sourceTree = "<group>"; };
 		C2B909F115B89B1B00E7159E /* GLUT.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = GLUT.framework; path = /System/Library/Frameworks/GLUT.framework; sourceTree = "<absolute>"; };
+		C2CFFD6C166C05A000ABF129 /* ChunkWrapper.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = ChunkWrapper.h; sourceTree = "<group>"; };
+		C2CFFD6D166C05C300ABF129 /* NodeWrapper.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = NodeWrapper.h; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -233,6 +235,8 @@
 				C283C8381659222C00A70550 /* Includes.h */,
 				C283CA441659645F00A70550 /* GameWrapper.h */,
 				C283CC77165AD59600A70550 /* SceneWrapper.h */,
+				C2CFFD6C166C05A000ABF129 /* ChunkWrapper.h */,
+				C2CFFD6D166C05C300ABF129 /* NodeWrapper.h */,
 			);
 			name = Sources;
 			sourceTree = "<group>";
