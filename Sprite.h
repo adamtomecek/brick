@@ -38,20 +38,6 @@ class Sprite : public Chunk{
 				return boost::shared_ptr<Sprite> (new Sprite(texture, xPos, yPos, angle));
 		}
 		
-		/* Lua binding */
-		static void Lua(lua_State *lua){
-			luabind::module(lua)
-			[
-			 luabind::class_<Sprite, Chunk, boost::shared_ptr<Node> >("Sprite")
-			 .def(luabind::constructor<float, float, float, float, float>())
-			 .def(luabind::constructor<std::string, float, float, float>())
-			 .def(luabind::constructor<std::string, float, float, float, float, float>())
-			 .scope[
-				 luabind::def("Init", &Sprite::Init)
-			 ]
-			 ];
-		}
-
 	private:
 		bool LoadTexture(std::string texture);
 		GLuint texture_handle;

@@ -1,13 +1,13 @@
 #include "Includes.h"
 #include "Game.h"
-#include "Object.h"
-#include "BoxObject.h"
-#include "CircleObject.h"
-#include "Scene.h"
-#include "Sprite.h"
-#include "GameWrapper.h"
-#include "SceneWrapper.h"
 #include "NodeWrapper.h"
+#include "SceneWrapper.h"
+#include "ChunkWrapper.h"
+#include "SpriteWrapper.h"
+#include "ObjectWrapper.h"
+#include "BoxObjectWrapper.h"
+#include "CircleObjectWrapper.h"
+#include "GameWrapper.h"
 
 int main(int argc, char **argv)
 {
@@ -22,14 +22,14 @@ int main(int argc, char **argv)
 
 	
 	luabind::open(luaState);
-	NodeWrapper::Lua(luaState);
 	GameWrapper::Lua(luaState);
+	NodeWrapper::Lua(luaState);
 	SceneWrapper::Lua(luaState);
-	Chunk::Lua(luaState);
-	Sprite::Lua(luaState);
-	Object::Lua(luaState);
-	BoxObject::Lua(luaState);
-	CircleObject::Lua(luaState);
+	ChunkWrapper::Lua(luaState);
+	SpriteWrapper::Lua(luaState);
+	ObjectWrapper::Lua(luaState);
+	BoxObjectWrapper::Lua(luaState);
+	CircleObjectWrapper::Lua(luaState);
 
 	luabind::module(luaState)
 		[

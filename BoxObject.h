@@ -34,20 +34,7 @@ class BoxObject : public Object {
 		this->DefineBody();
 	}
 
-		virtual void DefineBody(void);
-
-
-	/* Lua binding */
-	static void Lua(lua_State *lua){
-		luabind::module(lua)
-		[
-		 luabind::class_<BoxObject, Object, boost::shared_ptr<Node> >("BoxObject")
-		 .def(luabind::constructor<Chunk* >(), luabind::adopt(luabind::result))
-		 /* .def(luabind::constructor<b2World *, boost::shared_ptr<Chunk> >()) */
-		 /* .def(luabind::constructor<b2World *, float, float, float, float, float>()) */
-		 .def(luabind::constructor<float, float, float, float, float>())
-		 ];
-	}
+	virtual void DefineBody(void);
 };
 
 #endif

@@ -125,6 +125,10 @@
 		C2B909F115B89B1B00E7159E /* GLUT.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = GLUT.framework; path = /System/Library/Frameworks/GLUT.framework; sourceTree = "<absolute>"; };
 		C2CFFD6C166C05A000ABF129 /* ChunkWrapper.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = ChunkWrapper.h; sourceTree = "<group>"; };
 		C2CFFD6D166C05C300ABF129 /* NodeWrapper.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = NodeWrapper.h; sourceTree = "<group>"; };
+		C2CFFDEF166CAC7700ABF129 /* ObjectWrapper.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = ObjectWrapper.h; sourceTree = "<group>"; };
+		C2CFFDF0166CAC7E00ABF129 /* BoxObjectWrapper.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = BoxObjectWrapper.h; sourceTree = "<group>"; };
+		C2CFFDF1166CAC8B00ABF129 /* CircleObjectWrapper.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = CircleObjectWrapper.h; sourceTree = "<group>"; };
+		C2CFFE1C166CB05400ABF129 /* SpriteWrapper.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = SpriteWrapper.h; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -237,6 +241,10 @@
 				C283CC77165AD59600A70550 /* SceneWrapper.h */,
 				C2CFFD6C166C05A000ABF129 /* ChunkWrapper.h */,
 				C2CFFD6D166C05C300ABF129 /* NodeWrapper.h */,
+				C2CFFDEF166CAC7700ABF129 /* ObjectWrapper.h */,
+				C2CFFDF0166CAC7E00ABF129 /* BoxObjectWrapper.h */,
+				C2CFFDF1166CAC8B00ABF129 /* CircleObjectWrapper.h */,
+				C2CFFE1C166CB05400ABF129 /* SpriteWrapper.h */,
 			);
 			name = Sources;
 			sourceTree = "<group>";

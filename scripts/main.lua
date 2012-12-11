@@ -29,9 +29,17 @@ function MyScene:KeyboardInput(key_code)
 end
 
 function MyScene:MouseInput(x, y, button_code)
-	local s = Sprite("circle.png", x, y, 0)
-	local o = CircleObject(s)
-	self:AddChild(o)
+	if button_code == Mouse.left then
+		local s = Sprite("circle.png", x, y, 0)
+		o = CircleObject(s)
+	elseif button_code == Mouse.right then
+		local s = Sprite("icon.jpg", x, y, 0)
+		o = BoxObject(s)
+	end
+
+	if o then
+		self:AddChild(o)
+	end
 end
 
 g = MyGame()

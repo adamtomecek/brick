@@ -9,6 +9,13 @@
 
 #include "Chunk.h"
 
+Chunk::Chunk(void){}
+
+Chunk::Chunk(float w, float h){
+	this->width = w;
+	this->height = h;
+}
+
 float Chunk::GetWidth(void){
 	return this->width;
 }
