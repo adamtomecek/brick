@@ -15,8 +15,11 @@
 
 class Chunk : public Node{
 	public:
+		~Chunk();
 		Chunk(void);
 		Chunk(float w, float h);
+
+		/* void Destroy(void); */
 
 		void RotateChilds(float angle);
 

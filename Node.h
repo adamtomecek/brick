@@ -14,8 +14,12 @@
 
 class Node{
 	public:
-		Node(float xPos, float yPos, float angle = 0.0f);
+		~Node(void);
+		Node(float xPos, float yPos, float zPos = 0.0f, float angle = 0.0f);
 		Node();
+
+		virtual void Destroy();
+		virtual void DeleteChild(boost::shared_ptr<Node> child);
 
 		virtual void Render(void);
 		virtual void Move(float xMove, float yMove);
@@ -30,33 +34,16 @@ class Node{
 		}
 
 		/* Getters */
-		virtual float GetYPos(void);
 		virtual float GetXPos(void);
+		virtual float GetYPos(void);
+		virtual float GetZPos(void);
 		virtual float GetAngle(void);
 		virtual Position GetPosition(void);
 		virtual Position GetCenter(void);
 
 		/* Setters */
-		virtual void SetPosition(float xPos, float yPos);
+		virtual void SetPosition(float xPos, float yPos, float zPos = 0.0f);
 		virtual void SetAngle(float angle);
-	
-		virtual ~Node() {}
-
-		/* Lua binding */
-		static void Lua(lua_State *lua){
-			luabind::module(lua)
-			[
-			 luabind::class_<Node, boost::shared_ptr<Node> >("Node")
-			 .def(luabind::constructor<>())
-			 .def(luabind::constructor<float, float, float>())
-
-			 .def("Render", &Node::Render)
-			 .def("Move", &Node::Move)
-			 .def("Rotate", &Node::Rotate)
-			 .def("AddChild", &Node::AddChild, luabind::adopt(luabind::result))
-			 .def("RotateAroundPoint", &Node::RotateAroundPoint)
-			 ];
-		}
 
 	protected:
 		virtual void RenderChilds(void);
@@ -64,10 +51,9 @@ class Node{
 	
 		float xPos;
 		float yPos;
+		float zPos;
 		float angle;
 		std::list< boost::shared_ptr<Node> > childs;	
-
-		
 
 };
 

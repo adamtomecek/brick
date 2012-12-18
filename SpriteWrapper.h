@@ -16,25 +16,28 @@
 struct SpriteWrapper : Sprite, luabind::wrap_base{
 
 	SpriteWrapper(float width, float height, float xPos, float yPos,
-			float angle = 0.0f) : 
-		Sprite(width, height, xPos, yPos, angle){}
+			float zPos = 0.0f, float angle = 0.0f) : 
+		Sprite(width, height, xPos, yPos, zPos, angle){}
 
 	SpriteWrapper(std::string texture, float xPos, float yPos,
-			float angle = 0.0f) : 
-		Sprite(texture, xPos, yPos, angle){}
+			float zPos = 0.0f, float angle = 0.0f) : 
+		Sprite(texture, xPos, yPos, zPos, angle){}
 
-	SpriteWrapper(std::string texture, float widht, float height,
-			float xPos, float yPos,	float angle = 0.0f) : 
-		Sprite(texture, width, height, xPos, yPos, angle){}
+	/* SpriteWrapper(std::string texture, float widht, float height, */
+	/* 		float xPos, float yPos,	float zPos, float angle = 0.0f): */ 
+	/* 	Sprite(texture, width, height, xPos, yPos, zPos, angle){} */
 
 	static void Lua(lua_State *lua){
 		luabind::module(lua)
 		[
 		 luabind::class_<Sprite, SpriteWrapper, Chunk, 
 			boost::shared_ptr<Node> >("Sprite")
-		 .def(luabind::constructor<float, float, float, float, float>())
-		 .def(luabind::constructor<std::string, float, float, float>())
-		 .def(luabind::constructor<std::string, float, float, float, float, float>())
+		 .def(luabind::constructor<float, float, float, float, float,
+				 float>())
+		 .def(luabind::constructor<std::string, float, float, float,
+				 float>())
+		 /* .def(luabind::constructor<std::string, float, float, float, float, */
+				 /* float, float>()) */
 		 ];
 	}
 };

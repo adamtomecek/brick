@@ -9,6 +9,14 @@
 
 #include "Object.h"
 
+Object::~Object(void){
+#ifdef DEBUG
+	std::cout << "Destruct Object" << std::endl;
+#endif
+
+	delete this->representation;
+	this->representation = NULL;
+}
 
 Object::Object(Chunk *representation){
 	this->init(Utils::GetWorld(), representation->GetWidth(), representation->GetHeight(),
@@ -66,6 +74,18 @@ void Object::Render(void){
 		this->representation->SetAngle(this->angle);
 		this->representation->Render();
 	}
+}
+
+void Object::Destroy(void){
+#ifdef DEBUG
+	std::cout << "Destruct Object" << std::endl;
+#endif
+
+	this->world->DestroyBody(this->body);
+	this->body = NULL;	
+
+	/* delete this->representation; */
+	delete this;
 }
 
 void Object::ApplyPhysics(){

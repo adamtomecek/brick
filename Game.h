@@ -19,7 +19,7 @@
 /* #define TIME_STEP 1.0f / 60.0f */
 /* #define VELOCITY_ITERATIONS 8 */
 /* #define POSITION_ITERATIONS 3 */
-/* #define DEBUG_DRAW false */
+/* #define DEBUG_DRAW true */
 
 	//b2World *wrld;
 

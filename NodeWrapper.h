@@ -16,9 +16,26 @@
 struct NodeWrapper : Node, luabind::wrap_base{
 	NodeWrapper() : Node() {}
 
-	NodeWrapper(float xPos, float yPos, float angle = 0.0f)
-		: Node(xPos, yPos, angle) {}
+	NodeWrapper(float xPos, float yPos, float zPos = 0.0f,
+			float angle = 0.0f)
+
+		: Node(xPos, yPos, zPos, angle) {}
 	
+	virtual void Destroy(void){
+		call<void>("Destroy");
+	}
+
+	static void default_Destroy(Node *ptr){
+		return ptr->Node::Destroy();
+	}
+
+	virtual void DeleteChild(boost::shared_ptr<Node> child){
+		call<void>("Destroy", child);
+	}
+
+	static void default_DeleteChild(Node *ptr, boost::shared_ptr<Node> child){
+		return ptr->Node::DeleteChild(child);
+	}
 
     virtual void Render(void){
          call<void>("Render");
@@ -67,7 +84,9 @@ struct NodeWrapper : Node, luabind::wrap_base{
 		[
 		luabind::class_<Node, NodeWrapper, boost::shared_ptr<Node> >("Node")
 			.def(luabind::constructor<>())
-			.def(luabind::constructor<float, float, float>())
+			.def(luabind::constructor<float, float, float, float>())
+			.def("Destroy", &Node::Destroy, &NodeWrapper::default_Destroy)
+			.def("DeleteChild", &Node::DeleteChild, &NodeWrapper::default_DeleteChild)
 			.def("Render", &Node::Render, &NodeWrapper::default_Render)
 			.def("Move", &Node::Move, &NodeWrapper::default_Move)
 			.def("Rotate", &Node::Rotate, &NodeWrapper::default_Move)

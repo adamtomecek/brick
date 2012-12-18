@@ -39,17 +39,17 @@ extern "C"
 #include "lualib.h"
 }
 
-#include <luabind/luabind.hpp>
-#include <luabind/function.hpp>
-#include <luabind/class.hpp>
-#include <luabind/adopt_policy.hpp>
-#include <luabind/object.hpp>
-#include <luabind/dependency_policy.hpp>
-#include <luabind/out_value_policy.hpp>
-#include <luabind/return_reference_to_policy.hpp>
-#include <luabind/copy_policy.hpp>
-#include <luabind/discard_result_policy.hpp>
-#include <luabind/raw_policy.hpp>
+#include "luabind/luabind.hpp"
+#include "luabind/function.hpp"
+#include "luabind/class.hpp"
+#include "luabind/adopt_policy.hpp"
+#include "luabind/object.hpp"
+#include "luabind/dependency_policy.hpp"
+#include "luabind/out_value_policy.hpp"
+#include "luabind/return_reference_to_policy.hpp"
+#include "luabind/copy_policy.hpp"
+#include "luabind/discard_result_policy.hpp"
+#include "luabind/raw_policy.hpp"
 
 #include "Utils.h"
 
@@ -58,6 +58,7 @@ extern "C"
 #define VELOCITY_ITERATIONS 8
 #define POSITION_ITERATIONS 3
 #define DEBUG_DRAW false
+/* #define DEBUG */
 
 #define B2DSEM "sfml-box2d"
 

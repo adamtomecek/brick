@@ -9,6 +9,12 @@
 
 #include "Chunk.h"
 
+Chunk::~Chunk(){
+#ifdef DEBUG
+	std::cout << "Destruct Chunk" << std::endl;
+#endif
+}
+
 Chunk::Chunk(void){}
 
 Chunk::Chunk(float w, float h){

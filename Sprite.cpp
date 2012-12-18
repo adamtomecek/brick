@@ -15,9 +15,10 @@
  * ********************************************************
  */
 void Sprite::init(std::string texture, float width, float height, float xPos,
-			   float yPos, float angle){
+			   float yPos, float zPos, float angle){
 	this->xPos = xPos;
 	this->yPos = yPos;
+	this->zPos = zPos;
 	this->angle = angle;
 	
 	this->width = width;
@@ -26,24 +27,25 @@ void Sprite::init(std::string texture, float width, float height, float xPos,
 	this->LoadTexture(texture);
 }
 
-Sprite::Sprite(float width, float height, float xPos, float yPos, float angle){
+Sprite::Sprite(float width, float height, float xPos, float yPos, float zPos, 
+		float angle){
 	this->textureData = NULL;
-	this->init("", width, height, xPos, yPos, angle);
+	this->init("", width, height, xPos, yPos, zPos, angle);
 }
 
-Sprite::Sprite(std::string texture, float width, float height, float xPos,
-		float yPos, float angle){
-	this->textureData = NULL;
+/* Sprite::Sprite(std::string texture, float width, float height, float xPos, */
+/* 		float yPos, float zPos, float angle){ */
+/* 	this->textureData = NULL; */
 	
-	this->init(texture, width, height, xPos, yPos, angle);
-}
+/* 	this->init(texture, width, height, xPos, yPos, zPos, angle); */
+/* } */
 
-Sprite::Sprite(std::string texture, float xPos,	float yPos, float angle){
+Sprite::Sprite(std::string texture, float xPos,	float yPos, float zPos, float angle){
 	this->textureData = NULL;
 	this->LoadTexture(texture);
 	
 	this->init(texture, this->textureData->GetWidth(), this->textureData->GetHeight(),
-			xPos, yPos, angle);
+			xPos, yPos, zPos, angle);
 }
 
 /*
@@ -109,9 +111,9 @@ void Sprite::Render(void){
 	
 	/* Ensures only local changes until matrix is popped */
 	
-	glTranslatef(center.x, center.y, 0.0f);
+	glTranslatef(center.x, center.y, this->zPos);
 	glRotatef(this->angle, 0.0f, 0.0f, 1.0f);
-	glTranslatef(-this->width / 2, -this->height / 2 , 0);
+	glTranslatef(-this->width / 2, -this->height / 2 , this->zPos);
 	
 	if(this->textureData != NULL){	
 		glBindTexture(GL_TEXTURE_RECTANGLE_EXT, this->texture_handle);
@@ -133,23 +135,8 @@ void Sprite::Render(void){
 	glVertex2i( 0, this->GetHeight());
 	glEnd();
 	
-	/*
-	glBegin(GL_QUADS);
-	glVertex2i(0, 0);
-	glTexCoord2i(1, 0);
-	glVertex2i(this->GetWidth(), 0);
-	glTexCoord2i(1, 1);
-	glVertex2i(this->GetWidth(), this->GetHeight());
-	glTexCoord2i(0, 1);
-	glVertex2i(0, this->GetHeight());
-	glTexCoord2i(0, 0);
-	glEnd();
-	*/
-		//glPopAttrib();
-		//glDeleteTextures(1, &this->texture_handle);
 	glPopMatrix();	
 	glFlush();
-	
 }
 
 /*

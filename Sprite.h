@@ -15,14 +15,15 @@
 
 class Sprite : public Chunk{
 	public:
-		Sprite(float width, float height, float xPos, float yPos,
+		Sprite(float width, float height, float xPos, float yPos, float zPos = 0.0f,
 			   float angle = 0.0f);
-		Sprite(std::string texture, float xPos, float yPos, float angle = 0.0f);
-		Sprite(std::string texture, float width, float height, float xPos,
-				float yPos, float angle = 0.0f);
+		Sprite(std::string texture, float xPos, float yPos, float zPos = 0.0f, 
+				float angle = 0.0f);
+		/* Sprite(std::string texture, float width, float height, float xPos, */
+		/* 		float yPos, float zPos = 0.0f, float angle = 0.0f); */
 
 		void init(std::string texture, float width, float height, float xPos,
-					float yPos, float angle = 0.0f);
+					float yPos, float zPos = 0.0f, float angle = 0.0f);
 
 		void Render();
 
@@ -33,11 +34,6 @@ class Sprite : public Chunk{
 		/* Setters */
 		void SetSize(float width, float height);
 
-		static boost::shared_ptr<Sprite> Init(std::string texture,
-				float xPos, float yPos, float angle){
-				return boost::shared_ptr<Sprite> (new Sprite(texture, xPos, yPos, angle));
-		}
-		
 	private:
 		bool LoadTexture(std::string texture);
 		GLuint texture_handle;

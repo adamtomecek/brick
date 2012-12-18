@@ -32,22 +32,37 @@ void Game::Setup(void){
     this->app->PreserveOpenGLStates(true);
 	this->app->SetFramerateLimit(60);
 
-	// Setup a perspective projection
-    glMatrixMode(GL_PROJECTION);
-	glOrtho (0, 800, 600, 0, 0, 1);
-	glDisable(GL_DEPTH_TEST);
+	// Set color and depth clear value
+	glViewport(0,0,800,600);
+    /* glClearColor(0.0f, 0.0f, 0.0f, 0.5f); */
+    glClearDepth(1.0f);  
+	glEnable(GL_BLEND);
 	glEnable(GL_TEXTURE_RECTANGLE_EXT);
-	glMatrixMode(GL_MODELVIEW);
-	glDisable(GL_BLEND);
 	glDisable( GL_LIGHTING );
-	glDisable( GL_DITHER );
+	glDisable(GL_DITHER);
+	/* glEnable(GL_DEPTH_TEST); */
+	/* glDepthFunc(GL_LESS); */
+	glClear(GL_COLOR_BUFFER_BIT | GL_DEPTH_BUFFER_BIT);
+
+	// Setup a perspective projection
+	glMatrixMode(GL_PROJECTION);
+	glLoadIdentity();
+
+	/* glAlphaFunc(GL_GREATER, 0.5); */
+	/* glEnable(GL_ALPHA_TEST); */
+
+	glOrtho(0, 800, 600, 0, -100, 100);
+	// Setup a perspective projection
+	glMatrixMode(GL_MODELVIEW);
 
 	// Displacement trick for exact pixelization
-	glTranslatef(0.375, 0.375, 0);
+	/* glTranslatef(0.375, 0.375, 0); */
+	glTranslatef(0, 0, -5);
 
+	glLoadIdentity(); 
 
 	// Box2D initialization
-	b2Vec2 gravity(0, 1.0f);
+	b2Vec2 gravity(0, 9.8f);
 
 	b2World *w = Utils::GetWorld();
 	w = new b2World(gravity);

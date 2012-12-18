@@ -9,13 +9,47 @@
 
 #include "Node.h"
 
-Node::Node(){
+Node::~Node(void){
+
+#ifdef DEBUG
+	std::cout << "Destruct Node" << std::endl;
+#endif
+
+	std::list< boost::shared_ptr<Node> >::iterator i;
+	
+	boost::shared_ptr<Node> ptr;
+	Node *node;
+
+	for(i = this->childs.begin(); i != this->childs.end(); ++i){
+		ptr = *i;
+		node = ptr.get();
+		node->Destroy();
+	}
 }
 
-Node::Node(float xPos, float yPos, float angle){
+Node::Node(){
+
+}
+
+Node::Node(float xPos, float yPos, float zPos, float angle){
 	this->xPos = xPos;
 	this->yPos = yPos;
+	this->zPos = zPos;
 	this->angle = angle;
+}
+
+void Node::DeleteChild(boost::shared_ptr<Node> child){
+	this->childs.remove(child);
+	child->Destroy();
+}
+
+void Node::Destroy(){
+
+#ifdef DEBUG
+	std::cout << "Destroy Node" << std::endl;
+#endif
+
+	delete this;
 }
 
 void Node::Render(void){
@@ -136,12 +170,16 @@ float Node::GetYPos(void){
 	return this->yPos;
 }
 
+float Node::GetZPos(void){
+	return this->zPos;
+}
+
 float Node::GetAngle(void){
 	return this->angle;
 }
 
 Position Node::GetPosition(void){
-	Position p = {this->xPos, this->yPos};
+	Position p = {this->xPos, this->yPos, this->zPos};
 	return p;
 }
 
@@ -157,9 +195,10 @@ Position Node::GetCenter(void){
  * ********************************************************
  */
 
-void Node::SetPosition(float xPos, float yPos){
+void Node::SetPosition(float xPos, float yPos, float zPos){
 	this->xPos = xPos;
 	this->yPos = yPos;
+	this->zPos = zPos;
 }
 
 void Node::SetAngle(float angle){

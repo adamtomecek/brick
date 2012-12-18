@@ -15,6 +15,7 @@
 
 class Object : public Chunk{
 	public:
+		~Object(void);
 		explicit Object(b2World *world, float width, float height, float xPos, float yPos, float angle = 0.0f);
 		explicit Object(float width, float height, float xPos, float yPos, float angle = 0.0f);
 		explicit Object(b2World *world, Chunk *representation);
@@ -25,6 +26,8 @@ class Object : public Chunk{
 
 		void ApplyPhysics(void);
 		void Render(void);
+
+		void Destroy(void);
 
 		virtual void DefineBody(void);
 
