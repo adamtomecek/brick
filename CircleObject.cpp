@@ -10,14 +10,6 @@
 #include "CircleObject.h"
 
 void CircleObject::DefineBody(void){
-	b2BodyDef bodyDef;
-	bodyDef.type = b2_dynamicBody;
-	bodyDef.position.Set((this->xPos + this->width / 2) / RATIO,
-						 (this->yPos + this->height / 2)/ RATIO);
-	bodyDef.angle = this->angle * (M_PI / 180);
-	
-	this->body = this->world->CreateBody(&bodyDef);
-	
 	b2CircleShape circle;
 	circle.m_radius = (this->width / RATIO) / 2;
 	

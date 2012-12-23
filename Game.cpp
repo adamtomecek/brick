@@ -32,34 +32,26 @@ void Game::Setup(void){
     this->app->PreserveOpenGLStates(true);
 	this->app->SetFramerateLimit(60);
 
-	// Set color and depth clear value
 	glViewport(0,0,800,600);
-    /* glClearColor(0.0f, 0.0f, 0.0f, 0.5f); */
-    glClearDepth(1.0f);  
-	glEnable(GL_BLEND);
 	glEnable(GL_TEXTURE_RECTANGLE_EXT);
 	glDisable( GL_LIGHTING );
-	glDisable(GL_DITHER);
-	/* glEnable(GL_DEPTH_TEST); */
-	/* glDepthFunc(GL_LESS); */
-	glClear(GL_COLOR_BUFFER_BIT | GL_DEPTH_BUFFER_BIT);
+	/* glDisable(GL_DITHER); */
+	glDepthFunc(GL_LESS);
+	glEnable(GL_DEPTH_TEST);
 
 	// Setup a perspective projection
 	glMatrixMode(GL_PROJECTION);
-	glLoadIdentity();
 
-	/* glAlphaFunc(GL_GREATER, 0.5); */
-	/* glEnable(GL_ALPHA_TEST); */
+	glAlphaFunc(GL_GREATER, 0.5);
+	glEnable(GL_ALPHA_TEST);
 
 	glOrtho(0, 800, 600, 0, -100, 100);
 	// Setup a perspective projection
 	glMatrixMode(GL_MODELVIEW);
 
 	// Displacement trick for exact pixelization
-	/* glTranslatef(0.375, 0.375, 0); */
-	glTranslatef(0, 0, -5);
-
-	glLoadIdentity(); 
+	glTranslatef(0.375, 0.375, 0);
+	/* glTranslatef(0, 0, -5); */
 
 	// Box2D initialization
 	b2Vec2 gravity(0, 9.8f);
@@ -72,7 +64,7 @@ void Game::Setup(void){
 
 	// Ground definition
 	b2BodyDef groundBodyDef;
-	groundBodyDef.position.Set(0.0f, 0.0f);
+	groundBodyDef.position.Set(0.0f / RATIO / 2, 0.0f / RATIO / 2);
 
 	b2Body *groundBody = w->CreateBody(&groundBodyDef);
 
@@ -80,6 +72,10 @@ void Game::Setup(void){
 	b2FixtureDef boxShapeDef;
 	boxShapeDef.shape = &groundEdge;
 	groundEdge.Set(b2Vec2(0.0f, 600.0f / RATIO), b2Vec2(800.0f / RATIO, 600.0f / RATIO));
+
+	/* b2PolygonShape groundBox; */
+	/* groundBox.SetAsBox(800.0f / RATIO / 2, 600.0f / RATIO / 2); */
+	/* groundBody->CreateFixture(&groundBox, 1.0f); */
 	groundBody->CreateFixture(&boxShapeDef);
 
 	// DebugDraw initialization
@@ -117,20 +113,6 @@ int Game::Loop(void){
             if ((Event.Type == sf::Event::KeyPressed) && (Event.Key.Code == sf::Key::Escape))			
 				this->app->Close();
 
-			if (DEBUG_DRAW) {
-				glLoadIdentity();
-				glDisable(GL_TEXTURE_2D);
-				glDisableClientState(GL_COLOR_ARRAY);
-				glDisableClientState(GL_TEXTURE_COORD_ARRAY);
-				glEnableClientState(GL_VERTEX_ARRAY);
-				glPushMatrix();
-				glScalef(RATIO, RATIO, 0);
-				this->world->DrawDebugData();
-				glPopMatrix();
-				glEnable(GL_TEXTURE_2D);
-				glEnableClientState(GL_COLOR_ARRAY);
-				glEnableClientState(GL_TEXTURE_COORD_ARRAY);
-			}
 
 			// Adjust the viewport when the window is resized
             if (Event.Type == sf::Event::Resized)
@@ -144,11 +126,31 @@ int Game::Loop(void){
 
 		// Game logic for Lua
 		this->Step();
+		this->world->Step(TIME_STEP, VELOCITY_ITERATIONS, POSITION_ITERATIONS);
+
+		if (DEBUG_DRAW) {
+			std::cout << "DebugDraw" << std::endl;
+			glLoadIdentity();
+			glDisable(GL_TEXTURE_2D);
+			glDisableClientState(GL_COLOR_ARRAY);
+			glDisableClientState(GL_TEXTURE_COORD_ARRAY);
+			glEnableClientState(GL_VERTEX_ARRAY);
+			glPushMatrix();
+			glScalef(RATIO, RATIO, 0);
+			this->world->DrawDebugData();
+			glPopMatrix();
+			glEnable(GL_TEXTURE_2D);
+			glEnableClientState(GL_COLOR_ARRAY);
+			glEnableClientState(GL_TEXTURE_COORD_ARRAY);
+		}
 
 		// Finally, display the rendered frame on screen
-		this->world->Step(TIME_STEP, VELOCITY_ITERATIONS, POSITION_ITERATIONS);
 		this->scene->Render();
         this->app->Display();
+		this->app->Clear();
+		glClear(GL_DEPTH_BUFFER_BIT);
+		glClear(GL_COLOR_BUFFER_BIT);
+
     }
 	return EXIT_SUCCESS;
 }

@@ -6,20 +6,23 @@ function MyGame:__init()
 	s = MyScene()
 
 	sprite = Sprite("circle.png", 100, 100, 10, 0)
+	sprite2 = Sprite("circle.png", 200, 200, -20, 0)
 	-- o = CircleObject(sprite)
 
 	self:SetScene(s)
-	o = CircleObject(sprite)
+	self.sprite = sprite
+	s:AddChild(sprite)
+	s:AddChild(sprite2)
+	-- o = CircleObject(sprite)
 
-	s:AddChild(o)
+	-- s:AddChild(o)
 
-	self.sprite = o
 	self.scene = s
 	self.game = self
 end
 
 function MyGame:Step()
-	-- self.sprite:Rotate(1)
+	self.sprite:Rotate(1)
 end
 
 class 'MyScene' (Scene)

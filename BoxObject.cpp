@@ -11,14 +11,6 @@
 #include "BoxObject.h"
 
 void BoxObject::DefineBody(void){
-	b2BodyDef bodyDef;
-	bodyDef.type = b2_dynamicBody;
-	bodyDef.position.Set((this->xPos + this->width / 2)/ RATIO, 
-						 (this->yPos + this->height / 2) / RATIO);
-	bodyDef.angle = this->angle * (M_PI / 180);
-
-	this->body = Utils::GetWorld()->CreateBody(&bodyDef);
-
 	b2PolygonShape box;
 	box.SetAsBox((this->width / 2) / RATIO, (this->height / 2) / RATIO);
 

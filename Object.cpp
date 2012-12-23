@@ -51,7 +51,8 @@ Object::Object(b2World *world, float width, float height, float xPos, float yPos
 
 void Object::init(b2World *world, float width, float height, float xPos,
 		float yPos, float angle){
-	
+
+	this->fixedRotation = false;	
 	this->body = NULL;
 	this->xPos = xPos;
 	this->yPos = yPos;
@@ -59,6 +60,22 @@ void Object::init(b2World *world, float width, float height, float xPos,
 	this->angle = angle;
 	this->width = width;
 	this->height = height;
+
+	this->CreateBody();
+
+	return ;
+}
+
+void Object::CreateBody(void){
+	b2BodyDef bodyDef;
+	bodyDef.type = b2_dynamicBody;
+	bodyDef.position.Set((this->xPos + this->width / 2) / RATIO,
+						 (this->yPos + this->height / 2)/ RATIO);
+	bodyDef.angle = this->angle * (M_PI / 180);
+	
+	this->body = this->world->CreateBody(&bodyDef);
+
+	return ;
 }
 
 void Object::DefineBody(void){
@@ -118,5 +135,9 @@ Size Object::GetSize(void){
 void Object::SetSize(float width, float height){
 	this->width = width;
 	this->height = height;
+}
+
+void Object::SetFixedRotation(bool fixed){
+	this->fixedRotation = fixed;
 }
 

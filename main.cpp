@@ -63,9 +63,12 @@ int main(int argc, char **argv)
 	if (luaErr != 0)
 		std::cout << "Lua load file error: " << lua_tostring(luaState, -1) << std::endl;
 
-	while(1){
-
-	}
+	/* Game *g = new Game(); */
+	/* Sprite *sp = new Sprite("circle.png", 100, 100, 100, 100); */
+	/* CircleObject *o = new CircleObject(sp); */
+	/* Scene *s = new Scene(); */
+	/* g->SetScene(s); */
+	/* g->Loop(); */
 
 	lua_close(luaState);
     return EXIT_SUCCESS;

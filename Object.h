@@ -36,6 +36,7 @@ class Object : public Chunk{
 
 		/* Setters */
 		void SetSize(float width, float height);
+		void SetFixedRotation(bool fixed);
 
 		/* Lua binding */
 		static void Lua(lua_State *lua){
@@ -50,9 +51,12 @@ class Object : public Chunk{
 		}
 
 	protected:
+		void CreateBody(void);
+
 		b2World *world;
 		b2Body *body;
 		Chunk *representation;
+		bool fixedRotation;
 };
 
 #endif
