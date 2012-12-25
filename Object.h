@@ -26,10 +26,15 @@ class Object : public Chunk{
 
 		void ApplyPhysics(void);
 		void Render(void);
-
 		void Destroy(void);
 
-		virtual void DefineBody(void);
+		void ApplyForce(float forceX, float forceY, float pointX,
+				float pointY);
+		void ApplyForceToCenter(float forceX, float forceY);
+		void ApplyTorque(float32 torque);
+		void ApplyLinearImpulse(float impX, float impY, float pointX,
+				float pointY);
+		void ApplyAngularImpulse(float32 impulse);
 
 		/* Getters */
 		Size GetSize(void);
@@ -57,6 +62,7 @@ class Object : public Chunk{
 		b2Body *body;
 		Chunk *representation;
 		bool fixedRotation;
+		virtual void DefineBody(void);
 };
 
 #endif

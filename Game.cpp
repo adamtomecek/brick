@@ -80,21 +80,23 @@ void Game::Setup(void){
 
 	// DebugDraw initialization
 	if (DEBUG_DRAW) {
-		DebugDraw debug;
+		DebugDraw *debug = new DebugDraw();
+		this->world->SetDebugDraw(debug);
+
 		uint32 flags = 0;
 		flags += 1	* b2Draw::e_shapeBit;
 		flags += 1	* b2Draw::e_jointBit;
-		//flags += 1	* b2Draw::e_aabbBit;
+		/* flags += 1	* b2Draw::e_aabbBit; */
 		flags += 1	* b2Draw::e_pairBit;
 		flags += 1	* b2Draw::e_centerOfMassBit;
 	
-		debug.SetFlags(flags);
-	
-		this->world->SetDebugDraw(&debug);
+		debug->SetFlags(flags);
 	}
 
 }
+
 int Game::Loop(void){
+
 	// Start game loop
     while (this->app->IsOpened())
     {
@@ -129,7 +131,6 @@ int Game::Loop(void){
 		this->world->Step(TIME_STEP, VELOCITY_ITERATIONS, POSITION_ITERATIONS);
 
 		if (DEBUG_DRAW) {
-			std::cout << "DebugDraw" << std::endl;
 			glLoadIdentity();
 			glDisable(GL_TEXTURE_2D);
 			glDisableClientState(GL_COLOR_ARRAY);
@@ -140,14 +141,14 @@ int Game::Loop(void){
 			this->world->DrawDebugData();
 			glPopMatrix();
 			glEnable(GL_TEXTURE_2D);
+			glEnable(GL_BLEND);
 			glEnableClientState(GL_COLOR_ARRAY);
 			glEnableClientState(GL_TEXTURE_COORD_ARRAY);
 		}
 
-		// Finally, display the rendered frame on screen
-		this->scene->Render();
+		// Finally, display the rendered frame on 
+		/* this->scene->Render(); */
         this->app->Display();
-		this->app->Clear();
 		glClear(GL_DEPTH_BUFFER_BIT);
 		glClear(GL_COLOR_BUFFER_BIT);
 

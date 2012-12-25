@@ -67,6 +67,7 @@ int main(int argc, char **argv)
 	/* Sprite *sp = new Sprite("circle.png", 100, 100, 100, 100); */
 	/* CircleObject *o = new CircleObject(sp); */
 	/* Scene *s = new Scene(); */
+	/* /1* s->AddChild(o); *1/ */
 	/* g->SetScene(s); */
 	/* g->Loop(); */
 

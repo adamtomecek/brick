@@ -82,6 +82,43 @@ void Object::DefineBody(void){
 	
 }
 
+void Object::ApplyForce(float forceX, float forceY, float pointX, float pointY){
+	b2Vec2 force(forceX / RATIO, forceY / RATIO);
+	b2Vec2 point(pointX / RATIO, pointY / RATIO);
+	this->body->ApplyForce(force, point);
+
+	return ;
+}
+
+void Object::ApplyForceToCenter(float forceX, float forceY){
+	b2Vec2 force(forceX / RATIO, forceY / RATIO);
+	this->body->ApplyForceToCenter(force);
+
+	return ;
+}
+
+void Object::ApplyTorque(float32 torque){
+	this->body->ApplyTorque(torque);
+
+	return;
+}
+
+void Object::ApplyLinearImpulse(float impX, float impY, float pointX,
+				float pointY){
+	b2Vec2 impulse(impX / RATIO, impY / RATIO);
+	b2Vec2 point(pointX / RATIO, pointY / RATIO);
+
+	this->body->ApplyLinearImpulse(impulse, point);
+
+	return ;
+}
+
+void Object::ApplyAngularImpulse(float32 impulse){
+	this->body->ApplyAngularImpulse(impulse);
+
+	return;
+}
+
 void Object::Render(void){
 	this->RenderChilds();
 	this->ApplyPhysics();
@@ -107,12 +144,12 @@ void Object::Destroy(void){
 
 void Object::ApplyPhysics(){
 	b2Vec2 position = this->body->GetPosition();
-	float angel = this->body->GetAngle() / (M_PI / 180);
 	this->angle = this->body->GetAngle() / (M_PI / 180);
 
 	this->xPos = (position.x * RATIO - this->width / 2);
 	this->yPos = (position.y * RATIO - this->height / 2);
 
+	return ;
 }
 
 /*

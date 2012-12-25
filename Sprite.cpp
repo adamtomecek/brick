@@ -80,6 +80,7 @@ bool Sprite::LoadTexture(std::string fileName){
 }
 
 void Sprite::LoadGLTexture(void){
+	if(!DEBUG_DRAW){
 	glGenTextures(1, &this->texture_handle);
 	
 	glBindTexture(GL_TEXTURE_RECTANGLE_EXT, this->texture_handle);
@@ -98,6 +99,7 @@ void Sprite::LoadGLTexture(void){
 	/* Transparency */
 	glBlendFunc(GL_SRC_ALPHA, GL_ONE_MINUS_SRC_ALPHA);
 	glEnable(GL_BLEND);
+	}
 }
 
 /*
@@ -125,7 +127,7 @@ void Sprite::Render(void){
 
 	float z = this->zPos;	
 	glBegin( GL_QUADS );
-	glTexCoord3f( 0, this->GetHeight(),z );                           
+	glTexCoord3f( 0, this->GetHeight(), z);                           
 	glVertex3f( 0, 0, z);
 	glTexCoord3f(this->GetWidth(), this->GetHeight(), z);
 	glVertex3f(this->GetWidth(), 0 , z);
