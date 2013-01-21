@@ -22,17 +22,6 @@ class Scene : public Node{
 		virtual void MouseInput(unsigned int x, unsigned int y,
 				short buttonCode);
 
-		/* lua binding */
-		static void Lua(lua_State *lua){
-			luabind::module(lua)
-			[
-			 luabind::class_<Scene, Node, boost::shared_ptr<Node> >("Scene")
-			 .def(luabind::constructor<>())
-			 .def("MouseInput", &Scene::MouseInput)
-			 .def("KeyboardInput", &Scene::KeyboardInput)
-			 ];
-		}
-
 	private:
 		float calculateFPS(void);
 		void printw(float x, float y, float z, const char* format, ...);

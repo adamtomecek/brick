@@ -31,17 +31,6 @@ class Game{
 
 		Input *input;
 
-		static void Lua(lua_State *lua){
-			luabind::module(lua)
-			[
-			luabind::class_<Game>("Game")
-			.def(luabind::constructor<>())
-			.def("Loop", &Game::Loop)
-			.def("Step", &Game::Step)
-			.def("SetScene", &Game::SetScene)
-			];
-		}
-
 	private:
 		void Setup(void);
 		void HandleInput(void);

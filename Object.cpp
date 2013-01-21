@@ -48,7 +48,6 @@ Object::Object(b2World *world, float width, float height, float xPos, float yPos
 		//this->representation = NULL;
 }
 
-
 void Object::init(b2World *world, float width, float height, float xPos,
 		float yPos, float angle){
 
@@ -80,43 +79,6 @@ void Object::CreateBody(void){
 
 void Object::DefineBody(void){
 	
-}
-
-void Object::ApplyForce(float forceX, float forceY, float pointX, float pointY){
-	b2Vec2 force(forceX / RATIO, forceY / RATIO);
-	b2Vec2 point(pointX / RATIO, pointY / RATIO);
-	this->body->ApplyForce(force, point);
-
-	return ;
-}
-
-void Object::ApplyForceToCenter(float forceX, float forceY){
-	b2Vec2 force(forceX / RATIO, forceY / RATIO);
-	this->body->ApplyForceToCenter(force);
-
-	return ;
-}
-
-void Object::ApplyTorque(float32 torque){
-	this->body->ApplyTorque(torque);
-
-	return;
-}
-
-void Object::ApplyLinearImpulse(float impX, float impY, float pointX,
-				float pointY){
-	b2Vec2 impulse(impX / RATIO, impY / RATIO);
-	b2Vec2 point(pointX / RATIO, pointY / RATIO);
-
-	this->body->ApplyLinearImpulse(impulse, point);
-
-	return ;
-}
-
-void Object::ApplyAngularImpulse(float32 impulse){
-	this->body->ApplyAngularImpulse(impulse);
-
-	return;
 }
 
 void Object::Render(void){
@@ -178,3 +140,41 @@ void Object::SetFixedRotation(bool fixed){
 	this->fixedRotation = fixed;
 }
 
+
+		/*************** Box2D functions *************************/
+void Object::ApplyForce(float forceX, float forceY, float pointX, float pointY){
+	b2Vec2 force(forceX / RATIO, forceY / RATIO);
+	b2Vec2 point(pointX / RATIO, pointY / RATIO);
+	this->body->ApplyForce(force, point);
+
+	return ;
+}
+
+void Object::ApplyForceToCenter(float forceX, float forceY){
+	b2Vec2 force(forceX / RATIO, forceY / RATIO);
+	this->body->ApplyForceToCenter(force);
+
+	return ;
+}
+
+void Object::ApplyTorque(float32 torque){
+	this->body->ApplyTorque(torque);
+
+	return;
+}
+
+void Object::ApplyLinearImpulse(float impX, float impY, float pointX,
+				float pointY){
+	b2Vec2 impulse(impX / RATIO, impY / RATIO);
+	b2Vec2 point(pointX / RATIO, pointY / RATIO);
+
+	this->body->ApplyLinearImpulse(impulse, point);
+
+	return ;
+}
+
+void Object::ApplyAngularImpulse(float32 impulse){
+	this->body->ApplyAngularImpulse(impulse);
+
+	return;
+}

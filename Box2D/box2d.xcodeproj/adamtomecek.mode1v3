@@ -229,8 +229,6 @@
 			<key>Layout</key>
 			<array>
 				<dict>
-					<key>BecomeActive</key>
-					<true/>
 					<key>ContentConfiguration</key>
 					<dict>
 						<key>PBXBottomSmartGroupGIDs</key>
@@ -306,18 +304,32 @@
 					<key>Dock</key>
 					<array>
 						<dict>
+							<key>BecomeActive</key>
+							<true/>
 							<key>ContentConfiguration</key>
 							<dict>
 								<key>PBXProjectModuleGUID</key>
 								<string>1CE0B20306471E060097A5F4</string>
 								<key>PBXProjectModuleLabel</key>
-								<string>&lt;No Editor&gt;</string>
+								<string>b2Settings.h</string>
 								<key>PBXSplitModuleInNavigatorKey</key>
 								<dict>
 									<key>Split0</key>
 									<dict>
 										<key>PBXProjectModuleGUID</key>
 										<string>1CE0B20406471E060097A5F4</string>
+										<key>PBXProjectModuleLabel</key>
+										<string>b2Settings.h</string>
+										<key>_historyCapacity</key>
+										<integer>0</integer>
+										<key>bookmark</key>
+										<string>C2F50F3B16A2D11500FB01A5</string>
+										<key>history</key>
+										<array>
+											<string>C2F50F3816A2D11500FB01A5</string>
+											<string>C2F50F3916A2D11500FB01A5</string>
+											<string>C2F50F3A16A2D11500FB01A5</string>
+										</array>
 									</dict>
 									<key>SplitCount</key>
 									<string>1</string>
@@ -328,14 +340,14 @@
 							<key>GeometryConfiguration</key>
 							<dict>
 								<key>Frame</key>
-								<string>{{0, 0}, {1072, 0}}</string>
+								<string>{{0, 0}, {1072, 512}}</string>
 								<key>RubberWindowFrame</key>
 								<string>0 114 1280 664 0 0 1280 778 </string>
 							</dict>
 							<key>Module</key>
 							<string>PBXNavigatorGroup</string>
 							<key>Proportion</key>
-							<string>0pt</string>
+							<string>512pt</string>
 						</dict>
 						<dict>
 							<key>ContentConfiguration</key>
@@ -348,14 +360,14 @@
 							<key>GeometryConfiguration</key>
 							<dict>
 								<key>Frame</key>
-								<string>{{0, 5}, {1072, 618}}</string>
+								<string>{{0, 517}, {1072, 106}}</string>
 								<key>RubberWindowFrame</key>
 								<string>0 114 1280 664 0 0 1280 778 </string>
 							</dict>
 							<key>Module</key>
 							<string>XCDetailModule</string>
 							<key>Proportion</key>
-							<string>618pt</string>
+							<string>106pt</string>
 						</dict>
 					</array>
 					<key>Proportion</key>
@@ -374,9 +386,9 @@
 			</array>
 			<key>TableOfContents</key>
 			<array>
-				<string>C249EBB815C1697700B882C9</string>
+				<string>C2F50F3316A2D07E00FB01A5</string>
 				<string>1CE0B1FE06471DED0097A5F4</string>
-				<string>C249EBB915C1697700B882C9</string>
+				<string>C2F50F3416A2D07E00FB01A5</string>
 				<string>1CE0B20306471E060097A5F4</string>
 				<string>1CE0B20506471E060097A5F4</string>
 			</array>
@@ -515,7 +527,7 @@
 	<key>WindowOrderList</key>
 	<array>
 		<string>C249EBBB15C1697700B882C9</string>
-		<string>/Users/adamtomecek/Programovani/sdl/box2d/box2d.xcodeproj</string>
+		<string>/Users/adamtomecek/Programovani/games/sfml/box2d/box2d.xcodeproj</string>
 	</array>
 	<key>WindowString</key>
 	<string>0 114 1280 664 0 0 1280 778 </string>
@@ -539,7 +551,7 @@
 								<key>PBXProjectModuleGUID</key>
 								<string>1CD0528F0623707200166675</string>
 								<key>PBXProjectModuleLabel</key>
-								<string>&lt;No Editor&gt;</string>
+								<string></string>
 								<key>StatusBarVisibility</key>
 								<true/>
 							</dict>
@@ -556,8 +568,6 @@
 							<string>0pt</string>
 						</dict>
 						<dict>
-							<key>BecomeActive</key>
-							<true/>
 							<key>ContentConfiguration</key>
 							<dict>
 								<key>PBXProjectModuleGUID</key>
@@ -597,7 +607,7 @@
 			<key>TableOfContents</key>
 			<array>
 				<string>C249EBBB15C1697700B882C9</string>
-				<string>C249EBBC15C1697700B882C9</string>
+				<string>C2F50F3516A2D07E00FB01A5</string>
 				<string>1CD0528F0623707200166675</string>
 				<string>XCMainBuildResultsModuleGUID</string>
 			</array>

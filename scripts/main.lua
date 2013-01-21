@@ -39,7 +39,7 @@ end
 function MyScene:MouseInput(x, y, button_code)
 	if button_code == Mouse.left then
 		local s = Sprite("circle.png", x, y, 0, 0)
-		o = CircleObject(s)
+		o = CustomObject(s, "object2.json")
 		self:AddChild(o)
 		self.a[self.i] = o
 		self.i = self.i + 1

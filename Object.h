@@ -28,14 +28,6 @@ class Object : public Chunk{
 		void Render(void);
 		void Destroy(void);
 
-		void ApplyForce(float forceX, float forceY, float pointX,
-				float pointY);
-		void ApplyForceToCenter(float forceX, float forceY);
-		void ApplyTorque(float32 torque);
-		void ApplyLinearImpulse(float impX, float impY, float pointX,
-				float pointY);
-		void ApplyAngularImpulse(float32 impulse);
-
 		/* Getters */
 		Size GetSize(void);
 
@@ -43,17 +35,14 @@ class Object : public Chunk{
 		void SetSize(float width, float height);
 		void SetFixedRotation(bool fixed);
 
-		/* Lua binding */
-		static void Lua(lua_State *lua){
-		luabind::module(lua)
-		[
-		 luabind::class_<Object, Chunk, boost::shared_ptr<Node> >("Object")
-		 .def(luabind::constructor<Chunk*>(), luabind::adopt(luabind::result))
-		 /* .def(luabind::constructor<b2World *, boost::shared_ptr<Chunk> >()) */
-		 /* .def(luabind::constructor<b2World *, float, float, float, float, float>()) */
-		 /* .def(luabind::constructor<float, float, float, float, float>()) */
-		 ];
-		}
+		/*************** Box2D functions *************************/
+		void ApplyForce(float forceX, float forceY, float pointX,
+				float pointY);
+		void ApplyForceToCenter(float forceX, float forceY);
+		void ApplyTorque(float32 torque);
+		void ApplyLinearImpulse(float impX, float impY, float pointX,
+				float pointY);
+		void ApplyAngularImpulse(float32 impulse);
 
 	protected:
 		void CreateBody(void);

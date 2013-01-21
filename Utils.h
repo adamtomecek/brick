@@ -11,6 +11,8 @@
 #define UTILS_H
 
 #include "Includes.h"
+#include "lua.h"
+#include "lualib.h"
 
 struct Position{
 	float x;
@@ -27,6 +29,11 @@ struct PointRotation{
 	float x;
 	float y;
 	float angle;
+};
+
+struct Point{
+	float x;
+	float y;
 };
 
 class Utils{
@@ -76,3 +83,4 @@ private:
 
 
 #endif
+

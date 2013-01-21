@@ -6,8 +6,10 @@
 #include "SpriteWrapper.h"
 #include "ObjectWrapper.h"
 #include "BoxObjectWrapper.h"
+#include "CustomObjectWrapper.h"
 #include "CircleObjectWrapper.h"
 #include "GameWrapper.h"
+#include "CustomObject.h"
 
 int main(int argc, char **argv)
 {
@@ -29,6 +31,7 @@ int main(int argc, char **argv)
 	SpriteWrapper::Lua(luaState);
 	ObjectWrapper::Lua(luaState);
 	BoxObjectWrapper::Lua(luaState);
+	CustomObjectWrapper::Lua(luaState);
 	CircleObjectWrapper::Lua(luaState);
 
 	luabind::module(luaState)
@@ -63,15 +66,18 @@ int main(int argc, char **argv)
 	if (luaErr != 0)
 		std::cout << "Lua load file error: " << lua_tostring(luaState, -1) << std::endl;
 
+
 	/* Game *g = new Game(); */
 	/* Sprite *sp = new Sprite("circle.png", 100, 100, 100, 100); */
-	/* CircleObject *o = new CircleObject(sp); */
+	/* /1* CircleObject *o = new CircleObject(sp); *1/ */
 	/* Scene *s = new Scene(); */
 	/* /1* s->AddChild(o); *1/ */
 	/* g->SetScene(s); */
+	/* Chunk *c = new Chunk(); */
+	/* CustomObject *o = new CustomObject(c, "object2.json"); */
 	/* g->Loop(); */
 
 	lua_close(luaState);
+	
     return EXIT_SUCCESS;
 }
-
