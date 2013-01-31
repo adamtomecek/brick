@@ -6,9 +6,9 @@
 #include "SpriteWrapper.h"
 #include "ObjectWrapper.h"
 #include "BoxObjectWrapper.h"
-#include "CustomObjectWrapper.h"
 #include "CircleObjectWrapper.h"
-#include "CustomObject.h"
+#include "CustomObjectWrapper.h"
+#include "CustomStaticObjectWrapper.h"
 #include "GameWrapper.h"
 
 int main(int argc, char **argv)
@@ -31,8 +31,9 @@ int main(int argc, char **argv)
 	SpriteWrapper::Lua(luaState);
 	ObjectWrapper::Lua(luaState);
 	BoxObjectWrapper::Lua(luaState);
-	CustomObjectWrapper::Lua(luaState);
 	CircleObjectWrapper::Lua(luaState);
+	CustomObjectWrapper::Lua(luaState);
+	CustomStaticObjectWrapper::Lua(luaState);
 
 	luabind::module(luaState)
 		[

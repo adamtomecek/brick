@@ -19,10 +19,13 @@ class CustomObject : public Object{
 		explicit CustomObject(Chunk *representation, std::string data) : 
 		Object::Object(representation) {
 			this->json = new JsonLoader(data);
+			this->CreateBody();
 			this->DefineBody();
 		}
 
 		virtual void DefineBody(void);
+
+	private:
 		JsonLoader *json;
 
 };

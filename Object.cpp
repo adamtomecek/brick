@@ -63,7 +63,8 @@ void Object::init(b2World *world, float width, float height, float xPos,
 	this->width = width;
 	this->height = height;
 
-	this->CreateBody();
+	/* this->CreateBody(); */
+	/* this->DefineBody(); */
 
 	return ;
 }
@@ -81,7 +82,6 @@ void Object::CreateBody(void){
 }
 
 void Object::DefineBody(void){
-	
 }
 
 void Object::Render(void){

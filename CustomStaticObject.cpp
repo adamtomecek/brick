@@ -1,15 +1,28 @@
 /*
- *  CustomObject.cpp
+ *  CustomStaticObject.cpp
  *  sfml
  *
- *  Created by Adam Tomeček on 12/27/12.
- *  Copyright 2012 Brain Dead Cookie. All rights reserved.
+ *  Created by Adam Tomeček on 1/31/13.
+ *  Copyright 2013 Brain Dead Cookie. All rights reserved.
  *
  */
 
-#include "CustomObject.h"
+#include "CustomStaticObject.h"
 
-void CustomObject::DefineBody(void){
+void CustomStaticObject::CreateBody(void){
+	b2BodyDef bodyDef;
+	bodyDef.type = b2_staticBody;
+	bodyDef.position.Set((this->xPos + this->width / 2) / RATIO,
+						 (this->yPos + this->height / 2)/ RATIO);
+	bodyDef.angle = this->angle * (M_PI / 180);
+	
+	this->body = this->world->CreateBody(&bodyDef);
+
+	return ;
+}
+
+void CustomStaticObject::DefineBody(void){
+	this->CreateBody();
 	std::list<Point> *points = this->json->GetPoints();
 	int size = points->size();
 	b2Vec2 verticles[size];

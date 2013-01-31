@@ -6,14 +6,17 @@ function MyGame:__init()
 	s = MyScene()
 
 	sprite = Sprite("icon.jpg", 400, 100, 10, 0)
+	sprite3 = Sprite("icon.jpg", 200, 100, 10, 0)
 	sprite2 = Sprite("icon.jpg", 0, 0, -20, 0)
-	o = BoxObject(sprite)
+	-- o = BoxObject(sprite)
+	x = CustomStaticObject(sprite3, "object2.json")
 
 	self:SetScene(s)
 	self.sprite = sprite2
 	s:AddChild(sprite2)
 
-	s:AddChild(o)
+	-- s:AddChild(o)
+	s:AddChild(x)
 
 	s.c = o
 

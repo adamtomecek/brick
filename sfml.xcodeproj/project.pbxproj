@@ -45,6 +45,7 @@
 		C2E8738A168E2DE200E6A74B /* libbox2d.a in Frameworks */ = {isa = PBXBuildFile; fileRef = C2E87389168E2DE200E6A74B /* libbox2d.a */; };
 		C2E8AFDE16BABC16004800B2 /* CircleObject.cpp in Sources */ = {isa = PBXBuildFile; fileRef = C2E8AFD816BABC16004800B2 /* CircleObject.cpp */; };
 		C2E8AFDF16BABC16004800B2 /* CustomObject.cpp in Sources */ = {isa = PBXBuildFile; fileRef = C2E8AFDB16BABC16004800B2 /* CustomObject.cpp */; };
+		C2E8B0AC16BACFCA004800B2 /* CustomStaticObject.cpp in Sources */ = {isa = PBXBuildFile; fileRef = C2E8B0AB16BACFCA004800B2 /* CustomStaticObject.cpp */; };
 		C2F2051F16BAACA400ACA055 /* JsonLoader.cpp in Sources */ = {isa = PBXBuildFile; fileRef = C2F2051E16BAACA400ACA055 /* JsonLoader.cpp */; };
 		C2F50E5916A2280D00FB01A5 /* p.json in Resources */ = {isa = PBXBuildFile; fileRef = C2F50E5816A2280D00FB01A5 /* p.json */; };
 /* End PBXBuildFile section */
@@ -145,6 +146,9 @@
 		C2E8AFDB16BABC16004800B2 /* CustomObject.cpp */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.cpp.cpp; path = CustomObject.cpp; sourceTree = "<group>"; };
 		C2E8AFDC16BABC16004800B2 /* CustomObject.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = CustomObject.h; sourceTree = "<group>"; };
 		C2E8AFDD16BABC16004800B2 /* CustomObjectWrapper.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = CustomObjectWrapper.h; sourceTree = "<group>"; };
+		C2E8B0AA16BACFCA004800B2 /* CustomStaticObject.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = CustomStaticObject.h; sourceTree = "<group>"; };
+		C2E8B0AB16BACFCA004800B2 /* CustomStaticObject.cpp */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.cpp.cpp; path = CustomStaticObject.cpp; sourceTree = "<group>"; };
+		C2E8B0AF16BADE0B004800B2 /* CustomStaticObjectWrapper.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = CustomStaticObjectWrapper.h; sourceTree = "<group>"; };
 		C2F2051D16BAACA400ACA055 /* JsonLoader.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = JsonLoader.h; sourceTree = "<group>"; };
 		C2F2051E16BAACA400ACA055 /* JsonLoader.cpp */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.cpp.cpp; path = JsonLoader.cpp; sourceTree = "<group>"; };
 		C2F50E5816A2280D00FB01A5 /* p.json */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text; path = p.json; sourceTree = "<group>"; };
@@ -271,6 +275,9 @@
 				C2CFFE1C166CB05400ABF129 /* SpriteWrapper.h */,
 				C2F2051D16BAACA400ACA055 /* JsonLoader.h */,
 				C2F2051E16BAACA400ACA055 /* JsonLoader.cpp */,
+				C2E8B0AA16BACFCA004800B2 /* CustomStaticObject.h */,
+				C2E8B0AB16BACFCA004800B2 /* CustomStaticObject.cpp */,
+				C2E8B0AF16BADE0B004800B2 /* CustomStaticObjectWrapper.h */,
 			);
 			name = Sources;
 			sourceTree = "<group>";
@@ -435,6 +442,7 @@
 				C2F2051F16BAACA400ACA055 /* JsonLoader.cpp in Sources */,
 				C2E8AFDE16BABC16004800B2 /* CircleObject.cpp in Sources */,
 				C2E8AFDF16BABC16004800B2 /* CustomObject.cpp in Sources */,
+				C2E8B0AC16BACFCA004800B2 /* CustomStaticObject.cpp in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};

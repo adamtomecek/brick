@@ -18,19 +18,23 @@ class BoxObject : public Object {
 		explicit BoxObject(b2World *world, float width, float height, 
 				float xPos, float yPos, float angle = 0.0f): 
 			Object::Object(world, width, height, xPos, yPos, angle) {
+				this->CreateBody();
 				this->DefineBody();
 			}
 		explicit BoxObject(b2World *world, Chunk *representation) :
 			Object::Object(world, representation) {
+				this->CreateBody();
 				this->DefineBody();
 			}
 	explicit BoxObject(float width, float height, 
 					   float xPos, float yPos, float angle = 0.0f): 
 	Object::Object(width, height, xPos, yPos, angle) {
+		this->CreateBody();
 		this->DefineBody();
 	}
 	explicit BoxObject(Chunk *representation) : 
 	Object::Object(representation) {
+		this->CreateBody();
 		this->DefineBody();
 	}
 

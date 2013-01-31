@@ -45,13 +45,13 @@ class Object : public Chunk{
 		void ApplyAngularImpulse(float32 impulse);
 
 	protected:
-		void CreateBody(void);
+		virtual void CreateBody(void);
+		virtual void DefineBody(void);
 
 		b2World *world;
 		b2Body *body;
 		Chunk *representation;
 		bool fixedRotation;
-		virtual void DefineBody(void);
 };
 
 #endif
