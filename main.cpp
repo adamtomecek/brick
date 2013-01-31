@@ -8,8 +8,8 @@
 #include "BoxObjectWrapper.h"
 #include "CustomObjectWrapper.h"
 #include "CircleObjectWrapper.h"
-#include "GameWrapper.h"
 #include "CustomObject.h"
+#include "GameWrapper.h"
 
 int main(int argc, char **argv)
 {

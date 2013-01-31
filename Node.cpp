@@ -23,7 +23,7 @@ Node::~Node(void){
 	for(i = this->childs.begin(); i != this->childs.end(); ++i){
 		ptr = *i;
 		node = ptr.get();
-		node->Destroy();
+		ptr.reset();
 	}
 }
 

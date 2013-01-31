@@ -14,7 +14,10 @@ Object::~Object(void){
 	std::cout << "Destruct Object" << std::endl;
 #endif
 
-	delete this->representation;
+	this->world->DestroyBody(this->body);
+	this->body = NULL;	
+
+	/* delete this->representation; */
 	this->representation = NULL;
 }
 
@@ -94,11 +97,8 @@ void Object::Render(void){
 
 void Object::Destroy(void){
 #ifdef DEBUG
-	std::cout << "Destruct Object" << std::endl;
+	std::cout << "Destroy Object" << std::endl;
 #endif
-
-	this->world->DestroyBody(this->body);
-	this->body = NULL;	
 
 	/* delete this->representation; */
 	delete this;

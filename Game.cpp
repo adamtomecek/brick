@@ -147,7 +147,10 @@ int Game::Loop(void){
 		}
 
 		// Finally, display the rendered frame on 
-		/* this->scene->Render(); */
+		if(!DEBUG_DRAW){
+			this->scene->Render();
+		}
+		
         this->app->Display();
 		glClear(GL_DEPTH_BUFFER_BIT);
 		glClear(GL_COLOR_BUFFER_BIT);

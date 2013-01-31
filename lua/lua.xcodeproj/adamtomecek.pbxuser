@@ -67,26 +67,16 @@
 					PBXFileDataSource_Warnings_ColumnID,
 				);
 			};
-			PBXPerProjectTemplateStateSaveDate = 378415427;
-			PBXWorkspaceStateSaveDate = 378415427;
+			PBXPerProjectTemplateStateSaveDate = 381335139;
+			PBXWorkspaceStateSaveDate = 381335139;
 		};
 		perUserProjectItems = {
-			C22590FB1657A849008112F7 /* PBXTextBookmark */ = C22590FB1657A849008112F7 /* PBXTextBookmark */;
-			C2E872D1168E294600E6A74B /* PBXTextBookmark */ = C2E872D1168E294600E6A74B /* PBXTextBookmark */;
+			C2E8A44416BAB6F6004800B2 /* PBXTextBookmark */ = C2E8A44416BAB6F6004800B2 /* PBXTextBookmark */;
+			C2E8A44516BAB6F6004800B2 /* PBXTextBookmark */ = C2E8A44516BAB6F6004800B2 /* PBXTextBookmark */;
 		};
 		sourceControlManager = C249EA9915C1681B00B882C9 /* Source Control */;
 		userBuildSettings = {
 		};
-	};
-	C22590FB1657A849008112F7 /* PBXTextBookmark */ = {
-		isa = PBXTextBookmark;
-		fRef = C249EA9C15C1682E00B882C9 /* adopt_policy.hpp */;
-		name = "adopt_policy.hpp: 168";
-		rLen = 0;
-		rLoc = 4689;
-		rType = 0;
-		vrLen = 1475;
-		vrLoc = 506;
 	};
 	C249EA9915C1681B00B882C9 /* Source Control */ = {
 		isa = PBXSourceControlManager;
@@ -104,12 +94,12 @@
 	};
 	C249EA9C15C1682E00B882C9 /* adopt_policy.hpp */ = {
 		uiCtxt = {
-			sepNavIntBoundsRect = "{{0, 0}, {1011, 1989}}";
-			sepNavSelRange = "{4689, 0}";
-			sepNavVisRange = "{506, 1475}";
+			sepNavIntBoundsRect = "{{0, 0}, {1011, 2184}}";
+			sepNavSelRange = "{2013, 0}";
+			sepNavVisRange = "{3638, 1051}";
 		};
 	};
-	C2E872D1168E294600E6A74B /* PBXTextBookmark */ = {
+	C2E8A44416BAB6F6004800B2 /* PBXTextBookmark */ = {
 		isa = PBXTextBookmark;
 		fRef = C249EA9C15C1682E00B882C9 /* adopt_policy.hpp */;
 		name = "adopt_policy.hpp: 168";
@@ -118,6 +108,16 @@
 		rType = 0;
 		vrLen = 1475;
 		vrLoc = 506;
+	};
+	C2E8A44516BAB6F6004800B2 /* PBXTextBookmark */ = {
+		isa = PBXTextBookmark;
+		fRef = C249EA9C15C1682E00B882C9 /* adopt_policy.hpp */;
+		name = "adopt_policy.hpp: 53";
+		rLen = 0;
+		rLoc = 2013;
+		rType = 0;
+		vrLen = 1051;
+		vrLoc = 3638;
 	};
 	D2AAC045055464E500DB518D /* lua */ = {
 		activeExec = 0;

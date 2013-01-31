@@ -16,6 +16,7 @@
 class Scene : public Node{
 	public:
 		Scene();
+		~Scene();
 		void drawFPS(float fps);
 
 		virtual void KeyboardInput(unsigned short keyCode);

@@ -1,5 +1,3 @@
-jump = false
-
 class 'MyGame' (Game)
 
 function MyGame:__init()
@@ -12,8 +10,7 @@ function MyGame:__init()
 	o = BoxObject(sprite)
 
 	self:SetScene(s)
-	self.sprite = sprite
-	s:AddChild(sprite)
+	self.sprite = sprite2
 	s:AddChild(sprite2)
 
 	s:AddChild(o)
@@ -25,7 +22,7 @@ function MyGame:__init()
 end
 
 function MyGame:Step()
-	self.sprite:Rotate(1)
+	-- self.sprite:Rotate(1)
 end
 
 class 'MyScene' (Scene)

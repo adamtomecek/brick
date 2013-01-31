@@ -15,6 +15,14 @@ Scene::Scene(){
 	this->currentTime = 0;
 }
 
+Scene::~Scene(){
+
+#ifdef DEBUG
+	std::cout << "Destruct Scene" << std::endl;
+#endif
+
+}
+
 void Scene::KeyboardInput(unsigned short keyCode){
 }
 

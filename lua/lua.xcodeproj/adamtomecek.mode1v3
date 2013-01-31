@@ -278,7 +278,7 @@
 								</array>
 							</array>
 							<key>PBXSmartGroupTreeModuleOutlineStateVisibleRectKey</key>
-							<string>{{0, 483}, {186, 607}}</string>
+							<string>{{0, 44}, {186, 606}}</string>
 						</dict>
 						<key>PBXTopSmartGroupGIDs</key>
 						<array/>
@@ -290,14 +290,14 @@
 					<key>GeometryConfiguration</key>
 					<dict>
 						<key>Frame</key>
-						<string>{{0, 0}, {203, 625}}</string>
+						<string>{{0, 0}, {203, 624}}</string>
 						<key>GroupTreeTableConfiguration</key>
 						<array>
 							<string>MainColumn</string>
 							<real>186</real>
 						</array>
 						<key>RubberWindowFrame</key>
-						<string>0 112 1280 666 0 0 1280 778 </string>
+						<string>0 113 1280 665 0 0 1280 778 </string>
 					</dict>
 					<key>Module</key>
 					<string>PBXSmartGroupTreeModule</string>
@@ -308,8 +308,6 @@
 					<key>Dock</key>
 					<array>
 						<dict>
-							<key>BecomeActive</key>
-							<true/>
 							<key>ContentConfiguration</key>
 							<dict>
 								<key>PBXProjectModuleGUID</key>
@@ -327,10 +325,10 @@
 										<key>_historyCapacity</key>
 										<integer>0</integer>
 										<key>bookmark</key>
-										<string>C2E872D1168E294600E6A74B</string>
+										<string>C2E8A44516BAB6F6004800B2</string>
 										<key>history</key>
 										<array>
-											<string>C22590FB1657A849008112F7</string>
+											<string>C2E8A44416BAB6F6004800B2</string>
 										</array>
 									</dict>
 									<key>SplitCount</key>
@@ -342,14 +340,14 @@
 							<key>GeometryConfiguration</key>
 							<dict>
 								<key>Frame</key>
-								<string>{{0, 0}, {1072, 575}}</string>
+								<string>{{0, 0}, {1072, 574}}</string>
 								<key>RubberWindowFrame</key>
-								<string>0 112 1280 666 0 0 1280 778 </string>
+								<string>0 113 1280 665 0 0 1280 778 </string>
 							</dict>
 							<key>Module</key>
 							<string>PBXNavigatorGroup</string>
 							<key>Proportion</key>
-							<string>575pt</string>
+							<string>574pt</string>
 						</dict>
 						<dict>
 							<key>ContentConfiguration</key>
@@ -362,9 +360,9 @@
 							<key>GeometryConfiguration</key>
 							<dict>
 								<key>Frame</key>
-								<string>{{0, 580}, {1072, 45}}</string>
+								<string>{{0, 579}, {1072, 45}}</string>
 								<key>RubberWindowFrame</key>
-								<string>0 112 1280 666 0 0 1280 778 </string>
+								<string>0 113 1280 665 0 0 1280 778 </string>
 							</dict>
 							<key>Module</key>
 							<string>XCDetailModule</string>
@@ -388,9 +386,9 @@
 			</array>
 			<key>TableOfContents</key>
 			<array>
-				<string>C2E872D2168E294600E6A74B</string>
+				<string>C2E8A44616BAB6F6004800B2</string>
 				<string>1CE0B1FE06471DED0097A5F4</string>
-				<string>C2E872D3168E294600E6A74B</string>
+				<string>C2E8A44716BAB6F6004800B2</string>
 				<string>1CE0B20306471E060097A5F4</string>
 				<string>1CE0B20506471E060097A5F4</string>
 			</array>
@@ -532,7 +530,7 @@
 		<string>/Users/adamtomecek/Programovani/games/sfml/lua/lua.xcodeproj</string>
 	</array>
 	<key>WindowString</key>
-	<string>0 112 1280 666 0 0 1280 778 </string>
+	<string>0 113 1280 665 0 0 1280 778 </string>
 	<key>WindowToolsV3</key>
 	<array>
 		<dict>
@@ -609,7 +607,7 @@
 			<key>TableOfContents</key>
 			<array>
 				<string>C249EA9715C1681B00B882C9</string>
-				<string>C2E872D4168E294600E6A74B</string>
+				<string>C2E8A44816BAB6F6004800B2</string>
 				<string>1CD0528F0623707200166675</string>
 				<string>XCMainBuildResultsModuleGUID</string>
 			</array>
