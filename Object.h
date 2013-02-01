@@ -19,7 +19,7 @@ class Object : public Chunk{
 		~Object(void);
 		explicit Object(b2World *world, float width, float height, float xPos, float yPos, float angle = 0.0f);
 		explicit Object(float width, float height, float xPos, float yPos, float angle = 0.0f);
-		explicit Object(b2World *world, Chunk *representation);
+		/* explicit Object(b2World *world, Chunk *representation); */
 		explicit Object(Chunk *representation);
 
 		void init(b2World *world, float width, float height, float xPos, float yPos,
@@ -56,7 +56,6 @@ class Object : public Chunk{
 
 		b2World *world;
 		b2Body *body;
-		Chunk *representation;
 		bool fixedRotation;
 };
 

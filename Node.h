@@ -12,11 +12,15 @@
 
 #include "Includes.h"
 
-class Node{
+class Node : public boost::enable_shared_from_this<Node> {
 	public:
 		~Node(void);
 		Node(float xPos, float yPos, float zPos = 0.0f, float angle = 0.0f);
 		Node();
+
+		boost::shared_ptr<Node> shared_ptr(){
+			return shared_from_this();
+		}
 
 		virtual void Destroy();
 		virtual void DeleteChild(boost::shared_ptr<Node> child);

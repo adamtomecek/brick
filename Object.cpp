@@ -16,39 +16,32 @@ Object::~Object(void){
 
 	this->world->DestroyBody(this->body);
 	this->body = NULL;	
-
-	/* delete this->representation; */
-	this->representation = NULL;
 }
 
 Object::Object(Chunk *representation){
 	this->init(Utils::GetWorld(), representation->GetWidth(), representation->GetHeight(),
 		representation->GetXPos(), representation->GetYPos(),
 		representation->GetAngle());
-	
-	this->representation = representation;	
+
+	this->AddChild(representation->shared_ptr());
 }
 
-Object::Object(b2World *world, Chunk *representation){
-	this->init(world, representation->GetWidth(), representation->GetHeight(),
-			   representation->GetXPos(), representation->GetYPos(),
-			   representation->GetAngle());
+/* Object::Object(b2World *world, Chunk *representation){ */
+/* 	this->init(world, representation->GetWidth(), representation->GetHeight(), */
+/* 			   representation->GetXPos(), representation->GetYPos(), */
+/* 			   representation->GetAngle()); */
 	
-	this->representation = representation;	
-}
+/* 	this->representation = representation; */	
+/* } */
 
 Object::Object(float width, float height, float xPos, float yPos,
 		float angle){
 	this->init(Utils::GetWorld(), width, height, xPos, yPos, angle);
-	
-		//this->representation = NULL;
 }
 
 Object::Object(b2World *world, float width, float height, float xPos, float yPos,
 		float angle){
 	this->init(world, width, height, xPos, yPos, angle);
-	
-		//this->representation = NULL;
 }
 
 void Object::init(b2World *world, float width, float height, float xPos,
@@ -67,14 +60,8 @@ void Object::init(b2World *world, float width, float height, float xPos,
 }
 
 void Object::Render(void){
-	this->RenderChilds();
 	this->ApplyPhysics();
-	
-	if(this->representation != NULL){
-		this->representation->SetPosition(this->xPos,this->yPos);
-		this->representation->SetAngle(this->angle);
-		this->representation->Render();
-	}
+	this->RenderChilds();
 }
 
 void Object::Destroy(void){
@@ -88,10 +75,17 @@ void Object::Destroy(void){
 
 void Object::ApplyPhysics(){
 	b2Vec2 position = this->body->GetPosition();
-	this->angle = this->body->GetAngle() / (M_PI / 180);
 
-	this->xPos = (position.x * RATIO - this->width / 2);
-	this->yPos = (position.y * RATIO - this->height / 2);
+	float oldX = this->xPos;
+	float oldY = this->yPos;
+	float oldAngle = this->angle;
+
+	float newX = (position.x * RATIO - this->width / 2);
+	float newY = (position.y * RATIO - this->height / 2);
+	float newAngle = this->body->GetAngle() / (M_PI / 180);
+
+	this->Move(newX - oldX, newY - oldY);
+	this->Rotate(newAngle - oldAngle);
 
 	return ;
 }
@@ -175,9 +169,9 @@ void Object::CreateBox(void){
 
 	b2FixtureDef shapeDef;
 	shapeDef.shape = &box;
-	shapeDef.density = 10.0f;
-	shapeDef.friction = 0.3f;
-	shapeDef.restitution = 0.0f;
+	/* shapeDef.density = 10.0f; */
+	/* shapeDef.friction = 0.3f; */
+	/* shapeDef.restitution = 0.0f; */
 
 	this->body->CreateFixture(&shapeDef);
 }
@@ -190,9 +184,9 @@ void Object::CreateCircle(void){
 	b2FixtureDef shapeDef;
 	shapeDef.shape = &circle;
 	
-	shapeDef.density = 1.0f;
-	shapeDef.friction = 0.8f;
-	shapeDef.restitution = 0.2f;
+	/* shapeDef.density = 1.0f; */
+	/* shapeDef.friction = 0.8f; */
+	/* shapeDef.restitution = 0.2f; */
 	
 	this->body->CreateFixture(&shapeDef);
 }
@@ -218,9 +212,9 @@ void Object::CreateCustomShape(std::string data){
 	
 	b2FixtureDef shapeDef;
 	shapeDef.shape = &polygonShape;
-	shapeDef.density = 0.8f;
-	shapeDef.friction = 0.3f;
-	shapeDef.restitution = 0.2f;
+	/* shapeDef.density = 0.8f; */
+	/* shapeDef.friction = 0.3f; */
+	/* shapeDef.restitution = 0.2f; */
 
 	this->body->CreateFixture(&shapeDef);
 	delete json;

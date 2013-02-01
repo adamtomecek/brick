@@ -19,6 +19,11 @@ class DynamicObject : public Object{
 				this->CreateBody();
 			}
 
+		explicit DynamicObject(float width, float height, float xPos,
+				float yPos) : Object::Object(width, height, xPos, yPos) {
+				this->CreateBody();
+			}
+
 	protected:
 		virtual void CreateBody(void);
 

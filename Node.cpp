@@ -39,9 +39,7 @@ Node::Node(float xPos, float yPos, float zPos, float angle){
 }
 
 void Node::DeleteChild(boost::shared_ptr<Node> child){
-	printf("%d\n", this->childs.size());
 	this->childs.remove(child);
-	printf("%d\n", this->childs.size());
 	child->Destroy();
 }
 

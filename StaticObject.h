@@ -19,6 +19,12 @@ class StaticObject : public Object{
 				this->CreateBody();
 			}
 
+		explicit StaticObject(float width, float height, float xPos, float yPos,
+				float angle = 0.0f) : 
+			Object::Object(width, height, xPos, yPos, angle) {
+				this->CreateBody();
+			}
+
 	protected:
 		virtual void CreateBody(void);
 

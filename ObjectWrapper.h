@@ -15,7 +15,10 @@
 
 struct ObjectWrapper : Object, luabind::wrap_base{
 
-	ObjectWrapper(Chunk *representation) : Object(representation) {}
+ObjectWrapper(Chunk *representation) :
+	   	Object(representation) {}
+
+	ObjectWrapper(float width, float height, float xPos, float yPos) : Object(width, height, xPos, yPos) {}
 
 	virtual void ApplyForce(float forceX, float forceY, float pointX, float pointY){
 		call<void>("ApplyForce", forceX, forceY, pointX, pointY);
@@ -90,6 +93,8 @@ struct ObjectWrapper : Object, luabind::wrap_base{
 		luabind::class_<Object, ObjectWrapper, Chunk,
 			boost::shared_ptr<Node> >("Object")
 			.def(luabind::constructor<Chunk *>(),
+					luabind::adopt(luabind::result))
+			.def(luabind::constructor<float, float, float, float>(),
 					luabind::adopt(luabind::result))
 			.def("ApplyForce", &Object::ApplyForce,
 					&ObjectWrapper::default_ApplyForce)

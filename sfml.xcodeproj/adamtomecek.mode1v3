@@ -275,8 +275,6 @@
 							<key>PBXSmartGroupTreeModuleOutlineStateSelectionKey</key>
 							<array>
 								<array>
-									<integer>13</integer>
-									<integer>6</integer>
 									<integer>0</integer>
 								</array>
 							</array>
@@ -328,7 +326,7 @@
 										<key>_historyCapacity</key>
 										<integer>0</integer>
 										<key>bookmark</key>
-										<string>C2E8B63A16BC30E3004800B2</string>
+										<string>C2E8B69F16BC63E0004800B2</string>
 										<key>history</key>
 										<array>
 											<string>C2FA34EA15BAF97A009BB9AA</string>
@@ -375,10 +373,8 @@
 											<string>C2F2052A16BAAE4400ACA055</string>
 											<string>C2E8B10D16BAE842004800B2</string>
 											<string>C2E8B10F16BAE842004800B2</string>
-											<string>C2E8B12216BAE863004800B2</string>
 											<string>C2E8B12316BAE863004800B2</string>
 											<string>C2E8B16816BAF1E6004800B2</string>
-											<string>C2E8B17C16BAF3B0004800B2</string>
 											<string>C2E8B17D16BAF3B0004800B2</string>
 											<string>C2E8B18616BAF4A9004800B2</string>
 											<string>C2E8B1F116BAFCB7004800B2</string>
@@ -395,9 +391,11 @@
 											<string>C2E8B55216BC292D004800B2</string>
 											<string>C2E8B5E916BC2E3E004800B2</string>
 											<string>C2E8B5FB16BC2EA7004800B2</string>
-											<string>C2E8B63116BC30CE004800B2</string>
-											<string>C2E8B63516BC30D2004800B2</string>
-											<string>C2E8B63616BC30D2004800B2</string>
+											<string>C2E8B64316BC42E3004800B2</string>
+											<string>C2E8B64416BC42E3004800B2</string>
+											<string>C2E8B64D16BC5D2E004800B2</string>
+											<string>C2E8B68D16BC6340004800B2</string>
+											<string>C2E8B68E16BC6340004800B2</string>
 										</array>
 									</dict>
 									<key>SplitCount</key>
@@ -595,13 +593,13 @@
 	<integer>5</integer>
 	<key>WindowOrderList</key>
 	<array>
-		<string>C2E8B63B16BC30E3004800B2</string>
+		<string>C2E8B6A016BC63E0004800B2</string>
 		<string>1C530D57069F1CE1000CFCEE</string>
 		<string>C2E8A42F16BAB617004800B2</string>
 		<string>C2E8A43016BAB617004800B2</string>
-		<string>1C78EAAD065D492600B07095</string>
 		<string>C21B7D8815B897B500F9B64B</string>
 		<string>1CD10A99069EF8BA00B06720</string>
+		<string>1C78EAAD065D492600B07095</string>
 		<string>/Users/adamtomecek/Programovani/games/sfml/sfml.xcodeproj</string>
 	</array>
 	<key>WindowString</key>
@@ -626,7 +624,7 @@
 								<key>PBXProjectModuleGUID</key>
 								<string>1CD0528F0623707200166675</string>
 								<key>PBXProjectModuleLabel</key>
-								<string>Node.cpp</string>
+								<string>ObjectWrapper.h</string>
 								<key>StatusBarVisibility</key>
 								<true/>
 							</dict>
@@ -978,7 +976,7 @@
 			<key>WindowToolGUID</key>
 			<string>1C78EAAD065D492600B07095</string>
 			<key>WindowToolIsVisible</key>
-			<false/>
+			<true/>
 		</dict>
 		<dict>
 			<key>Identifier</key>

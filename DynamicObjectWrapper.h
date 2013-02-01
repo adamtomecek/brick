@@ -17,16 +17,19 @@ struct DynamicObjectWrapper : DynamicObject, luabind::wrap_base{
 
 	DynamicObjectWrapper(Chunk *representation) :
 		DynamicObject(representation) {}	
+	
+	DynamicObjectWrapper(float width, float height, float xPos, float yPos):
+		DynamicObject(width, height, xPos, yPos) {}	
 
 	static void Lua(lua_State *lua){
 		luabind::module(lua)
 		[
 		 luabind::class_<DynamicObject, DynamicObjectWrapper, Object,
 			boost::shared_ptr<Node> >("DynamicObject")
-		 .def(luabind::constructor<Chunk *>(), luabind::adopt(luabind::result))
-		 /* .def(luabind::constructor<b2World *, boost::shared_ptr<Chunk> >()) */
-		 /* .def(luabind::constructor<b2World *, float, float, float, float>()) */
-		 /* .def(luabind::constructor<float, float, float, float>()) */
+		 .def(luabind::constructor<Chunk *>(),
+				 luabind::adopt(luabind::result))
+		 .def(luabind::constructor<float, float, float, float>(),
+				 luabind::adopt(luabind::result))
 		 ];
 	}
 
