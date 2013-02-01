@@ -7,6 +7,7 @@
 #include "ObjectWrapper.h"
 #include "DynamicObjectWrapper.h"
 #include "StaticObjectWrapper.h"
+#include "JointWrapper.h"
 
 int main(int argc, char **argv)
 {
@@ -29,6 +30,7 @@ int main(int argc, char **argv)
 	ObjectWrapper::Lua(luaState);
 	DynamicObjectWrapper::Lua(luaState);
 	StaticObjectWrapper::Lua(luaState);
+	JointWrapper::Lua(luaState);
 
 	luabind::module(luaState)
 		[

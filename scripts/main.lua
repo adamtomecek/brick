@@ -8,21 +8,39 @@ function MyGame:__init()
 	self.scene = s
 	self.game = self
 
-	sprite = Sprite("icon.jpg", 400, 100, 10, 0)
-	sprite2 = Sprite("icon.jpg", 0, 0, -20, 0)
-	sprite3 = Sprite("icon.jpg", 200, 100, 10, 0)
+	sprite5 = Sprite("brick.jpg", 50, 150, 10, 0)
+	sprite6 = Sprite("brick.jpg", 595, 150, 10, 0)
 
-	o1 = StaticObject(sprite2)
-	o1:CreateCustomShape("object2.json")
-	s:AddChild(o1)
+	o5 = StaticObject(sprite5)
+	o5:CreateBox()
+	s:AddChild(o5)
+	o6 = StaticObject(sprite6)
+	o6:CreateBox()
+	s:AddChild(o6)
 
-	o1 = StaticObject(sprite3)
-	o1:CreateCustomShape("object2.json")
-	s:AddChild(o1)
+	max = 16
+	for i = 1, max do
+		c = Sprite("wood.jpg", 85 + i * 30.01, 150, 0, 0)
+		obj = DynamicObject(c)
+		obj:CreateBox()
 
-	o1 = StaticObject(sprite)
-	o1:CreateCustomShape("object2.json")
-	s:AddChild(o1)
+		if i == 1 then
+			j = Joint(o5, obj)
+			j:Revolute(50, 150)
+		else
+			j = Joint(prev, obj)	
+			j:Revolute(85 + i * 30.01 - 15, 155)
+		end
+
+		if i == max then
+			j = Joint(o6, obj)
+			j:Revolute(660, 150)
+		end
+
+		prev = obj
+		s:AddChild(obj)
+	end
+
 end
 
 function MyGame:Step()
@@ -39,9 +57,9 @@ end
 
 function MyScene:MouseInput(x, y, button_code)
 	if button_code == Mouse.left then
-		local s = Sprite("icon.jpg", x, y, 0, 0)
+		local s = Sprite("circle.png", x, y, 0, 0)
 		o = DynamicObject(s)
-		o:CreateBox()
+		o:CreateCircle()
 		-- o:CreateCustomShape("object2.json")
 		self:AddChild(o)
 		self.a[self.i] = o
@@ -53,13 +71,6 @@ function MyScene:MouseInput(x, y, button_code)
 			self:DeleteChild(o)
 		end
 		self.a[self.i] = nil
-	end
-
-	print(self.i)
-
-	if o then
-		self:AddChild(o)
-		self.o = o
 	end
 end
 

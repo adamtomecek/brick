@@ -81,7 +81,6 @@ bool Sprite::LoadTexture(std::string fileName){
 
 void Sprite::LoadGLTexture(void){
 	if(!DEBUG_DRAW){
-		printf("texture load\n");
 	glGenTextures(1, &this->texture_handle);
 	
 	glBindTexture(GL_TEXTURE_RECTANGLE_EXT, this->texture_handle);

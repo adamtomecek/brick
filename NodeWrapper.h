@@ -30,7 +30,7 @@ struct NodeWrapper : Node, luabind::wrap_base{
 	}
 
 	virtual void DeleteChild(boost::shared_ptr<Node> child){
-		call<void>("Destroy", child);
+		call<void>("DeleteChild", child);
 	}
 
 	static void default_DeleteChild(Node *ptr, boost::shared_ptr<Node> child){

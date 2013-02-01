@@ -31,6 +31,7 @@ class Object : public Chunk{
 
 		/* Getters */
 		Size GetSize(void);
+		b2Body *GetBody(void);
 
 		/* Setters */
 		void SetSize(float width, float height);

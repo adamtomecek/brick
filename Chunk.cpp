@@ -22,6 +22,13 @@ Chunk::Chunk(float w, float h){
 	this->height = h;
 }
 
+Chunk::Chunk(float w, float h, float x, float y){
+	this->width = w;
+	this->height = h;
+	this->xPos = x;
+	this->yPos = y;
+}
+
 float Chunk::GetWidth(void){
 	return this->width;
 }

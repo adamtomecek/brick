@@ -18,6 +18,7 @@ class Chunk : public Node{
 		~Chunk();
 		Chunk(void);
 		Chunk(float w, float h);
+		Chunk(float w, float h, float x, float y);
 
 		/* void Destroy(void); */
 

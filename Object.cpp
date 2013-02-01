@@ -107,6 +107,10 @@ Size Object::GetSize(void){
 	return s;
 }
 
+b2Body *Object::GetBody(void){
+	return this->body;
+}
+
 /*
  * ********************************************************
  * Setters 
@@ -171,9 +175,9 @@ void Object::CreateBox(void){
 
 	b2FixtureDef shapeDef;
 	shapeDef.shape = &box;
-	shapeDef.density = 0.8f;
+	shapeDef.density = 10.0f;
 	shapeDef.friction = 0.3f;
-	shapeDef.restitution = 0.2f;
+	shapeDef.restitution = 0.0f;
 
 	this->body->CreateFixture(&shapeDef);
 }

@@ -18,6 +18,7 @@ struct ChunkWrapper : Chunk, luabind::wrap_base{
 	ChunkWrapper() : Chunk () {}
 
 	ChunkWrapper(float w, float h) : Chunk (w, h) {}
+	ChunkWrapper(float w, float h, float x, float y) : Chunk (w, h, x, y) {}
 
 	static void Lua(lua_State *lua){
 		luabind::module(lua)
@@ -25,6 +26,7 @@ struct ChunkWrapper : Chunk, luabind::wrap_base{
 		luabind::class_<Chunk, ChunkWrapper, Node, boost::shared_ptr<Node> >("Chunk")
 			.def(luabind::constructor<>())
 			.def(luabind::constructor<float, float>())
+			.def(luabind::constructor<float, float, float, float>())
 		];
 	}
 	
