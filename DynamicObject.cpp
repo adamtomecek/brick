@@ -1,5 +1,5 @@
 /*
- *  StaticObject.cpp
+ *  DynamicObject.cpp
  *  sfml
  *
  *  Created by Adam Tomeček on 1/31/13.
@@ -7,11 +7,11 @@
  *
  */
 
-#include "StaticObject.h"
+#include "DynamicObject.h"
 
-void StaticObject::CreateBody(void){
+void DynamicObject::CreateBody(void){
 	b2BodyDef bodyDef;
-	bodyDef.type = b2_staticBody;
+	bodyDef.type = b2_dynamicBody;
 	bodyDef.position.Set((this->xPos + this->width / 2) / RATIO,
 						 (this->yPos + this->height / 2)/ RATIO);
 	bodyDef.angle = this->angle * (M_PI / 180);

@@ -26,7 +26,6 @@
 		C21B7DA815B897E400F9B64B /* prijdu-dyl.png in Resources */ = {isa = PBXBuildFile; fileRef = C21B7DA415B897E400F9B64B /* prijdu-dyl.png */; };
 		C21B7DA915B897E400F9B64B /* test.png in Resources */ = {isa = PBXBuildFile; fileRef = C21B7DA515B897E400F9B64B /* test.png */; };
 		C22425F416A8811D00BABD12 /* object2.json in Resources */ = {isa = PBXBuildFile; fileRef = C22425F316A8811D00BABD12 /* object2.json */; };
-		C225901E1656C9A9008112F7 /* BoxObject.cpp in Sources */ = {isa = PBXBuildFile; fileRef = C225901C1656C9A9008112F7 /* BoxObject.cpp */; };
 		C225916E1657C586008112F7 /* Input.cpp in Sources */ = {isa = PBXBuildFile; fileRef = C225916D1657C586008112F7 /* Input.cpp */; };
 		C229E6A115B8999A0022E149 /* sfml-audio.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = C229E6A015B8999A0022E149 /* sfml-audio.framework */; };
 		C229E6A315B8999A0022E149 /* sfml-graphics.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = C229E6A215B8999A0022E149 /* sfml-graphics.framework */; };
@@ -43,9 +42,8 @@
 		C2AAE03C15CD1AED00E92F37 /* test.lua in Resources */ = {isa = PBXBuildFile; fileRef = C2AAE03A15CD1AED00E92F37 /* test.lua */; };
 		C2B909F215B89B1B00E7159E /* GLUT.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = C2B909F115B89B1B00E7159E /* GLUT.framework */; };
 		C2E8738A168E2DE200E6A74B /* libbox2d.a in Frameworks */ = {isa = PBXBuildFile; fileRef = C2E87389168E2DE200E6A74B /* libbox2d.a */; };
-		C2E8AFDE16BABC16004800B2 /* CircleObject.cpp in Sources */ = {isa = PBXBuildFile; fileRef = C2E8AFD816BABC16004800B2 /* CircleObject.cpp */; };
-		C2E8AFDF16BABC16004800B2 /* CustomObject.cpp in Sources */ = {isa = PBXBuildFile; fileRef = C2E8AFDB16BABC16004800B2 /* CustomObject.cpp */; };
-		C2E8B0AC16BACFCA004800B2 /* CustomStaticObject.cpp in Sources */ = {isa = PBXBuildFile; fileRef = C2E8B0AB16BACFCA004800B2 /* CustomStaticObject.cpp */; };
+		C2E8B15716BAF087004800B2 /* DynamicObject.cpp in Sources */ = {isa = PBXBuildFile; fileRef = C2E8B15616BAF087004800B2 /* DynamicObject.cpp */; };
+		C2E8B15A16BAF0B0004800B2 /* StaticObject.cpp in Sources */ = {isa = PBXBuildFile; fileRef = C2E8B15816BAF0B0004800B2 /* StaticObject.cpp */; };
 		C2F2051F16BAACA400ACA055 /* JsonLoader.cpp in Sources */ = {isa = PBXBuildFile; fileRef = C2F2051E16BAACA400ACA055 /* JsonLoader.cpp */; };
 		C2F50E5916A2280D00FB01A5 /* p.json in Resources */ = {isa = PBXBuildFile; fileRef = C2F50E5816A2280D00FB01A5 /* p.json */; };
 /* End PBXBuildFile section */
@@ -110,8 +108,6 @@
 		C21B7DA415B897E400F9B64B /* prijdu-dyl.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; name = "prijdu-dyl.png"; path = "resources/prijdu-dyl.png"; sourceTree = "<group>"; };
 		C21B7DA515B897E400F9B64B /* test.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; name = test.png; path = resources/test.png; sourceTree = "<group>"; };
 		C22425F316A8811D00BABD12 /* object2.json */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text; path = object2.json; sourceTree = "<group>"; };
-		C225901C1656C9A9008112F7 /* BoxObject.cpp */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.cpp.cpp; path = BoxObject.cpp; sourceTree = "<group>"; };
-		C225901D1656C9A9008112F7 /* BoxObject.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = BoxObject.h; sourceTree = "<group>"; };
 		C225916C1657C586008112F7 /* Input.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = Input.h; sourceTree = "<group>"; };
 		C225916D1657C586008112F7 /* Input.cpp */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.cpp.cpp; path = Input.cpp; sourceTree = "<group>"; };
 		C229E6A015B8999A0022E149 /* sfml-audio.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = "sfml-audio.framework"; path = "Library/Frameworks/sfml-audio.framework"; sourceTree = DEVELOPER_DIR; };
@@ -137,18 +133,14 @@
 		C2CFFD6C166C05A000ABF129 /* ChunkWrapper.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = ChunkWrapper.h; sourceTree = "<group>"; };
 		C2CFFD6D166C05C300ABF129 /* NodeWrapper.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = NodeWrapper.h; sourceTree = "<group>"; };
 		C2CFFDEF166CAC7700ABF129 /* ObjectWrapper.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = ObjectWrapper.h; sourceTree = "<group>"; };
-		C2CFFDF0166CAC7E00ABF129 /* BoxObjectWrapper.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = BoxObjectWrapper.h; sourceTree = "<group>"; };
 		C2CFFE1C166CB05400ABF129 /* SpriteWrapper.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = SpriteWrapper.h; sourceTree = "<group>"; };
 		C2E87389168E2DE200E6A74B /* libbox2d.a */ = {isa = PBXFileReference; lastKnownFileType = archive.ar; path = libbox2d.a; sourceTree = "<group>"; };
-		C2E8AFD816BABC16004800B2 /* CircleObject.cpp */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.cpp.cpp; path = CircleObject.cpp; sourceTree = "<group>"; };
-		C2E8AFD916BABC16004800B2 /* CircleObject.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = CircleObject.h; sourceTree = "<group>"; };
-		C2E8AFDA16BABC16004800B2 /* CircleObjectWrapper.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = CircleObjectWrapper.h; sourceTree = "<group>"; };
-		C2E8AFDB16BABC16004800B2 /* CustomObject.cpp */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.cpp.cpp; path = CustomObject.cpp; sourceTree = "<group>"; };
-		C2E8AFDC16BABC16004800B2 /* CustomObject.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = CustomObject.h; sourceTree = "<group>"; };
-		C2E8AFDD16BABC16004800B2 /* CustomObjectWrapper.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = CustomObjectWrapper.h; sourceTree = "<group>"; };
-		C2E8B0AA16BACFCA004800B2 /* CustomStaticObject.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = CustomStaticObject.h; sourceTree = "<group>"; };
-		C2E8B0AB16BACFCA004800B2 /* CustomStaticObject.cpp */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.cpp.cpp; path = CustomStaticObject.cpp; sourceTree = "<group>"; };
-		C2E8B0AF16BADE0B004800B2 /* CustomStaticObjectWrapper.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = CustomStaticObjectWrapper.h; sourceTree = "<group>"; };
+		C2E8B15516BAF087004800B2 /* DynamicObject.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = DynamicObject.h; sourceTree = "<group>"; };
+		C2E8B15616BAF087004800B2 /* DynamicObject.cpp */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.cpp.cpp; path = DynamicObject.cpp; sourceTree = "<group>"; };
+		C2E8B15816BAF0B0004800B2 /* StaticObject.cpp */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.cpp.cpp; path = StaticObject.cpp; sourceTree = "<group>"; };
+		C2E8B15916BAF0B0004800B2 /* StaticObject.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = StaticObject.h; sourceTree = "<group>"; };
+		C2E8B17316BAF2E8004800B2 /* DynamicObjectWrapper.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = DynamicObjectWrapper.h; sourceTree = "<group>"; };
+		C2E8B17416BAF2F1004800B2 /* StaticObjectWrapper.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = StaticObjectWrapper.h; sourceTree = "<group>"; };
 		C2F2051D16BAACA400ACA055 /* JsonLoader.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = JsonLoader.h; sourceTree = "<group>"; };
 		C2F2051E16BAACA400ACA055 /* JsonLoader.cpp */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.cpp.cpp; path = JsonLoader.cpp; sourceTree = "<group>"; };
 		C2F50E5816A2280D00FB01A5 /* p.json */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text; path = p.json; sourceTree = "<group>"; };
@@ -238,14 +230,8 @@
 		A01FB7830F07D30C000AAC7B /* Sources */ = {
 			isa = PBXGroup;
 			children = (
-				C2E8AFD816BABC16004800B2 /* CircleObject.cpp */,
-				C2E8AFD916BABC16004800B2 /* CircleObject.h */,
-				C2E8AFDA16BABC16004800B2 /* CircleObjectWrapper.h */,
-				C2E8AFDB16BABC16004800B2 /* CustomObject.cpp */,
-				C2E8AFDC16BABC16004800B2 /* CustomObject.h */,
-				C2E8AFDD16BABC16004800B2 /* CustomObjectWrapper.h */,
-				C225901C1656C9A9008112F7 /* BoxObject.cpp */,
-				C225901D1656C9A9008112F7 /* BoxObject.h */,
+				C2E8B15816BAF0B0004800B2 /* StaticObject.cpp */,
+				C2E8B15916BAF0B0004800B2 /* StaticObject.h */,
 				C21B7D9115B897D700F9B64B /* Game.h */,
 				C283C8341659107F00A70550 /* Game.cpp */,
 				C21B7D9215B897D700F9B64B /* Node.cpp */,
@@ -271,13 +257,13 @@
 				C2CFFD6C166C05A000ABF129 /* ChunkWrapper.h */,
 				C2CFFD6D166C05C300ABF129 /* NodeWrapper.h */,
 				C2CFFDEF166CAC7700ABF129 /* ObjectWrapper.h */,
-				C2CFFDF0166CAC7E00ABF129 /* BoxObjectWrapper.h */,
 				C2CFFE1C166CB05400ABF129 /* SpriteWrapper.h */,
 				C2F2051D16BAACA400ACA055 /* JsonLoader.h */,
 				C2F2051E16BAACA400ACA055 /* JsonLoader.cpp */,
-				C2E8B0AA16BACFCA004800B2 /* CustomStaticObject.h */,
-				C2E8B0AB16BACFCA004800B2 /* CustomStaticObject.cpp */,
-				C2E8B0AF16BADE0B004800B2 /* CustomStaticObjectWrapper.h */,
+				C2E8B15516BAF087004800B2 /* DynamicObject.h */,
+				C2E8B15616BAF087004800B2 /* DynamicObject.cpp */,
+				C2E8B17316BAF2E8004800B2 /* DynamicObjectWrapper.h */,
+				C2E8B17416BAF2F1004800B2 /* StaticObjectWrapper.h */,
 			);
 			name = Sources;
 			sourceTree = "<group>";
@@ -434,15 +420,13 @@
 				C21B7DA115B897D700F9B64B /* Utils.cpp in Sources */,
 				C20153EA15C2DB0400EE51C5 /* Chunk.cpp in Sources */,
 				C243DA7915C54D74000249D4 /* DebugDraw.cpp in Sources */,
-				C225901E1656C9A9008112F7 /* BoxObject.cpp in Sources */,
 				C225916E1657C586008112F7 /* Input.cpp in Sources */,
 				C283C8351659107F00A70550 /* Game.cpp in Sources */,
 				C216D36A1690BC62007A13B6 /* block_allocator.cpp in Sources */,
 				C216D36C1690BC62007A13B6 /* json.cpp in Sources */,
 				C2F2051F16BAACA400ACA055 /* JsonLoader.cpp in Sources */,
-				C2E8AFDE16BABC16004800B2 /* CircleObject.cpp in Sources */,
-				C2E8AFDF16BABC16004800B2 /* CustomObject.cpp in Sources */,
-				C2E8B0AC16BACFCA004800B2 /* CustomStaticObject.cpp in Sources */,
+				C2E8B15716BAF087004800B2 /* DynamicObject.cpp in Sources */,
+				C2E8B15A16BAF0B0004800B2 /* StaticObject.cpp in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};

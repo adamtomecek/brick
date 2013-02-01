@@ -60,6 +60,30 @@ struct ObjectWrapper : Object, luabind::wrap_base{
 		return ptr->Object::ApplyAngularImpulse(impulse);
 	}
 
+	virtual void CreateBox(){
+		call<void>("CreateBox");
+	}
+
+	static void default_CreateBox(Object *ptr){
+		return ptr->Object::CreateBox();
+	}
+
+	virtual void CreateCircle(){
+		call<void>("CreateCircle");
+	}
+
+	static void default_CreateCircle(Object *ptr){
+		return ptr->Object::CreateCircle();
+	}
+
+	virtual void CreateCustomShape(std::string data){
+		call<void>("CreateCustomShape", data);
+	}
+
+	static void default_CreateCustomShape(Object *ptr, std::string data){
+		return ptr->Object::CreateCustomShape(data);
+	}
+
 	static void Lua(lua_State *lua){
 		luabind::module(lua)
 		[
@@ -77,6 +101,13 @@ struct ObjectWrapper : Object, luabind::wrap_base{
 					&ObjectWrapper::default_ApplyLinearImpulse)
 			.def("ApplyAngularImpulse", &Object::ApplyAngularImpulse,
 					&ObjectWrapper::default_ApplyAngularImpulse)
+
+			.def("CreateBox", &Object::CreateBox,
+					&ObjectWrapper::default_CreateBox)
+			.def("CreateCircle", &Object::CreateCircle,
+					&ObjectWrapper::default_CreateCircle)
+			.def("CreateCustomShape", &Object::CreateCustomShape,
+					&ObjectWrapper::default_CreateCustomShape)
 		];
 	}
 

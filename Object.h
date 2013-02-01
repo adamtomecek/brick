@@ -12,6 +12,7 @@
 
 #include "Includes.h"
 #include "Chunk.h"
+#include "JsonLoader.h"
 
 class Object : public Chunk{
 	public:
@@ -44,9 +45,13 @@ class Object : public Chunk{
 				float pointY);
 		void ApplyAngularImpulse(float32 impulse);
 
+		/**************** Shapes creation ************************/
+		void CreateBox();
+		void CreateCircle();
+		void CreateCustomShape(std::string data);
+
 	protected:
 		virtual void CreateBody(void);
-		virtual void DefineBody(void);
 
 		b2World *world;
 		b2Body *body;
@@ -55,3 +60,4 @@ class Object : public Chunk{
 };
 
 #endif
+

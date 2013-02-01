@@ -1,5 +1,5 @@
 /*
- *  StaticObject.h
+ *  DynamicObject.h
  *  sfml
  *
  *  Created by Adam Tomeček on 1/31/13.
@@ -7,14 +7,14 @@
  *
  */
 
-#ifndef STATIC_OBJECT_H
-#define STATIC_OBJECT_H
+#ifndef DYNAMIC_OBJECT_H
+#define DYNAMIC_OBJECT_H
 
 #include "Object.h"
 
-class StaticObject : public Object{
-		public: 
-		explicit StaticObject(Chunk *representation) : 
+class DynamicObject : public Object{
+	public: 
+		explicit DynamicObject(Chunk *representation) : 
 			Object::Object(representation) {
 				this->CreateBody();
 			}

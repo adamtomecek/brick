@@ -63,25 +63,7 @@ void Object::init(b2World *world, float width, float height, float xPos,
 	this->width = width;
 	this->height = height;
 
-	/* this->CreateBody(); */
-	/* this->DefineBody(); */
-
 	return ;
-}
-
-void Object::CreateBody(void){
-	b2BodyDef bodyDef;
-	bodyDef.type = b2_dynamicBody;
-	bodyDef.position.Set((this->xPos + this->width / 2) / RATIO,
-						 (this->yPos + this->height / 2)/ RATIO);
-	bodyDef.angle = this->angle * (M_PI / 180);
-	
-	this->body = this->world->CreateBody(&bodyDef);
-
-	return ;
-}
-
-void Object::DefineBody(void){
 }
 
 void Object::Render(void){
@@ -178,3 +160,67 @@ void Object::ApplyAngularImpulse(float32 impulse){
 
 	return;
 }
+
+void Object::CreateBody(){
+}
+
+/*************** Shapes cration *************************/
+void Object::CreateBox(void){
+	b2PolygonShape box;
+	box.SetAsBox(this->width / 2 / RATIO, this->height / 2 / RATIO);
+
+	b2FixtureDef shapeDef;
+	shapeDef.shape = &box;
+	shapeDef.density = 0.8f;
+	shapeDef.friction = 0.3f;
+	shapeDef.restitution = 0.2f;
+
+	this->body->CreateFixture(&shapeDef);
+}
+
+void Object::CreateCircle(void){
+	b2CircleShape circle;
+
+	circle.m_radius = this->width / 2 / RATIO;
+	
+	b2FixtureDef shapeDef;
+	shapeDef.shape = &circle;
+	
+	shapeDef.density = 1.0f;
+	shapeDef.friction = 0.8f;
+	shapeDef.restitution = 0.2f;
+	
+	this->body->CreateFixture(&shapeDef);
+}
+
+void Object::CreateCustomShape(std::string data){
+	JsonLoader *json = new JsonLoader(data);	
+	std::list<Point> *points = json->GetPoints();
+	int size = points->size();
+	b2Vec2 verticles[size];
+
+	std::list<Point>::iterator i;
+	Point p;	
+
+	int j = 0;	
+	for(i = points->begin(); i != points->end(); ++i){
+		p = *i;
+		verticles[j].Set(p.x, p.y);
+		j++;
+	}
+
+	b2PolygonShape polygonShape;
+	polygonShape.Set(verticles, size);
+	
+	b2FixtureDef shapeDef;
+	shapeDef.shape = &polygonShape;
+	shapeDef.density = 0.8f;
+	shapeDef.friction = 0.3f;
+	shapeDef.restitution = 0.2f;
+
+	this->body->CreateFixture(&shapeDef);
+	delete json;
+
+	return ;
+}
+
