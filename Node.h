@@ -38,16 +38,19 @@ class Node : public boost::enable_shared_from_this<Node> {
 		}
 
 		/* Getters */
-		virtual float GetXPos(void);
-		virtual float GetYPos(void);
-		virtual float GetZPos(void);
-		virtual float GetAngle(void);
+		virtual const float GetXPos(void);
+		virtual const float GetYPos(void);
+		virtual const float GetZPos(void);
+		virtual const float GetAngle(void);
 		virtual Position GetPosition(void);
 		virtual Position GetCenter(void);
 
 		/* Setters */
-		virtual void SetPosition(float xPos, float yPos, float zPos = 0.0f);
+		virtual void SetXPos(float x);
+		virtual void SetYPos(float y);
+		virtual void SetZPos(float z);
 		virtual void SetAngle(float angle);
+		virtual void SetPosition(float xPos, float yPos, float zPos = 0.0f);
 
 	protected:
 		virtual void RenderChilds(void);

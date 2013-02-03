@@ -24,13 +24,19 @@ class Chunk : public Node{
 
 		void RotateChilds(float angle);
 
-		float GetWidth(void);
-		float GetHeight(void);
+		virtual const float GetWidth(void);
+		virtual const float GetHeight(void);
+		virtual const float GetScale(void);
 		Position GetCenter(void);
+
+		void SetWidth(float w);
+		void SetHeight(float h);
+		void SetScale(float scale);
 
 	protected:
 		float width;
 		float height;
+		float scale;
 		
 		std::list<PointRotation> pointRotations;
 };

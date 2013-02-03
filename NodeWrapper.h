@@ -93,6 +93,11 @@ struct NodeWrapper : Node, luabind::wrap_base{
 			.def("AddChild", &Node::AddChild, &NodeWrapper::default_AddChild)
 			.def("RotateAroundPoint", &Node::RotateAroundPoint,
 					&NodeWrapper::default_RotateAroundPoint)
+
+			.property("x", &Node::GetXPos, &Node::SetXPos)
+			.property("y", &Node::GetYPos, &Node::SetYPos)
+			.property("z", &Node::GetZPos, &Node::SetZPos)
+			.property("angle", &Node::GetAngle, &Node::SetAngle)
 		];
 	}
 };

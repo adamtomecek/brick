@@ -18,6 +18,13 @@ function MyGame:__init()
 	o6:CreateBox()
 	s:AddChild(o6)
 
+	sprite = Sprite("icon.jpg", 100, 300, 0, 0)
+	o = DynamicObject(sprite)
+	o:CreateBox()
+	s:AddChild(o)
+
+	s.o = o
+
 	max = 16
 	for i = 1, max do
 		c = Sprite("wood.jpg", 85 + i * 30.01, 150, 0, 0)
@@ -75,10 +82,11 @@ function MyScene:MouseInput(x, y, button_code)
 end
 
 function MyScene:KeyboardInput(key_code)
-	-- if key_code == Key.up then
-	-- 	jump = true
-	-- 	self.c:ApplyForceToCenter(0, -2500)
-	-- end
+	if key_code == Key.up then -- "jump"
+		impulse = -1000 * self.o.mass;
+		o = self.o
+		o:ApplyLinearImpulseTocenter(0, impulse)
+	end
 
 	-- if key_code == Key.down then
 	-- 	self.c:ApplyTorque(5)

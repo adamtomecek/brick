@@ -31,9 +31,6 @@ class Sprite : public Chunk{
 		sf::Image* GetTexture(void);
 		Size GetSize(void);
 
-		/* Setters */
-		void SetSize(float width, float height);
-
 	private:
 		bool LoadTexture(std::string texture);
 		GLuint texture_handle;

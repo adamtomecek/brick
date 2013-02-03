@@ -55,6 +55,15 @@ ObjectWrapper(Chunk *representation) :
 		return ptr->Object::ApplyLinearImpulse(impX, impY, pointX, pointY);
 	}
 
+	virtual void ApplyLinearImpulseTocenter(float impX, float impY){
+		call<void>("ApplyLinearImpulseToCenter", impX, impY);
+	}
+
+	static void default_ApplyLinearImpulseToCenter(Object *ptr, float impX,
+			float impY){
+		return ptr->Object::ApplyLinearImpulseToCenter(impX, impY);
+	}
+
 	virtual void ApplyAngularImpulse(float32 impulse){
 		call<void>("ApplyAngularImpulse", impulse);
 	}
@@ -104,6 +113,9 @@ ObjectWrapper(Chunk *representation) :
 					&ObjectWrapper::default_ApplyTorque)
 			.def("ApplyLinearImpulse", &Object::ApplyLinearImpulse,
 					&ObjectWrapper::default_ApplyLinearImpulse)
+			.def("ApplyLinearImpulseTocenter",
+					&Object::ApplyLinearImpulseToCenter,
+					&ObjectWrapper::default_ApplyLinearImpulseToCenter)
 			.def("ApplyAngularImpulse", &Object::ApplyAngularImpulse,
 					&ObjectWrapper::default_ApplyAngularImpulse)
 
@@ -113,6 +125,8 @@ ObjectWrapper(Chunk *representation) :
 					&ObjectWrapper::default_CreateCircle)
 			.def("CreateCustomShape", &Object::CreateCustomShape,
 					&ObjectWrapper::default_CreateCustomShape)
+
+			.def_readonly("mass", &Object::GetMass)
 		];
 	}
 

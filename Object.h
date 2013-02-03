@@ -33,6 +33,8 @@ class Object : public Chunk{
 		Size GetSize(void);
 		b2Body *GetBody(void);
 
+		const float GetMass(void);
+
 		/* Setters */
 		void SetSize(float width, float height);
 		void SetFixedRotation(bool fixed);
@@ -44,6 +46,7 @@ class Object : public Chunk{
 		void ApplyTorque(float32 torque);
 		void ApplyLinearImpulse(float impX, float impY, float pointX,
 				float pointY);
+		void ApplyLinearImpulseToCenter(float impX, float impY);
 		void ApplyAngularImpulse(float32 impulse);
 
 		/**************** Shapes creation ************************/

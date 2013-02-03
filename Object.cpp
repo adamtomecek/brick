@@ -105,6 +105,10 @@ b2Body *Object::GetBody(void){
 	return this->body;
 }
 
+const float Object::GetMass(void){
+	return this->body->GetMass();
+}
+
 /*
  * ********************************************************
  * Setters 
@@ -149,6 +153,14 @@ void Object::ApplyLinearImpulse(float impX, float impY, float pointX,
 	b2Vec2 point(pointX / RATIO, pointY / RATIO);
 
 	this->body->ApplyLinearImpulse(impulse, point);
+
+	return ;
+}
+
+void Object::ApplyLinearImpulseToCenter(float impX, float impY){
+	b2Vec2 impulse(impX / RATIO, impY / RATIO);
+
+	this->body->ApplyLinearImpulse(impulse, this->body->GetWorldCenter());
 
 	return ;
 }

@@ -81,13 +81,18 @@ bool Sprite::LoadTexture(std::string fileName){
 
 void Sprite::LoadGLTexture(void){
 	if(!DEBUG_DRAW){
+
 	glGenTextures(1, &this->texture_handle);
 	
 	glBindTexture(GL_TEXTURE_RECTANGLE_EXT, this->texture_handle);
 	
 	glTexParameteri(GL_TEXTURE_RECTANGLE_EXT, GL_TEXTURE_MAG_FILTER, GL_NEAREST);
 	glTexParameteri(GL_TEXTURE_RECTANGLE_EXT, GL_TEXTURE_MIN_FILTER, GL_NEAREST);
-	
+
+
+glTexParameteri(GL_TEXTURE_RECTANGLE_EXT, GL_TEXTURE_WRAP_S, GL_CLAMP_TO_EDGE);
+    glTexParameteri(GL_TEXTURE_RECTANGLE_EXT, GL_TEXTURE_WRAP_T, GL_CLAMP_TO_EDGE);
+
 	/* Loads 2D texture from image */
 	glTexImage2D(
 		 GL_TEXTURE_RECTANGLE_EXT, 0, GL_RGBA,
@@ -155,16 +160,5 @@ sf::Image* Sprite::GetTexture(void){
 Size Sprite::GetSize(void){
 	Size s = {this->width, this->height};
 	return s;
-}
-
-/*
- * ********************************************************
- * Setters 
- * ********************************************************
- */
-
-void Sprite::SetSize(float width, float height){
-	this->width = width;
-	this->height = height;
 }
 

@@ -15,11 +15,14 @@ Chunk::~Chunk(){
 #endif
 }
 
-Chunk::Chunk(void){}
+Chunk::Chunk(void){
+	this->scale = 1.0f;
+}
 
 Chunk::Chunk(float w, float h){
 	this->width = w;
 	this->height = h;
+	this->scale = 1.0f;
 }
 
 Chunk::Chunk(float w, float h, float x, float y){
@@ -27,14 +30,19 @@ Chunk::Chunk(float w, float h, float x, float y){
 	this->height = h;
 	this->xPos = x;
 	this->yPos = y;
+	this->scale = 1.0f;
 }
 
-float Chunk::GetWidth(void){
-	return this->width;
+const float Chunk::GetWidth(void){
+	return this->width * this->scale;
 }
 
-float Chunk::GetHeight(void){
-	return this->height;
+const float Chunk::GetHeight(void){
+	return this->height * this->scale;
+}
+
+const float Chunk::GetScale(void){
+	return this->scale;
 }
 
 Position Chunk::GetCenter(void){
@@ -42,6 +50,18 @@ Position Chunk::GetCenter(void){
 		this->yPos + this->height / 2};
 	
 	return p;
+}
+
+void Chunk::SetWidth(float w){
+	this->width = w;
+}
+
+void Chunk::SetHeight(float h){
+	this->height = h;
+}
+
+void Chunk::SetScale(float scale){
+	this->scale = scale;
 }
 
 void Chunk::RotateChilds(float angle){

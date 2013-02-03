@@ -27,6 +27,10 @@ struct ChunkWrapper : Chunk, luabind::wrap_base{
 			.def(luabind::constructor<>())
 			.def(luabind::constructor<float, float>())
 			.def(luabind::constructor<float, float, float, float>())
+
+			.property("width", &Chunk::GetWidth, &Chunk::SetWidth)
+			.property("height", &Chunk::GetHeight, &Chunk::SetHeight)
+			.property("scale", &Chunk::GetScale, &Chunk::SetScale)
 		];
 	}
 	

@@ -48,6 +48,7 @@
 		C2E8B52E16BC2740004800B2 /* brick.jpg in Resources */ = {isa = PBXBuildFile; fileRef = C2E8B52C16BC2740004800B2 /* brick.jpg */; };
 		C2E8B52F16BC2740004800B2 /* wood.jpg in Resources */ = {isa = PBXBuildFile; fileRef = C2E8B52D16BC2740004800B2 /* wood.jpg */; };
 		C2E8B54116BC28AE004800B2 /* ball.png in Resources */ = {isa = PBXBuildFile; fileRef = C2E8B54016BC28AE004800B2 /* ball.png */; };
+		C2E8B6A516BC64D7004800B2 /* KinematicObject.cpp in Sources */ = {isa = PBXBuildFile; fileRef = C2E8B6A416BC64D7004800B2 /* KinematicObject.cpp */; };
 		C2F2051F16BAACA400ACA055 /* JsonLoader.cpp in Sources */ = {isa = PBXBuildFile; fileRef = C2F2051E16BAACA400ACA055 /* JsonLoader.cpp */; };
 		C2F50E5916A2280D00FB01A5 /* p.json in Resources */ = {isa = PBXBuildFile; fileRef = C2F50E5816A2280D00FB01A5 /* p.json */; };
 /* End PBXBuildFile section */
@@ -151,6 +152,9 @@
 		C2E8B52C16BC2740004800B2 /* brick.jpg */ = {isa = PBXFileReference; lastKnownFileType = image.jpeg; name = brick.jpg; path = resources/brick.jpg; sourceTree = "<group>"; };
 		C2E8B52D16BC2740004800B2 /* wood.jpg */ = {isa = PBXFileReference; lastKnownFileType = image.jpeg; name = wood.jpg; path = resources/wood.jpg; sourceTree = "<group>"; };
 		C2E8B54016BC28AE004800B2 /* ball.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; name = ball.png; path = resources/ball.png; sourceTree = "<group>"; };
+		C2E8B6A316BC64D7004800B2 /* KinematicObject.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = KinematicObject.h; sourceTree = "<group>"; };
+		C2E8B6A416BC64D7004800B2 /* KinematicObject.cpp */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.cpp.cpp; path = KinematicObject.cpp; sourceTree = "<group>"; };
+		C2E8B6A816BC6533004800B2 /* KinematicObjectWrapper.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = KinematicObjectWrapper.h; sourceTree = "<group>"; };
 		C2F2051D16BAACA400ACA055 /* JsonLoader.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = JsonLoader.h; sourceTree = "<group>"; };
 		C2F2051E16BAACA400ACA055 /* JsonLoader.cpp */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.cpp.cpp; path = JsonLoader.cpp; sourceTree = "<group>"; };
 		C2F50E5816A2280D00FB01A5 /* p.json */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text; path = p.json; sourceTree = "<group>"; };
@@ -280,6 +284,9 @@
 				C2E8B25416BBBB67004800B2 /* Joint.h */,
 				C2E8B25516BBBB67004800B2 /* Joint.cpp */,
 				C2E8B26F16BBBCEB004800B2 /* JointWrapper.h */,
+				C2E8B6A316BC64D7004800B2 /* KinematicObject.h */,
+				C2E8B6A416BC64D7004800B2 /* KinematicObject.cpp */,
+				C2E8B6A816BC6533004800B2 /* KinematicObjectWrapper.h */,
 			);
 			name = Sources;
 			sourceTree = "<group>";
@@ -447,6 +454,7 @@
 				C2E8B15716BAF087004800B2 /* DynamicObject.cpp in Sources */,
 				C2E8B15A16BAF0B0004800B2 /* StaticObject.cpp in Sources */,
 				C2E8B25616BBBB67004800B2 /* Joint.cpp in Sources */,
+				C2E8B6A516BC64D7004800B2 /* KinematicObject.cpp in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};

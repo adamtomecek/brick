@@ -162,19 +162,19 @@ void Node::AddChild(boost::shared_ptr<Node> child){
  * ********************************************************
  */
 
-float Node::GetXPos(void){
+const float Node::GetXPos(void){
 	return this->xPos;
 }
 
-float Node::GetYPos(void){
+const float Node::GetYPos(void){
 	return this->yPos;
 }
 
-float Node::GetZPos(void){
+const float Node::GetZPos(void){
 	return this->zPos;
 }
 
-float Node::GetAngle(void){
+const float Node::GetAngle(void){
 	return this->angle;
 }
 
@@ -195,10 +195,16 @@ Position Node::GetCenter(void){
  * ********************************************************
  */
 
-void Node::SetPosition(float xPos, float yPos, float zPos){
-	this->xPos = xPos;
-	this->yPos = yPos;
-	this->zPos = zPos;
+void Node::SetXPos(float x){
+	this->xPos = x;
+}
+
+void Node::SetYPos(float y){
+	this->yPos = y;
+}
+
+void Node::SetZPos(float z){
+	this->zPos = z;
 }
 
 void Node::SetAngle(float angle){
@@ -207,4 +213,11 @@ void Node::SetAngle(float angle){
 	
 	this->angle = angle;
 }
+
+void Node::SetPosition(float xPos, float yPos, float zPos){
+	this->xPos = xPos;
+	this->yPos = yPos;
+	this->zPos = zPos;
+}
+
 
