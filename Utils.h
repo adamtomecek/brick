@@ -68,6 +68,7 @@ public:
 	static void SetBoxSem(sem_t *sem){
 		boxSem = sem;
 	}
+
 private:
 	Utils();
         // Dont forget to declare these two. You want to make sure they

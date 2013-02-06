@@ -11,6 +11,8 @@ function MyGame:__init()
 	sprite5 = Sprite("brick.jpg", 50, 150, 10, 0)
 	sprite6 = Sprite("brick.jpg", 595, 150, 10, 0)
 
+	sprite5.scale = 2.0
+
 	o5 = StaticObject(sprite5)
 	o5:CreateBox()
 	s:AddChild(o5)

@@ -44,7 +44,7 @@ Sprite::Sprite(std::string texture, float xPos,	float yPos, float zPos, float an
 	this->textureData = NULL;
 	this->LoadTexture(texture);
 	
-	this->init(texture, this->textureData->GetWidth(), this->textureData->GetHeight(),
+	this->init(texture, this->textureData->GetWidth(),this->textureData->GetHeight(),
 			xPos, yPos, zPos, angle);
 }
 
@@ -112,8 +112,8 @@ glTexParameteri(GL_TEXTURE_RECTANGLE_EXT, GL_TEXTURE_WRAP_S, GL_CLAMP_TO_EDGE);
  */
 void Sprite::Render(void){
 	this->RenderChilds();
-	glLoadIdentity();
 	glPushMatrix();
+	glLoadIdentity();
 	Position center = this->GetCenter();
 	
 	/* Ensures only local changes until matrix is popped */
@@ -127,20 +127,21 @@ void Sprite::Render(void){
 		glPushAttrib(GL_CURRENT_BIT);
 		glColor4f(0, 1, 0, 1);
 	}
-	
-	/* Creates 3D cube */
+
+	/* scale */	
+	glScalef( this->scale, this->scale, 0.0f );
 
 	float z = this->zPos;	
+	/* Creates 3D cube */
 	glBegin( GL_QUADS );
-	glTexCoord3f( 0, this->GetHeight(), z);                           
+	glTexCoord3f( 0, this->height, z);                           
 	glVertex3f( 0, 0, z);
-	glTexCoord3f(this->GetWidth(), this->GetHeight(), z);
-	glVertex3f(this->GetWidth(), 0 , z);
-	glTexCoord3f(this->GetWidth(), 0 , z);
-	glVertex3f(this->GetWidth(), this->GetHeight(), z);
+	glTexCoord3f(this->width, this->height, z);
+	glVertex3f(this->width, 0 , z);
+	glTexCoord3f(this->width, 0 , z);
+	glVertex3f(this->width, this->height, z);
 	glTexCoord3f( 0, 0 , z);
-	glVertex3f( 0, this->GetHeight(), z);
-
+	glVertex3f( 0, this->height, z);
 	glEnd();
 	
 	glPopMatrix();	
