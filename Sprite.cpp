@@ -33,12 +33,12 @@ Sprite::Sprite(float width, float height, float xPos, float yPos, float zPos,
 	this->init("", width, height, xPos, yPos, zPos, angle);
 }
 
-/* Sprite::Sprite(std::string texture, float width, float height, float xPos, */
-/* 		float yPos, float zPos, float angle){ */
-/* 	this->textureData = NULL; */
+Sprite::Sprite(std::string texture, float width, float height, float xPos,
+		float yPos, float zPos, float angle){
+	this->textureData = NULL;
 	
-/* 	this->init(texture, width, height, xPos, yPos, zPos, angle); */
-/* } */
+	this->init(texture, width, height, xPos, yPos, zPos, angle);
+}
 
 Sprite::Sprite(std::string texture, float xPos,	float yPos, float zPos, float angle){
 	this->textureData = NULL;
@@ -104,6 +104,7 @@ glTexParameteri(GL_TEXTURE_RECTANGLE_EXT, GL_TEXTURE_WRAP_S, GL_CLAMP_TO_EDGE);
 	/* Transparency */
 	glBlendFunc(GL_SRC_ALPHA, GL_ONE_MINUS_SRC_ALPHA);
 	glEnable(GL_BLEND);
+
 	}
 }
 
@@ -114,22 +115,22 @@ void Sprite::Render(void){
 	this->RenderChilds();
 	glPushMatrix();
 	glLoadIdentity();
+	glPushAttrib(GL_CURRENT_BIT);
 	Position center = this->GetCenter();
-	
-	/* Ensures only local changes until matrix is popped */
-	
+
+	/* move to proper location */	
 	glTranslatef(center.x, center.y, 0.0f);
 	glRotatef(this->angle, 0.0f, 0.0f, 1.0f);
 	glTranslatef(-this->width / 2, -this->height / 2 , 0.0f);
 	
-	if(this->textureData != NULL){	glBindTexture(GL_TEXTURE_RECTANGLE_EXT, this->texture_handle);
+	if(this->textureData != NULL){
+		glBindTexture(GL_TEXTURE_RECTANGLE_EXT, this->texture_handle);
 	}else {
-		glPushAttrib(GL_CURRENT_BIT);
 		glColor4f(0, 1, 0, 1);
 	}
 
 	/* scale */	
-	glScalef( this->scale, this->scale, 0.0f );
+	glScalef( this->scale, this->scale, 1.0f);
 
 	float z = this->zPos;	
 	/* Creates 3D cube */
@@ -143,9 +144,42 @@ void Sprite::Render(void){
 	glTexCoord3f( 0, 0 , z);
 	glVertex3f( 0, this->height, z);
 	glEnd();
-	
+
+	glPopAttrib();	
 	glPopMatrix();	
-	glFlush();
+
+	/* GLfloat vertices[] = {1, 1, 1, */
+	/* 					-1, 1, 1, */
+	/* 					-1, -1, 1, */
+	/* 					1, -1, 1 */
+	/* 					 }; */
+
+	/* GLfloat normals[] = { */
+	/* 	 0, 0, 1,   0, 0, 1,   0, 0, 1,   0, 0, 1 */
+	/* }; */
+
+	/* GLfloat colors[] = { 1, 1, 1,   1, 1, 0,   1, 0, 0,   1, 0, 1}; */
+
+	/* GLubyte indices[] = {0,1,2, // first triangle (bottom left - top left - top right) */
+	/* 					 2,3,0}; // second triangle (bottom left - top right - bottom right) */
+
+	/* glEnableClientState(GL_NORMAL_ARRAY); */
+    /* glEnableClientState(GL_COLOR_ARRAY); */
+    /* glEnableClientState(GL_VERTEX_ARRAY); */
+    /* glNormalPointer(GL_FLOAT, 0, normals); */
+    /* glColorPointer(3, GL_FLOAT, 0, colors); */
+    /* glVertexPointer(3, GL_FLOAT, 0, vertices); */
+
+    /* glPushMatrix(); */
+    /* glTranslatef(-2, -2, 0);                // move to bottom-left corner */
+
+    /* glDrawElements(GL_TRIANGLES, 36, GL_UNSIGNED_BYTE, indices); */
+
+    /* glPopMatrix(); */
+
+    /* glDisableClientState(GL_VERTEX_ARRAY);  // disable vertex arrays */
+    /* glDisableClientState(GL_COLOR_ARRAY); */
+    /* glDisableClientState(GL_NORMAL_ARRAY); */
 }
 
 /*

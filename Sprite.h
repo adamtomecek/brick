@@ -17,13 +17,14 @@ class Sprite : public Chunk{
 	public:
 		Sprite(float width, float height, float xPos, float yPos, float zPos = 0.0f,
 			   float angle = 0.0f);
-		Sprite(std::string texture, float xPos, float yPos, float zPos = 0.0f, 
-				float angle = 0.0f);
-		/* Sprite(std::string texture, float width, float height, float xPos, */
-		/* 		float yPos, float zPos = 0.0f, float angle = 0.0f); */
+		Sprite(std::string texture, float xPos, float yPos,
+				float zPos = 0.0f, float angle = 0.0f);
+		Sprite(std::string texture, float width, float height, float xPos,
+				float yPos, float zPos, float angle = 0.0f);
 
-		void init(std::string texture, float width, float height, float xPos,
-					float yPos, float zPos = 0.0f, float angle = 0.0f);
+		void init(std::string texture, float width, float height,
+				float xPos,	float yPos, float zPos = 0.0f,
+				float angle = 0.0f);
 
 		void Render();
 

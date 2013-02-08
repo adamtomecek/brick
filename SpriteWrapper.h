@@ -20,8 +20,12 @@ struct SpriteWrapper : Sprite, luabind::wrap_base{
 		Sprite(width, height, xPos, yPos, zPos, angle){}
 
 	SpriteWrapper(std::string texture, float xPos, float yPos,
-			float zPos = 0.0f, float angle = 0.0f) : 
+			float zPos, float angle) : 
 		Sprite(texture, xPos, yPos, zPos, angle){}
+
+	SpriteWrapper(std::string texture, float width, float height,
+			float xPos, float yPos,	float zPos, float angle): 
+		Sprite(texture, width, height, xPos, yPos, zPos, angle){}
 
 	/* SpriteWrapper(std::string texture, float widht, float height, */
 	/* 		float xPos, float yPos,	float zPos, float angle = 0.0f): */ 
@@ -34,10 +38,9 @@ struct SpriteWrapper : Sprite, luabind::wrap_base{
 			boost::shared_ptr<Node> >("Sprite")
 		 .def(luabind::constructor<float, float, float, float, float,
 				 float>())
-		 .def(luabind::constructor<std::string, float, float, float,
-				 float>())
-		 /* .def(luabind::constructor<std::string, float, float, float, float, */
-				 /* float, float>()) */
+		 .def(luabind::constructor<std::string, float, float, float,float>())
+		 .def(luabind::constructor<std::string, float, float, float, float,
+				 float, float>())
 		 ];
 	}
 };

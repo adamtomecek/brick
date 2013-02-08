@@ -11,7 +11,7 @@ function MyGame:__init()
 	sprite5 = Sprite("brick.jpg", 50, 150, 10, 0)
 	sprite6 = Sprite("brick.jpg", 595, 150, 10, 0)
 
-	sprite5.scale = 2.0
+	-- sprite5.scale = 2.0
 
 	o5 = StaticObject(sprite5)
 	o5:CreateBox()
@@ -48,6 +48,14 @@ function MyGame:__init()
 
 		prev = obj
 		s:AddChild(obj)
+	end
+
+	x = Sprite("icon.jpg", math.random(800), math.random(600), 10, 0)
+	s:AddChild(x)
+	-- stress test
+	for i = 1, 10000 do
+		x = Sprite("icon.jpg", math.random(800), math.random(600), 0, 0)
+		s:AddChild(x)
 	end
 
 end

@@ -96,12 +96,13 @@ void Game::Setup(void){
 }
 
 int Game::Loop(void){
-
 	// Start game loop
     while (this->app->IsOpened())
     {
 		// Clear previouslz rendered objects
 		this->app->Clear();
+
+		std::cout << 1.0f / this->app->GetFrameTime() << std::endl;
 
 		// Process events
         sf::Event Event;
